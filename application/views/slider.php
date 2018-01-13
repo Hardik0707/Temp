@@ -1,15 +1,15 @@
 
 
-<div id="head">
+<header id="head">
   <div class="container">
     <div class="heading-text">							
       <h1 class="animated flipInY delay1">JD TUTORIALS</h1>
       <p>mediamaggi</p>
   	</div>
 
-  <div class="fluid_container">                       
+    <div class="fluid_container">                       
     <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-        <div data-thumb="<?php echo base_url('assets/images/slides/thumbs/img1.jpg'); ?>" data-src="<?php echo base_url('assets/images/slides/img1.jpg'); ?>">
+        <div data-thumb="<?php echo base_url('assets/images/slides/thumbs/1.jpg'); ?>" data-src="<?php echo base_url('assets/images/slides/1.jpg'); ?>">
         </div> 
         <div data-thumb="<?php echo base_url('assets/images/slides/thumbs/img2.jpg'); ?>" data-src="<?php echo base_url('assets/images/slides/img2.jpg'); ?>">
         </div>
@@ -18,7 +18,7 @@
     </div><!-- #camera_wrap_4 -->
    </div><!-- .fluid_container -->
 </div>
-</div>
+</header>
 
 <!-- /Header -->
 

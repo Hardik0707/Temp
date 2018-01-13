@@ -24,6 +24,7 @@
                 <h3>About Us</h3>
                 <p>
                     <img src='<?php echo base_url("assets/images/about.jpg"); ?>' alt="" class="img-rounded pull-right" width="300">
+                  
                     Nevertheless, we immensely value our traditional ethos and systems of education. MaggieMedia through the adoption of methods of teaching and syllabus of national and state Examination Boards. The essence of our success is not only in our best quality of our teacher, our institute and culture centers, our education hub, our modern infrastructure… but also because “we care”. We have a best and well qualified teachers staff for making your children future brighter.
                 </p>
                 <p></p>
