@@ -1,5 +1,5 @@
 <?php
-class Toper_Model extends CI_Model
+class Topper_Model extends CI_Model
 {
     function __construct() {
         parent::__construct();

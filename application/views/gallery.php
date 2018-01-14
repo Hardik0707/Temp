@@ -10,7 +10,7 @@
 <header id="head" class="secondary">
 <div class="container">
 <h1>Gallery</h1>
-<p></p>
+
 </div>
 </header>
 
