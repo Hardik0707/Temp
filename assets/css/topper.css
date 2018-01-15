@@ -16,7 +16,7 @@ figure.toppers * {
 }
 
 figure.toppers  {
-  border: 1px dashed black;
+  /*border: 1px dashed black;*/
  
 }
 figure.toppers > img {
@@ -60,7 +60,7 @@ figure.toppers figcaption p {
   font-size: 0.9em;
   opacity: 0.8;
 }
-figure.toppers .icons {
+/*figure.toppers .icons {
   padding: 5px;
   position: absolute;
   left: 50%;
@@ -92,7 +92,7 @@ figure.toppers .icons a:nth-child(2) i {
 figure.toppers .icons a:nth-child(3) i {
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
-}
+}*/
 figure.toppers:after {
   position: absolute;
   top: 50%;

@@ -9,15 +9,25 @@
   @import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,800);
   @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 
-
-
 #head.secondary{
         height: 100px !important;
         padding-bottom: 25px;
     }
+
+#scroll{
+  height:500px;
+  overflow-y: auto;
+}
+
+div.col-sm-9 div{
+height: auto;
+width: auto;
+overflow-y: auto;
+}
+
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 	
 	<?php $this->load->view('navbar') ?>
 
@@ -29,9 +39,10 @@
   </header>
 
 
-<div class="container-fluid" style="margin-top: 25px;">
-  <div class="row">
- <nav class="col-sm-2" id="myScrollspy">
+<div class="container" style="margin-top: 25px;">
+<div class="row">
+
+<nav class="col-sm-3" id="myScrollspy">
         <ul class="nav nav-pills nav-stacked">
            <?php if(isset($AllYears)) {
                 foreach($AllYears as $year) {
@@ -44,18 +55,18 @@
           <?php } ?>
 
         </ul>
-  </nav> 
+</nav> 
 
-<div class="container">
+<div class="col-sm-9" id="scroll">
 <?php 
 foreach($AllYears as $year) {
 $year_in = 'a_'.$year->year_id;  
-echo $year_in;
+//echo $year_in;
 ?>
 <br>
-<h1><?php echo $year->year; ?></h1>
-<div id="<?php echo $year->year; ?>" >
 
+<div id="<?php echo $year->year; ?>" >
+<h1><?php echo $year->year; ?></h1>
   <?php 
   if(isset($$year_in) && !empty($$year_in)) 
     { 
@@ -67,11 +78,12 @@ echo $year_in;
   
   <img src="<?php echo ($value->photo == '') ? base_url("admin/panel/img/male.png") : base_url("admin/panel/img/topperimage/".$value->photo); ?>"/> 
   
-
-
   <figcaption>
     <h2><?php echo $value->student_name;?></h2>
-    <p>If good things lasted forever, would we appreciate how precious they are?</p>
+   <p style="text-align: center;">Standard : <?php echo $value->standard ?>
+    <br>
+    Subject : <?php echo $value->subject ?><br>
+    Result : <?php echo $value->result;?></p>
   </figcaption> 
 </figure>
 <?php } } 
