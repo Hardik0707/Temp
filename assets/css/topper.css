@@ -1,24 +1,23 @@
-figure.toppers {
+figure.toppers{
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
-  float: left;
+  float:left;
   overflow: hidden;
   margin: 10px 1%;
   min-width: 220px;
   max-width: 480px;
-  max-height: 240px;
-  width: 100%;
+  /*max-height: 240px;*/
+  height:200px;
+  /*width: 100%;*/
   background: #000000;
+  border: 2px solid orange;
 }
 figure.toppers * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-figure.toppers  {
-  /*border: 1px dashed black;*/
- 
-}
+
 figure.toppers > img {
   margin-left: 50%;
   opacity: 1;
@@ -27,6 +26,8 @@ figure.toppers > img {
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
 }
+
+
 figure.toppers figcaption {
   left: 0;
   position: absolute;
@@ -119,7 +120,7 @@ figure.toppers.hover i {
   -webkit-transform: translate(0);
   transform: translate(0);
 }
-figure.toppers:hover a:first-child i,
+/*figure.toppers:hover a:first-child i,
 figure.toppers.hover a:first-child i {
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
@@ -133,4 +134,4 @@ figure.toppers:hover a:nth-child(3) i,
 figure.toppers.hover a:nth-child(3) i {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
-}
+}*/

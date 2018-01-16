@@ -1,5 +1,5 @@
 
-<footer class="col-md-12 panel" style="background-color:#e9e9f3bd;border: 1px dotted black;color:Black; ">
+<footer class="col-sm-12 panel" style="background-color:#e9e9f3bd;border: 1px dotted black;color:Black; ">
             <div class="panel-body">
               <p class="text-right">
                 Copyright &copy; 2018  Cabbagesoft Technologies.
