@@ -63,8 +63,10 @@
                                     <div class="alert alert-success"><?php echo "Record Added Succesfully" ?></div>
                                     <?php unset($_SESSION['InsertStudentData']);
                                 } else if($_SESSION['InsertStudentData'] == '1062') { ?>
+                                
                                 <div class="alert alert-danger"><?php echo "Roll Number already exist. Please try with different roll number."; ?></div>
                                 <?php unset($_SESSION['InsertStudentData']); } else { ?>
+                                
                                 <div class="alert alert-danger"><?php echo "Something Went Wrong !! Please Try Again.."; ?></div>
                                 <?php
                                 unset($_SESSION['InsertStudentData']); }

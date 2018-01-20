@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oswald', sans-serif;
 }
 h1, .h1, h2, .h2, h3, .h3 {
-	margin-top: 30px;
+	margin-top: 10px;
 }
 h2 {
 	margin: 30px 0;
@@ -826,7 +826,7 @@ nav#filter a.current {
 @media (max-width: 767px) {
 #head.secondary {
 	height: 80px;
-	min-height: 80px;
+	min-height:	 80px;
 	background-size: initial;
 }
 #camera_wrap_4, #head{
@@ -857,7 +857,7 @@ height:480px !important;
 @media (max-width: 768px) {
 /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
     #head.secondary { 
-height: 157px !important;
+height: 70px !important;
 }
 #camera_wrap_4, #head{
 height:480px !important;

@@ -12,7 +12,7 @@
 						<a href="<?php  echo base_url("index.php/Login_Controller/Home")?>"><i class="fa fa-dashboard "></i> Dashboard</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-user-plus"></i>     Toppers</a>
+						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-user-plus"></i> Toppers</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url("index.php/Subject_Controller/ViewSubject"); ?>"><i class="fa fa-book"></i> Subjects</a>
@@ -34,7 +34,7 @@
 					</li>
 
 					<li>
-						<a href="<?php echo base_url("index.php/Gallery_Controller/Gallery_view"); ?>"><i class="glyphicon glyphicon-picture"></i> Gallery</a>
+						<a href="<?php echo base_url("index.php/Gallery_Controller/ViewGallery"); ?>"><i class="glyphicon glyphicon-picture"></i> Gallery</a>
 					</li>
 
                     <!-- <li>
