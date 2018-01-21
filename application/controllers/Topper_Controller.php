@@ -19,8 +19,4 @@ class Topper_Controller extends CI_Controller {
         $result['AllYears'] = $years;
         $this->load->view('Toppers',$result);
     }
-
-    // public function Toppers() {
-    //     $this->load->view('Toppers');
-    // }
 }

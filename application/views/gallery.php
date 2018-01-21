@@ -37,32 +37,42 @@
 <div class="row">
 <nav id="filter" class="col-md-12 text-center">
 <ul>
-<li><a href=""<?php echo base_url('index.php/welcome/Gallery/#'); ?>"" class="current btn-theme btn-small" data-filter="*">All</a></li>
-<li><a href="<?php echo base_url('index.php/welcome/Gallery/#'); ?>" class="btn-theme btn-small" data-filter=".webdesign">Classroom</a></li>
-<li><a href="<?php echo base_url('index.php/welcome/Gallery/#'); ?>" class="btn-theme btn-small" data-filter=".photography">Faculty</a></li>
-<li><a href="#" class="btn-theme btn-small" data-filter=".print">Events</a></li>
+<li><a href="<?php echo base_url('index.php/GalleryDisplay_Controller/Gallery/#'); ?>" class="current btn-theme btn-small" data-filter="*">All</a></li>
+
+<li><a href="<?php echo base_url('index.php/GalleryDisplay_Controller/Gallery/#'); ?>" class="btn-theme btn-small" data-filter=".Classroom">Classroom</a></li>
+
+<li><a href="<?php echo base_url('index.php/GalleryDisplay_Controller/Gallery/#'); ?>" class="btn-theme btn-small" data-filter=".Event">Events</a></li>
+
 </ul>
 </nav>
+	
 <div class="col-md-12">
 <div class="row">
 <div class="portfolio-items isotopeWrapper clearfix" id="3">
 
-<article class="col-sm-4 isotopeItem webdesign">
+<?php 
+	if (isset($AllImages)) {
+		
+		foreach($AllImages as $image) {
+?>	
+<article class="col-sm-4 isotopeItem <?php echo $image->category ?>">
 <div class="portfolio-item">
-<img src='<?php echo base_url("assets/images/portfolio/img1.jpg"); ?>' alt="" />
+<img src='<?php echo base_url("admin/panel/img/gallery/$image->photo"); ?>' alt="" />
 <div class="portfolio-desc align-center">
 <div class="folio-info">
-<a href='<?php echo base_url("assets/images/portfolio/img1.jpg"); ?>' class="fancybox">
-	<h5>Project Title</h5>
+<a href='<?php echo base_url("admin/panel/img/gallery/$image->photo"); ?>' class="fancybox">
+	<h5><?php echo $image->description; ?></h5>
 	<i class="fa fa-link fa-2x"></i></a>
 </div>
 </div>
 </div>
 </article>
-
-<article class="col-sm-4 isotopeItem photography">
+<?php 
+}}
+ ?>
+<!-- <article class="col-sm-4 isotopeItem photography">
 <div class="portfolio-item">
-<img src='<?php echo base_url("assets/images/portfolio/img2.jpg"); ?>' alt="" />
+<img src='<?php echo base_url("assets/Allimages/portfolio/img2.jpg"); ?>' alt="" />
 <div class="portfolio-desc align-center">
 <div class="folio-info">
 	<a href='<?php echo base_url("assets/images/portfolio/img2.jpg"); ?>' class="fancybox">
@@ -74,7 +84,7 @@
 </article>
 
 
-<article class="col-sm-4 isotopeItem photography">
+<article class="col-sm-4 isotopeItem Hardik">
 <div class="portfolio-item">
 <img src='<?php echo base_url("assets/images/portfolio/img3.jpg"); ?>' alt="" />
 <div class="portfolio-desc align-center">
@@ -87,7 +97,7 @@
 </div>
 </article>
 
-<article class="col-sm-4 isotopeItem print">
+<article class="col-sm-4 isotopeItem hardik">
 <div class="portfolio-item">
 	<img src='<?php echo base_url("assets/images/portfolio/img4.jpg"); ?>' alt="" />
 	<div class="portfolio-desc align-center">
@@ -126,7 +136,7 @@
 			</div>
 		</article>
 
-		<article class="col-sm-4 isotopeItem print">
+		<article class="col-sm-4 isotopeItem hardik">
 			<div class="portfolio-item">
 				<img src='<?php echo base_url("assets/images/portfolio/img7.jpg"); ?>' alt="" />
 				<div class="portfolio-desc align-center">
@@ -152,7 +162,7 @@
 					</div>
 				</article>
 
-				<article class="col-sm-4 isotopeItem print">
+				<article class="col-sm-4 isotopeItem hardik">
 					<div class="portfolio-item">
 						<img src='<?php echo base_url("assets/images/portfolio/img9.jpg"); ?>' alt="" />
 						<div class="portfolio-desc align-center">
@@ -163,7 +173,7 @@
 								</div>
 							</div>
 						</div>
-					</article>
+					</article> -->
 				</div>
 
 			</div>

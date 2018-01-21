@@ -20,6 +20,11 @@ class Gallery_Model extends CI_Model { // Start of Gallery_Model class
         $this->db->where('photo', $id);
         return $this->db->delete('gallery_mst');
     }
+
+    public function InsertImage($data)
+    {
+    	 return $this->db->insert('gallery_mst', $data);
+    }
 } 
 // End of Gallery_Model Class 
  ?>

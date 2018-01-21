@@ -35,7 +35,7 @@
 							<a href="<?php echo base_url('index.php/Topper_Controller/Toppers'); ?>">Toppers</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('index.php/welcome/Gallery'); ?>">Gallery</a>
+							<a href="<?php echo base_url('index.php/GalleryDisplay_Controller/Gallery'); ?>">Gallery</a>
 						</li>
 
 

@@ -39,10 +39,16 @@
                     <!--End Page Header -->
 
                 </div>
-
+                <!-- <?php
+                                if (isset($_SESSION['InsertGalleryData'])) {
+                                    ?>
+                                    <div class="alert alert-danger"><?php echo $_SESSION['InsertGalleryData'] ?></div>
+                                    <?php unset($_SESSION['InsertGalleryData']);
+                                } 
+                                ?> -->
                 <!-- Add Image Form -->
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
                         <div class="panel panel-default">
                             <!-- <div class="panel-heading">
                                 Add New Image Form
@@ -55,13 +61,13 @@
 
                                  <div class="col-md-6 form-group">
                                             <label>Gallery Image<br> <span style="color:blue;font-size:12px;font-weight: normal;">(Note: Photo format : jpg | png | jpeg | gif & Maximum Size : 500kb are allowed.)</span></label>
-                                            <input type="file" class="form-input" name="ImageUpload" accept="image/*" >
+                                            <input type="file" class="form-input" name="ImageUpload" accept="image/*" required>
                                             <!-- <?php if(isset($row)){?><img src="<?php echo base_url("panel/img/student/$row->photo"); ?>" width="100px" height="100px"><?php }?> -->
                                 </div>   
 
                                  <div class="col-md-6 form-group">
                                             <label>Category</label>
-                                            <select class="form-input form-control branch" name="category">
+                                            <select class="form-input form-control branch" name="category" required>
                                                 <option value="">Select Category</option>.
                                                 <option value="Event">Event</option>.
                                                 <option value="Classroom">Classroom</option>.
@@ -72,13 +78,11 @@
 
                                 <div class="col-md-6 form-group">
                                             <label>Description</label>
-                                            <textarea class="form-input form-control branch" name="description" maxlength="25">
-                                            </textarea>      
+                                            <textarea class="form-input form-control branch" name="description" maxlength="25" required></textarea>      
                                 </div>
 
                                 <div class="col-md-6 form-group">
-                                            <br><br>
-                                            <input type="submit" class="btn btn-default" value="Submit" name="AddImage">
+                                            <input type="submit" class="btn btn-default" value="Submit" name="AddImage" >
                                         </div>
                                 </form> 
                             </div>

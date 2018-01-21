@@ -32,11 +32,11 @@ class Welcome extends CI_Controller {
 		$this->load->view('AboutUs');
 	}
 
-	 public function Gallery()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('gallery');
-	}
+	//  public function Gallery()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('gallery');
+	// }
 	public function ContactUs()
 	{
 		$_SESSION['login']=1;
