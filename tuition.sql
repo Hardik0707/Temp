@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.8
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 28, 2017 at 02:45 PM
--- Server version: 5.1.69
--- PHP Version: 5.5.38
+-- Host: 127.0.0.1
+-- Generation Time: Jan 21, 2018 at 06:58 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `tuition`
 --
-CREATE DATABASE IF NOT EXISTS `tuition` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `tuition`;
 
 -- --------------------------------------------------------
 
@@ -28,15 +26,13 @@ USE `tuition`;
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `photo` varchar(100) NOT NULL,
-  PRIMARY KEY (`admin_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `photo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
@@ -51,16 +47,14 @@ INSERT INTO `admin` (`admin_id`, `user_name`, `email`, `password`, `photo`) VALU
 -- Table structure for table `branch_mst`
 --
 
-DROP TABLE IF EXISTS `branch_mst`;
-CREATE TABLE IF NOT EXISTS `branch_mst` (
-  `branch_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `branch_mst` (
+  `branch_id` int(11) NOT NULL,
   `branch_area` varchar(100) NOT NULL,
   `address` text NOT NULL,
   `phone_no1` varchar(13) NOT NULL,
   `phone_no2` varchar(13) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `branch_mst`
@@ -76,9 +70,8 @@ INSERT INTO `branch_mst` (`branch_id`, `branch_area`, `address`, `phone_no1`, `p
 -- Table structure for table `faculty_mst`
 --
 
-DROP TABLE IF EXISTS `faculty_mst`;
-CREATE TABLE IF NOT EXISTS `faculty_mst` (
-  `faculty_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `faculty_mst` (
+  `faculty_id` int(11) NOT NULL,
   `faculty_name` varchar(250) NOT NULL,
   `experience` varchar(250) NOT NULL,
   `degree` varchar(250) NOT NULL,
@@ -89,18 +82,16 @@ CREATE TABLE IF NOT EXISTS `faculty_mst` (
   `photo` varchar(200) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
-  `active` bit(1) NOT NULL,
-  PRIMARY KEY (`faculty_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+  `active` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `faculty_mst`
 --
 
 INSERT INTO `faculty_mst` (`faculty_id`, `faculty_name`, `experience`, `degree`, `achievment`, `description`, `email`, `password`, `photo`, `contact_no`, `gender`, `active`) VALUES
-(9, 'Mr. ABC2', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1'),
-(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1'),
-(17, 'nirav', '14', 'MCA', 'NA', ' Nice sir, Testing faculty login', 'nirav.ahm@gmail.com', '123456', 'nirav_1504945219.jpeg', '7710097733', 'Male', b'1');
+(9, 'Mr. ABC', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1111111111111111111111111111111'),
+(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1111111111111111111111111111111');
 
 -- --------------------------------------------------------
 
@@ -108,16 +99,12 @@ INSERT INTO `faculty_mst` (`faculty_id`, `faculty_name`, `experience`, `degree`,
 -- Table structure for table `faculty_std_sub`
 --
 
-DROP TABLE IF EXISTS `faculty_std_sub`;
-CREATE TABLE IF NOT EXISTS `faculty_std_sub` (
-  `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `faculty_std_sub` (
+  `faculty_std_sub_id` int(11) NOT NULL,
   `faculty_id` int(11) NOT NULL,
   `standard_id` int(11) NOT NULL,
-  `subjects` varchar(250) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`faculty_std_sub_id`),
-  KEY `faculty_std_sub_std` (`standard_id`),
-  KEY `faculty_std_sub_fk` (`faculty_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=35 ;
+  `subjects` varchar(250) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `faculty_std_sub`
@@ -127,11 +114,32 @@ INSERT INTO `faculty_std_sub` (`faculty_std_sub_id`, `faculty_id`, `standard_id`
 (25, 16, 1, 'English,Maths,Science'),
 (26, 16, 2, 'Maths,English,History'),
 (27, 16, 8, 'Civics2'),
-(29, 9, 1, 'English,Maths,Science'),
-(30, 9, 2, 'Maths,English,History'),
-(31, 9, 3, 'Science,Maths'),
-(32, 9, 6, 'History'),
-(33, 17, 1, 'English,Maths,Science');
+(34, 9, 1, 'English,Maths,Science'),
+(35, 9, 2, 'Maths,English,History'),
+(36, 9, 3, 'Science,Maths'),
+(37, 9, 6, 'History');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_mst`
+--
+
+CREATE TABLE `gallery_mst` (
+  `category` varchar(15) NOT NULL,
+  `description` varchar(25) NOT NULL,
+  `photo` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gallery_mst`
+--
+
+INSERT INTO `gallery_mst` (`category`, `description`, `photo`) VALUES
+('Event', 'H', 'H_1516556254.jpeg'),
+('Classroom', 'asd', 'asd_1516556262.jpeg'),
+('Classroom', 'sadasd', 'sadasd_1516556271.jpeg'),
+('Event', 'adasdasd', 'adasdasd_1516556279.jpeg');
 
 -- --------------------------------------------------------
 
@@ -139,19 +147,14 @@ INSERT INTO `faculty_std_sub` (`faculty_std_sub_id`, `faculty_id`, `standard_id`
 -- Table structure for table `result_mst`
 --
 
-DROP TABLE IF EXISTS `result_mst`;
-CREATE TABLE IF NOT EXISTS `result_mst` (
-  `result_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `result_mst` (
+  `result_id` int(11) NOT NULL,
   `roll_no` int(11) NOT NULL,
   `test_id` int(11) NOT NULL,
   `standard_id` int(11) NOT NULL,
   `subject` varchar(250) NOT NULL,
-  `marks` varchar(250) NOT NULL,
-  PRIMARY KEY (`result_id`),
-  KEY `sub_id` (`subject`),
-  KEY `stud_id` (`roll_no`),
-  KEY `result_test` (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=185 ;
+  `marks` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `result_mst`
@@ -247,17 +250,14 @@ INSERT INTO `result_mst` (`result_id`, `roll_no`, `test_id`, `standard_id`, `sub
 -- Table structure for table `schedule_mst`
 --
 
-DROP TABLE IF EXISTS `schedule_mst`;
-CREATE TABLE IF NOT EXISTS `schedule_mst` (
-  `schedule_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `schedule_mst` (
+  `schedule_id` int(11) NOT NULL,
   `sub_id` varchar(100) NOT NULL,
   `standard` varchar(100) NOT NULL,
   `start_time` varchar(100) NOT NULL,
   `end_time` varchar(100) NOT NULL,
-  `day` int(11) NOT NULL,
-  PRIMARY KEY (`schedule_id`),
-  KEY `sub_id` (`sub_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=243 ;
+  `day` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schedule_mst`
@@ -367,19 +367,17 @@ INSERT INTO `schedule_mst` (`schedule_id`, `sub_id`, `standard`, `start_time`, `
 -- Table structure for table `standard_mst`
 --
 
-DROP TABLE IF EXISTS `standard_mst`;
-CREATE TABLE IF NOT EXISTS `standard_mst` (
-  `standard_id` int(11) NOT NULL AUTO_INCREMENT,
-  `standard` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`standard_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+CREATE TABLE `standard_mst` (
+  `standard_id` int(11) NOT NULL,
+  `standard` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `standard_mst`
 --
 
 INSERT INTO `standard_mst` (`standard_id`, `standard`) VALUES
-(1, '1st'),
+(1, 'First'),
 (2, '2nd'),
 (3, '3rd'),
 (4, '4th'),
@@ -399,9 +397,8 @@ INSERT INTO `standard_mst` (`standard_id`, `standard`) VALUES
 -- Table structure for table `student_mst`
 --
 
-DROP TABLE IF EXISTS `student_mst`;
-CREATE TABLE IF NOT EXISTS `student_mst` (
-  `stud_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `student_mst` (
+  `stud_id` int(11) NOT NULL,
   `roll_no` int(11) NOT NULL,
   `stud_name` varchar(100) NOT NULL,
   `school_name` varchar(100) NOT NULL,
@@ -412,13 +409,8 @@ CREATE TABLE IF NOT EXISTS `student_mst` (
   `password` varchar(100) NOT NULL,
   `photo` varchar(250) DEFAULT NULL,
   `contact_no` varchar(100) NOT NULL,
-  `gender` varchar(6) NOT NULL,
-  PRIMARY KEY (`stud_id`),
-  UNIQUE KEY `unique_roll_std` (`roll_no`,`standard_id`),
-  KEY `sub_id` (`subject`),
-  KEY `branch_id` (`branch_id`),
-  KEY `standard_id` (`standard_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+  `gender` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_mst`
@@ -427,7 +419,7 @@ CREATE TABLE IF NOT EXISTS `student_mst` (
 INSERT INTO `student_mst` (`stud_id`, `roll_no`, `stud_name`, `school_name`, `branch_id`, `standard_id`, `subject`, `email_id`, `password`, `photo`, `contact_no`, `gender`) VALUES
 (1, 123, 'Student 1', 'School', 3, 1, 'Geometry', 'test@gmail.com', 'abc123', 'Student_1_.jpeg', '1234567890', 'Male'),
 (15, 1234, 'Darshan', 'St. George School', 3, 3, 'Science', 'mumbai@mediamaggi.com', 'abc123', 'Darshan_.jpeg', '9867123412', 'Male'),
-(17, 525, 'nirav', 'swastik', 3, 10, 'English,Maths', 'mumbai@mediamaggi.com', '123456', NULL, '7710097733', 'Male'),
+(17, 527, 'nirav', 'swastik', 3, 10, 'Geometry', 'mumbai@mediamaggi.com', '123456', NULL, '7710097733', 'Male'),
 (29, 159, 'Tester', 'St. George School', 3, 1, 'Maths,English,History', 'darshan@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
 (31, 55, 'nirav_stu', 'swastik', 3, 1, 'English,Maths,Science,History,Geography,Hindi', 'nirav.ahm1@gmail.com', '123456', NULL, '7710097733', 'Male'),
 (44, 1987, 'Tester', 'St. George School', 3, 1, 'English', 'test2@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
@@ -439,14 +431,11 @@ INSERT INTO `student_mst` (`stud_id`, `roll_no`, `stud_name`, `school_name`, `br
 -- Table structure for table `subject_mst`
 --
 
-DROP TABLE IF EXISTS `subject_mst`;
-CREATE TABLE IF NOT EXISTS `subject_mst` (
-  `sub_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subject_mst` (
+  `sub_id` int(11) NOT NULL,
   `sub_name` varchar(100) NOT NULL,
-  `standard_id` int(11) NOT NULL,
-  PRIMARY KEY (`sub_id`),
-  KEY `standard_id` (`standard_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
+  `standard_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subject_mst`
@@ -485,16 +474,12 @@ INSERT INTO `subject_mst` (`sub_id`, `sub_name`, `standard_id`) VALUES
 -- Table structure for table `syllabus_mst`
 --
 
-DROP TABLE IF EXISTS `syllabus_mst`;
-CREATE TABLE IF NOT EXISTS `syllabus_mst` (
-  `syllabus_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `syllabus_mst` (
+  `syllabus_id` int(11) NOT NULL,
   `standard_id` int(11) NOT NULL,
   `sub_id` int(11) DEFAULT NULL,
-  `syllabus` varchar(100) NOT NULL,
-  PRIMARY KEY (`syllabus_id`),
-  KEY `standard_id` (`standard_id`),
-  KEY `sub_id` (`sub_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+  `syllabus` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `syllabus_mst`
@@ -515,12 +500,10 @@ INSERT INTO `syllabus_mst` (`syllabus_id`, `standard_id`, `sub_id`, `syllabus`) 
 -- Table structure for table `test_mst`
 --
 
-DROP TABLE IF EXISTS `test_mst`;
-CREATE TABLE IF NOT EXISTS `test_mst` (
-  `test_id` int(11) NOT NULL AUTO_INCREMENT,
-  `test_name` varchar(50) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=40 ;
+CREATE TABLE `test_mst` (
+  `test_id` int(11) NOT NULL,
+  `test_name` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `test_mst`
@@ -552,25 +535,22 @@ INSERT INTO `test_mst` (`test_id`, `test_name`) VALUES
 -- Table structure for table `topper_mst`
 --
 
-DROP TABLE IF EXISTS `topper_mst`;
-CREATE TABLE IF NOT EXISTS `topper_mst` (
-  `topper_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `topper_mst` (
+  `topper_id` int(11) NOT NULL,
   `year_id` int(11) NOT NULL,
   `standard_id` int(11) DEFAULT NULL,
   `subject` varchar(250) DEFAULT NULL,
   `student_name` varchar(250) NOT NULL,
   `result` varchar(250) NOT NULL,
-  `photo` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`topper_id`),
-  KEY `year_id` (`year_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+  `photo` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `topper_mst`
 --
 
 INSERT INTO `topper_mst` (`topper_id`, `year_id`, `standard_id`, `subject`, `student_name`, `result`, `photo`) VALUES
-(18, 18, 12, 'PCM', 'Darshan', '198/200', 'tpper1503128649.jpeg'),
+(18, 18, 12, 'PCM', 'Kiran', '198/200', 'tpper1503128649.jpeg'),
 (19, 18, 12, 'PCM', 'Sagar', '199/200', 'tpper1503130924.jpeg'),
 (20, 17, 10, 'Maths', 'John Mathew', '97/100', NULL),
 (24, 18, 10, 'Maths', 'Azhar', '88', 'tpper1503467656.jpeg'),
@@ -584,12 +564,10 @@ INSERT INTO `topper_mst` (`topper_id`, `year_id`, `standard_id`, `subject`, `stu
 -- Table structure for table `topper_year_mst`
 --
 
-DROP TABLE IF EXISTS `topper_year_mst`;
-CREATE TABLE IF NOT EXISTS `topper_year_mst` (
-  `year_id` int(11) NOT NULL AUTO_INCREMENT,
-  `year` varchar(100) NOT NULL,
-  PRIMARY KEY (`year_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+CREATE TABLE `topper_year_mst` (
+  `year_id` int(11) NOT NULL,
+  `year` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `topper_year_mst`
@@ -600,6 +578,171 @@ INSERT INTO `topper_year_mst` (`year_id`, `year`) VALUES
 (17, '2015-16'),
 (18, '2016-17');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `branch_mst`
+--
+ALTER TABLE `branch_mst`
+  ADD PRIMARY KEY (`branch_id`);
+
+--
+-- Indexes for table `faculty_mst`
+--
+ALTER TABLE `faculty_mst`
+  ADD PRIMARY KEY (`faculty_id`);
+
+--
+-- Indexes for table `faculty_std_sub`
+--
+ALTER TABLE `faculty_std_sub`
+  ADD PRIMARY KEY (`faculty_std_sub_id`),
+  ADD KEY `faculty_std_sub_std` (`standard_id`),
+  ADD KEY `faculty_std_sub_fk` (`faculty_id`);
+
+--
+-- Indexes for table `result_mst`
+--
+ALTER TABLE `result_mst`
+  ADD PRIMARY KEY (`result_id`),
+  ADD KEY `sub_id` (`subject`),
+  ADD KEY `stud_id` (`roll_no`),
+  ADD KEY `result_test` (`test_id`);
+
+--
+-- Indexes for table `schedule_mst`
+--
+ALTER TABLE `schedule_mst`
+  ADD PRIMARY KEY (`schedule_id`),
+  ADD KEY `sub_id` (`sub_id`);
+
+--
+-- Indexes for table `standard_mst`
+--
+ALTER TABLE `standard_mst`
+  ADD PRIMARY KEY (`standard_id`);
+
+--
+-- Indexes for table `student_mst`
+--
+ALTER TABLE `student_mst`
+  ADD PRIMARY KEY (`stud_id`),
+  ADD UNIQUE KEY `unique_roll_std` (`roll_no`,`standard_id`),
+  ADD KEY `sub_id` (`subject`),
+  ADD KEY `branch_id` (`branch_id`),
+  ADD KEY `standard_id` (`standard_id`);
+
+--
+-- Indexes for table `subject_mst`
+--
+ALTER TABLE `subject_mst`
+  ADD PRIMARY KEY (`sub_id`),
+  ADD KEY `standard_id` (`standard_id`);
+
+--
+-- Indexes for table `syllabus_mst`
+--
+ALTER TABLE `syllabus_mst`
+  ADD PRIMARY KEY (`syllabus_id`),
+  ADD KEY `standard_id` (`standard_id`),
+  ADD KEY `sub_id` (`sub_id`);
+
+--
+-- Indexes for table `test_mst`
+--
+ALTER TABLE `test_mst`
+  ADD PRIMARY KEY (`test_id`);
+
+--
+-- Indexes for table `topper_mst`
+--
+ALTER TABLE `topper_mst`
+  ADD PRIMARY KEY (`topper_id`),
+  ADD KEY `year_id` (`year_id`);
+
+--
+-- Indexes for table `topper_year_mst`
+--
+ALTER TABLE `topper_year_mst`
+  ADD PRIMARY KEY (`year_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `branch_mst`
+--
+ALTER TABLE `branch_mst`
+  MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `faculty_mst`
+--
+ALTER TABLE `faculty_mst`
+  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `faculty_std_sub`
+--
+ALTER TABLE `faculty_std_sub`
+  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `result_mst`
+--
+ALTER TABLE `result_mst`
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+--
+-- AUTO_INCREMENT for table `schedule_mst`
+--
+ALTER TABLE `schedule_mst`
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+--
+-- AUTO_INCREMENT for table `standard_mst`
+--
+ALTER TABLE `standard_mst`
+  MODIFY `standard_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `student_mst`
+--
+ALTER TABLE `student_mst`
+  MODIFY `stud_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+--
+-- AUTO_INCREMENT for table `subject_mst`
+--
+ALTER TABLE `subject_mst`
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+--
+-- AUTO_INCREMENT for table `syllabus_mst`
+--
+ALTER TABLE `syllabus_mst`
+  MODIFY `syllabus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `test_mst`
+--
+ALTER TABLE `test_mst`
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `topper_mst`
+--
+ALTER TABLE `topper_mst`
+  MODIFY `topper_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT for table `topper_year_mst`
+--
+ALTER TABLE `topper_year_mst`
+  MODIFY `year_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --
