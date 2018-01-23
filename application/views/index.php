@@ -31,10 +31,14 @@
     }     
     }
 
+
     #head.secondary{
-        height: 100px !important;
+        height: 60px !important;
     }
 
+    /*div.member-img > img {
+        height: 400px;  
+    }*/
     </style>
 </head>
 <body>
@@ -48,7 +52,7 @@
 
     <header id="head" class="secondary">
             <div class="container">
-                    <h2>Testimonials</h2>
+                    <h1>Testimonials</h1>
             </div>
     </header>    
 
@@ -101,17 +105,7 @@
                         </div> 
                     </div> 
                     
-                
-                
-
-                <!-- <ol class="carousel-indicators"> 
-                        <li class="active" data-slide-to="0" data-target="#testimonials-rotate"> 
-                        </li> 
-                        <li data-slide-to="1" data-target="#testimonials-rotate"> 
-                        </li> 
-                        <li data-slide-to="2" data-target="#testimonials-rotate"> 
-                        </li> 
-                </ol>  -->
+            
                 <div class="pull-right">
                    <a class="left" href="#testimonials-rotate" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
                    <a class="right" href="#testimonials-rotate" data-slide="next">
@@ -132,7 +126,7 @@
 <div id="AboutUs">
 	<header id="head" class="secondary">
             <div class="container">
-                    <h2>About Us</h2>
+                    <h1>About Us</h1>
             </div>
     </header>
 </div>
@@ -155,11 +149,10 @@
             <!-- /main -->
 
             <!-- Sidebar -->
-            <aside class="col-sm-4 sidebar sidebar-right">
-
+            <aside class="col-sm-4 sidebar sidebar-right">  
                 <div class="panel">
-                    <h4>Latest News</h4>
-                    <ul class="list-unstyled list-spaces">
+                    <center><h3>Announcement</h3></center>
+                    <!-- <ul class="list-unstyled list-spaces">
                         <li><a href="">Upcoming Exams</a><br>
                             <span class="small text-muted">Date:12/01/18-Std:4-Sucject:English.</span></li>
                         <li><a href="">Anouncement</a><br>
@@ -170,7 +163,7 @@
                             <span class="small text-muted">For std 5:Lectures of 17/01/18 will be conducted on 20/01/2018</span></li>
                         <li><a href="">Other Announcement</a><br>
                             <span class="small text-muted"></span></li>
-                    </ul>
+                    </ul> -->
                 </div>
 
             </aside>
@@ -178,101 +171,65 @@
 
         </div>
     </section>
+
+     <!-- Profile of Faculty -->
+<br><br>
+
+<div id="Faculty">
+    <header id="head" class="secondary">
+            <div class="container">
+                    <h1>Profile of Faculty</h1>
+            </div>
+    </header>
+</div>
+
     <section class="team-content">
         <div class="container">
-            <div class="row">
+            <br><br>
+            <!-- <div class="row">
                 <div class="col-md-12">
                     <h3>Our Team</h3>
                     <p></p>
                     <br />
                 </div>
-            </div>
+            </div> -->
             <div class="row">
 
+<!-- Dynamic Part -->
+
+<?php  
+    if(isset($AllFaculty))
+    {
+        
+        foreach($AllFaculty as $faculty) {
+     ?>      
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <!-- Team Member -->
+                    
                     <div class="team-member">
                         <!-- Image Hover Block -->
                         <div class="member-img">
                             <!-- Image  -->
-                            <img class="img-responsive" src='<?php echo base_url("assets/images/photo-1.jpg"); ?>' alt="">
+                            <img class="img-responsive" src='<?php echo base_url("admin/panel/img/Faculty/$faculty->photo"); ?>' alt="">
                         </div>
                         <!-- Member Details -->
-                        <h4>John Doe</h4>
+                        
+                        <h4><?php echo $faculty->faculty_name; ?></h4>
                         <!-- Designation -->
-                        <span class="pos">CEO</span>
-                        <div class="team-socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
+                        <div class="pos">   
+                        <span class=""><?php echo $faculty->degree; ?></span><br>    
+                        <span class=""> Achievments: <?php echo $faculty->achievment; ?>  </span> <br>  
+                        <span class=""> Contact No: <?php echo $faculty->contact_no; ?>  </span><br>    
+                        <span class=""> Email: <?php echo $faculty->email; ?>  </span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <!-- Team Member -->
-                    <div class="team-member pDark">
-                        <!-- Image Hover Block -->
-                        <div class="member-img">
-                            <!-- Image  -->
-                            <img class="img-responsive" src='<?php echo base_url("assets/images/photo-2.jpg"); ?>' alt="">
-                        </div>
-                        <!-- Member Details -->
-                        <h4>Larry Doe</h4>
-                        <!-- Designation -->
-                        <span class="pos">Director</span>
-                        <div class="team-socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <!-- Team Member -->
-                    <div class="team-member pDark">
-                        <!-- Image Hover Block -->
-                        <div class="member-img">
-                            <!-- Image  -->
-                            <img class="img-responsive" src='<?php echo base_url("assets/images/photo-3.jpg"); ?>' alt="">
-                        </div>
-                        <!-- Member Details -->
-                        <h4>Ranith Kays</h4>
-                        <!-- Designation -->
-                        <span class="pos">Manager</span>
-                        <div class="team-socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <!-- Team Member -->
-                    <div class="team-member pDark">
-                        <!-- Image Hover Block -->
-                        <div class="member-img">
-                            <!-- Image  -->
-                            <img class="img-responsive" src='<?php echo base_url("assets/images/photo-4.jpg"); ?>' alt="">
-                        </div>
-                        <!-- Member Details -->
-                        <h4>Joan Ray</h4>
-                        <!-- Designation -->
-                        <span class="pos">Creative</span>
-                        <div class="team-socials">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
+
+<?php }
+} ?>
+<!-- End of Dynamic Part -->
+
+               
             </div>
         </div>
     </section>

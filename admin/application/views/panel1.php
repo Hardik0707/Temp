@@ -1,4 +1,4 @@
-		<div class="col-sm-2"> 
+		<div class="col-sm-2" style="padding-top: 20px;"> 
 			<div class="navbar-header">
 					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,9 +7,10 @@
 			</div>
 
 			<nav class="navbar-collapse collapse"> 
+
 				<ul class="nav" id="side-menu">
 					<li>
-						<a href="<?php  echo base_url("index.php/Login_Controller/Home")?>"><i class="fa fa-dashboard "></i> Dashboard</a>
+						<a href="<?php  echo base_url("index.php/Login_Controller/Home")?>"><i class="fa fa-dashboard"></i> Dashboard</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-user-plus"></i> Toppers</a>

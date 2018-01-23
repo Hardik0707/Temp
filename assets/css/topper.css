@@ -5,7 +5,7 @@ figure.toppers{
   overflow: hidden;
   margin: 10px 1%;
   min-width: 220px;
-  max-width: 480px;
+  max-width: 763px;
   /*max-height: 240px;*/
   height:200px;
   /*width: 100%;*/
@@ -61,6 +61,9 @@ figure.toppers figcaption p {
   font-size: 0.9em;
   opacity: 0.8;
 }
+
+
+
 /*figure.toppers .icons {
   padding: 5px;
   position: absolute;

@@ -24,12 +24,12 @@
 						<li><a href="<?php echo base_url('index.php/welcome'); ?>">Home</a></li>
 						<li><a href="<?php echo base_url('index.php/welcome/#AboutUs'); ?>">About Us</a></li>
 						<li>
-							<a href="<?php echo base_url('index.php/welcome'); ?>">Profile of Faculty</a>
+							<a href="<?php echo base_url('index.php/welcome/#Faculty'); ?>">Profile of Faculty</a>
 						</li>
 
-						<li>
+						<!-- <li>
 							<a href="<?php echo base_url('index.php/welcome'); ?>">Monthly Schedule</a>
-						</li>
+						</li> -->
 
 						<li>
 							<a href="<?php echo base_url('index.php/Topper_Controller/Toppers'); ?>">Toppers</a>
@@ -43,8 +43,8 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="<?php echo base_url('index.php/Student_Controller/Student_Login'); ?>">Student</a></li>
-								<li><a data-toggle="modal" data-target="#myModal">Faculty</a></li>
+								<li><a data-toggle="modal" data-target="#student">Student</a></li>
+								<li><a data-toggle="modal" data-target="#faculty">Faculty</a></li>
 							</ul>
 						</li>
 
@@ -60,15 +60,15 @@
 	<!-- /.navbar -->
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <!-- Faculty Modal -->
+  <div class="modal fade" id="faculty" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Faculty Login</h4>
+          <h4 class="modal-title" style="text-align: center;">Faculty Login</h4>
         </div>
         <div class="modal-body">
           <form accept-charset="UTF-8" role="form">
@@ -79,18 +79,60 @@
 							<div class="form-group">
 								<input class="form-control" placeholder="Password" name="password" type="password" value="" required="true">
 							</div>
+							<center>
+								<a href="">Forgot Password?</a> <br>
+							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;">
+						
 							
-							<input class="btn btn-lg btn-block" type="submit" value="Login" style="margin-top: 30px;">
+							</center>
+
 						</fieldset>
 					</form>
         </div>
-        <div class="modal-footer">
+       <!--  <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        </div> -->
       </div>
       
     </div>
   </div>
   
+  <!-- Student Modal -->
+  <div class="modal fade" id="student" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="text-align: center;">Student Login</h4>
+        </div>
+        <div class="modal-body">
+          <form accept-charset="UTF-8" role="form">
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="Username" name="username" type="text" required="true">
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password" name="password" type="password" value="" required="true">
+							</div>
+							<center>
+								<a href="">Forgot Password?</a>
+								<br>
+							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;">
+						
+							
+							</center>
+
+						</fieldset>
+					</form>
+        </div>
+       <!--  <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
 
 	

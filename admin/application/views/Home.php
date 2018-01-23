@@ -8,8 +8,8 @@
 
     <style type="text/css">
         #head.secondary{
-            height: 100px !important;
-        padding-bottom: 25px;
+            height: 50px !important;
+            padding-bottom: 25px;
         }
     </style>
 </head>

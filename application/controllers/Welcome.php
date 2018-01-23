@@ -21,22 +21,25 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	  function __construct() {
+        parent::__construct();
+        $this->load->model('Faculty_Profile_Model');
+    }
 	public function index()
 	{
 		$_SESSION['login']=1;
-		$this->load->view('index');
+		 $Faculties['AllFaculty'] = $this->Faculty_Profile_Model->fetchAll();
+        $this->load->view('index',$Faculties);
+		// $this->load->view('index');
+
 	}
        public function AboutUs()
 	{
 		$_SESSION['login']=1;
 		$this->load->view('AboutUs');
 	}
-
-	//  public function Gallery()
-	// {
-	// 	$_SESSION['login']=1;
-	// 	$this->load->view('gallery');
-	// }
+	
 	public function ContactUs()
 	{
 		$_SESSION['login']=1;

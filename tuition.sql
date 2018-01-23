@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2018 at 06:58 PM
+-- Generation Time: Jan 23, 2018 at 02:03 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -91,7 +91,8 @@ CREATE TABLE `faculty_mst` (
 
 INSERT INTO `faculty_mst` (`faculty_id`, `faculty_name`, `experience`, `degree`, `achievment`, `description`, `email`, `password`, `photo`, `contact_no`, `gender`, `active`) VALUES
 (9, 'Mr. ABC', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1111111111111111111111111111111'),
-(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1111111111111111111111111111111');
+(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1111111111111111111111111111111'),
+(17, 'Viper', '10', 'B.Tech In I.T.', 'Topper', ' ', 'hardikthakkar0707@gmail.com', '07071997', 'Viper_1516711159.jpeg', '8655305437', 'Male', b'1111111111111111111111111111111');
 
 -- --------------------------------------------------------
 
@@ -377,7 +378,7 @@ CREATE TABLE `standard_mst` (
 --
 
 INSERT INTO `standard_mst` (`standard_id`, `standard`) VALUES
-(1, 'First'),
+(1, '1st'),
 (2, '2nd'),
 (3, '3rd'),
 (4, '4th'),
@@ -417,7 +418,6 @@ CREATE TABLE `student_mst` (
 --
 
 INSERT INTO `student_mst` (`stud_id`, `roll_no`, `stud_name`, `school_name`, `branch_id`, `standard_id`, `subject`, `email_id`, `password`, `photo`, `contact_no`, `gender`) VALUES
-(1, 123, 'Student 1', 'School', 3, 1, 'Geometry', 'test@gmail.com', 'abc123', 'Student_1_.jpeg', '1234567890', 'Male'),
 (15, 1234, 'Darshan', 'St. George School', 3, 3, 'Science', 'mumbai@mediamaggi.com', 'abc123', 'Darshan_.jpeg', '9867123412', 'Male'),
 (17, 527, 'nirav', 'swastik', 3, 10, 'Geometry', 'mumbai@mediamaggi.com', '123456', NULL, '7710097733', 'Male'),
 (29, 159, 'Tester', 'St. George School', 3, 1, 'Maths,English,History', 'darshan@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
@@ -692,7 +692,7 @@ ALTER TABLE `branch_mst`
 -- AUTO_INCREMENT for table `faculty_mst`
 --
 ALTER TABLE `faculty_mst`
-  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `faculty_std_sub`
 --

@@ -4,7 +4,7 @@
     <?php $this->load->view("head"); ?>
     <style type="text/css">
     #head.secondary{
-        height: 100px !important;
+        height: 70px !important;
         padding-bottom: 25px;
     }
 </style>

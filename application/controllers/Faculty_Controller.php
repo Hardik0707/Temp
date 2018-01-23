@@ -8,7 +8,7 @@ if (!ini_get('date.timezone')) {
 
 class Faculty_Controller extends CI_Controller {
 
-    public function Faculty_Login() {
+    public function Faculty() {
             $this->load->view('Faculty_Login');
         }
     }

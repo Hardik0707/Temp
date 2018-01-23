@@ -3,16 +3,17 @@
 <head>
 	<title>Contact Us</title>
 	<?php $this->load->view('head'); ?>
-	<style type="text/css">
-		#head.secondary{
-    height: 100px !important;
-    padding-bottom: 25px;
-  }
-	</style>
+	
 </head>
 <body>
 	<?php $this->load->view('navbar'); ?>
 
+	 <header id="head" class="secondary">
+
+    <div class="container">
+      <h1>Contact Us</h1>    
+    </div>
+  </header>
 	
 	<!-- <header class="secondary" id="head"> -->
 		<div class="container">
