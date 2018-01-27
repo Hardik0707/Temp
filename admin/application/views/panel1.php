@@ -13,7 +13,7 @@
 						<a href="<?php  echo base_url("index.php/Login_Controller/Home")?>"><i class="fa fa-dashboard"></i> Dashboard</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-user-plus"></i> Toppers</a>
+						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-star-o"></i> Toppers</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url("index.php/Subject_Controller/ViewSubject"); ?>"><i class="fa fa-book"></i> Subjects</a>
@@ -42,13 +42,13 @@
                         <a href="<?php echo base_url("index.php/Syllabus_Controller/ViewSyllabus"); ?>"><i class="fa fa-file-pdf-o"></i>Syllabus</a>
                     </li> -->
                     <li>
-                    	<a href="#"><i class="fa fa-desktop "></i> Schedule</a>
+                    	<a href="#"><i class="fa fa-bullhorn "></i> Announcement</a>
                     	<ul class="nav nav-second-level collapse">
                     		<li>
-                    			<a href="<?php echo base_url("index.php/ScheduleController/AddSchedule"); ?>"><i class="fa fa-plus "></i>Add Schedule</a>
+                    			<a href="<?php echo base_url(""); ?>"></i>  Public</a>
                     		</li>
                     		<li>
-                    			<a href="<?php echo base_url("index.php/ScheduleController/GetData"); ?>"><i class="fa fa-eye "></i>View Schedule</a>
+                    			<a href="<?php echo base_url(""); ?>"></i>  Private</a>
                     		</li>
                     	</ul>
                     </li>

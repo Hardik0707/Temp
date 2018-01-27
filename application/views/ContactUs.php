@@ -87,12 +87,9 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6">
 				<h3 class="section-title">Your Message</h3>
-				<p>
-				</p>
-
-
+				
 				<!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
 				<form name="sentMessage" id="contactForm"  novalidate> 
 					<div class="control-group">
@@ -126,17 +123,17 @@
 					<button type="submit" class="btn btn-primary pull-right">Send</button><br />
 				</form>
 			</div>
-			<div class="col-md				<div class="row">
+			<div class="row">				
 				<div class="col-md-6">
 					<h3 class="section-title">Office Address</h3>
 					<div class="contact-info">
 
 						<h5>Mumbai</h5>
 						<h5>Address:</h5>
-						5th Fort,Mumbai
+						7th floor, SV Road, <br>Malad East,<br>Mumbai-400097
 
 						<h5>Email</h5>
-						mumbai@mediamaggi.com
+						mumbai@gmail.com
 
 						<h5>Phone</h5>
 						<div class="container-fluid">

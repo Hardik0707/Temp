@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oswald', sans-serif;
 }
 h1, .h1, h2, .h2, h3, .h3 {
-	margin-top: 10px;
+	margin-top: 0px;
 }
 h2 {
 	margin: 30px 0;
@@ -86,8 +86,9 @@ label {
 
 #head.secondary {
 	height: 60px;
-	min-height: 80px;
+	min-height: 60px;
 	padding-top: 0px;
+	border-radius: 20px 20px;
 }
 #head .lead {
 	font-size: 44px;
@@ -307,6 +308,7 @@ div.hbox {
 }
 .page-header {
 	border-bottom: 1px solid #15c008;
+	/*border-bottom-width: 100%;*/
 }
 .page-title {
 	margin-top: 20px;
@@ -757,7 +759,7 @@ nav#filter a.current {
 	background-size: cover;
 	text-align: center; 
     padding:10px 0;
-	height: 140px; 
+	height: 60px; 
 }
 #head.secondary h1{ 
     COLOR: #fff;

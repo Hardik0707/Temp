@@ -7,9 +7,6 @@
             .alert {
                 margin: 10px 10px;
             }
-            .btn{
-                border-radius: 20px 20px;
-            }
         </style>
     </head>
     <body>
@@ -19,7 +16,7 @@
 
             <?php $this->load->view("top"); ?>
             <!-- end navbar top -->
-            <header id="head" class="secondary" >
+            <header id="head" class="secondary" style="height:50px;">
             <div class="container">
                 <h1>Subjects</h1>
             </div>
@@ -27,11 +24,10 @@
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
 
-            <div class="container col-sm-9">
             <div id="page-wrapper">
                 <div class="row">
                     <!-- Page Header -->
-                    <div class="col-lg-9">
+                    <div class="col-lg-6">
                       <div class="page-header">
                         <h1 class="heading">Standard Wise Subjects</h1>
                         <ol class="breadcrumb">
@@ -44,21 +40,18 @@
                     <!--End Page Header -->
 
                 
-                <div class="row">
+                <div class="row clearfix">
                     <?php $count=0; foreach($AllStandards as $standard) {
                         $id = $standard->standard_id;
                         $subjects = 's_'.$id;
                         //$subjects = 's_'.$$id;
                     ?>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <?php echo $standard->standard; ?>  
-                                <div class="row">
-                                    <div class="col-lg-6 text=left ">
-                                Standard</div><div class="col-md-6 text=right"> <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-info">Add New Standard</a></h1></div></div>
+                                <?php echo $standard->standard; ?>  <a href="#" id="<?php echo $id; ?>" data-toggle="modal" data-target="#AddSubject" class="btn btn-info btn-xs pull-right standard_id">Add Subject</a>
                             </div>
 
                             <?php if (isset($_SESSION['SubjectAdded'])) { if ($_SESSION['SubjectAdded'] == '1' && $_SESSION['StandardId'] == $id) { ?>
@@ -99,12 +92,12 @@
                                             </td>
                                         </tr>
                                         <?php } ?>
-                                  </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <?php $count++; if($count%2 == 0) { echo "</div><div class='row' text=right>"; } } ?>
+                    <?php $count++; if($count%3 == 0) { echo "</div><div class='row'>"; } } ?>
                 </div>
             </div>
             </div>
@@ -129,8 +122,9 @@
                     </tr>
                     <tr>
                       <td></td>
+                      <td>
                         <input type="submit" class="btn btn-default" name="add_subject" value="Add">
-                      <td></td>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -138,7 +132,6 @@
               </div>
             </div>
           </div>
-        </div>
         </div>
         <!-- Add Subject Modal Ends -->
         <?php $this->load->view("footer"); ?>

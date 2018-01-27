@@ -4,7 +4,7 @@
   <div class="container">
     <div class="heading-text">							
       <h1 class="animated flipInY delay1">JD TUTORIALS</h1>
-      <p>mediamaggi</p>
+      <p>The Key To Success</p>
   	</div>
 
     <div class="fluid_container">                       

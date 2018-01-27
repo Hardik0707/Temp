@@ -35,9 +35,10 @@
     #head.secondary{
         height: 60px !important;
     }
-
-    /*div.member-img > img {
-        height: 400px;  
+/*
+    .img-responsive{
+        height:150px;
+        width:150px
     }*/
     </style>
 </head>
@@ -216,11 +217,11 @@
                         
                         <h4><?php echo $faculty->faculty_name; ?></h4>
                         <!-- Designation -->
-                        <div class="pos">   
-                        <span class=""><?php echo $faculty->degree; ?></span><br>    
-                        <span class=""> Achievments: <?php echo $faculty->achievment; ?>  </span> <br>  
-                        <span class=""> Contact No: <?php echo $faculty->contact_no; ?>  </span><br>    
-                        <span class=""> Email: <?php echo $faculty->email; ?>  </span>
+                        <div class="">   
+                        <?php echo $faculty->degree; ?><br>    
+                         Achievments: <?php echo $faculty->achievment; ?>   <br>  
+                         Contact No: <?php echo $faculty->contact_no; ?>  <br>    
+                         Email: <?php echo $faculty->email; ?>  
                         </div>
                     </div>
                 </div>

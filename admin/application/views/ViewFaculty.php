@@ -15,6 +15,12 @@
     <div id="wrapper">
         <!--header start-->
         <?php $this->load->view("top"); ?>
+
+        <header id="head" class="secondary" style="height:50px;">
+            <div class="container">
+                <h1>Faculty</h1>
+            </div>
+        </header>
         <!--header end-->
         <!--sidebar start-->
 
