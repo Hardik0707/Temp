@@ -72,8 +72,7 @@
             <?php }?>
 
           </ul>
-        </nav> 
-
+        </nav>   
         <div class="col-sm-10" id="scroll">
 
           <div class="panel panel-primary">
@@ -96,7 +95,8 @@
                       ?>
 
 
-                      <figure class="toppers col-sm-12">
+                      <figure class="toppers col-sm-6">
+
 
                         <img src="<?php echo ($value->photo == '') ? base_url("admin/panel/img/male.png") : base_url("admin/panel/img/topperimage/".$value->photo); ?>"/> 
 
@@ -113,6 +113,7 @@
                           
                            
                         </figure>
+
                         <?php } } 
 
                         else { ?>

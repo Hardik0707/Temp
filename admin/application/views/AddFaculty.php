@@ -131,6 +131,20 @@
                                             <label>Achievments</label>
                                             <input class="form-input form-control" placeholder="Achievments" name="Achievments" value="<?php if(isset($row)){echo $row->achievment;}?>" required>
                                         </div>
+                                        <div class="col-md-6 form-group" style="<?php if(isset($Fetchupdate)){ echo "margin-top:-72px;"; }?>">
+                                            <label>Email Address</label>
+                                            <input type="email" class="form-input form-control" required placeholder="Email" name="Email" value="<?php if(isset($row)){echo $row->email;}?>">
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-input form-control" placeholder="Password" name="Password" value="<?php if(isset($row)){echo $row->password;}?>" required>
+                                        </div>
+                                    <div class="col-md-6 form-group">
+                                            <label>Gender</label> <br><input type="radio" name="gender" value="Male" <?php if(isset($row)){ if($row->gender=='Male'){echo "checked";}}?> > Male
+                                            <input type="radio" name="gender" value="Female" <?php if(isset($row)){ if($row->gender=='Female'){echo "checked";}}?>> Female
+                                        </div>
+                                   
                                         <div class="col-md-6 form-group">
                                             <label>Standards & Subjects</label> <a href="#" class="btn btn-info btn-xs" onclick="addRow('tab_logic')">Add More</a>
                                             <table class="table table-bordered table-hover" style="width:75%" id="tab_logic">
@@ -203,19 +217,7 @@
                                             <label>Description</label>
                                             <textarea class="form-input form-control" placeholder="Description" rows="3" name="Description"  required> <?php if(isset($row)){ $des =trim($row->description); echo $des ;}?></textarea>
                                         </div>
-                                        <div class="col-md-6 form-group" style="<?php if(isset($Fetchupdate)){ echo "margin-top:-72px;"; }?>">
-                                            <label>Email Address</label>
-                                            <input type="email" class="form-input form-control" required placeholder="Email" name="Email" value="<?php if(isset($row)){echo $row->email;}?>">
-                                        </div>
 
-                                        <div class="col-md-6 form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-input form-control" placeholder="Password" name="Password" value="<?php if(isset($row)){echo $row->password;}?>" required>
-                                        </div>
-                                    <div class="col-md-6 form-group">
-                                            <label>Gender</label> <br><input type="radio" name="gender" value="Male" <?php if(isset($row)){ if($row->gender=='Male'){echo "checked";}}?> > Male
-                                            <input type="radio" name="gender" value="Female" <?php if(isset($row)){ if($row->gender=='Female'){echo "checked";}}?>> Female
-                                        </div>
                                    <?php if(!isset($Fetchupdate)){?>
                                    <div class="col-md-6 form-group">
                                             <label>Contact No</label>

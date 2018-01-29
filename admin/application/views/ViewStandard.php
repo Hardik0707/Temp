@@ -4,6 +4,11 @@
         <title>View Standards</title>
         <?php $this->load->view("head"); ?>
     </head>
+    <style type="text/css">
+        .row {
+            margin-left: 0px;
+        }
+    </style>
     <body>
         <!--  wrapper -->
         <div id="wrapper">
@@ -119,7 +124,7 @@
                   <tbody>
                     <tr>
                       <td>Standard</td>
-                      <td><input type="text" name="StandardName"></td>
+                      <td><input type="text" name="StandardName" required></td>
                     </tr>
                     <tr>
                       <td></td>
