@@ -10,6 +10,13 @@ class Student_Model extends CI_Model
         return $result->result();
     }
 
+    public function GetUserName($id)
+    {
+        $this->db->select('stud_name')->from('student_mst');
+        $this->db->where('stud_id',$id);
+        $user = $this->db->get();
+        return $user->result_array();
+    }
     public function GetStudentResult($id) {
         $this->db->select('*')->from('result_mst r');
         $this->db->join('test_mst t','t.test_id = r.test_id');

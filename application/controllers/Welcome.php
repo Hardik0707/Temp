@@ -25,13 +25,13 @@ class Welcome extends CI_Controller {
 	  function __construct() {
         parent::__construct();
         $this->load->model('Faculty_Profile_Model');
+        $this->load->model('Student_Model');
     }
 	public function index()
 	{
 		$_SESSION['login']=1;
-		 $Faculties['AllFaculty'] = $this->Faculty_Profile_Model->fetchAll();
+		$Faculties['AllFaculty'] = $this->Faculty_Profile_Model->fetchAll();
         $this->load->view('index',$Faculties);
-		// $this->load->view('index');
 
 	}
        public function AboutUs()

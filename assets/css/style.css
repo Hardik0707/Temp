@@ -63,7 +63,7 @@ label {
 	background-color: #F7F7F7;
 	background-image: none;
 	border: 1px solid #ccc;
-	border-radius: 0px;
+	border-radius: 10px;
 }
 .navbar-inverse .navbar-brand img {
 	width: 171px;
