@@ -176,7 +176,7 @@
 <div id="Branch">
     <header id="head" class="secondary">
             <div class="container">
-                    <h1>Branch Offices</h1>
+                    <h1>Our Other Branches</h1>
             </div>
     </header>
 </div>
