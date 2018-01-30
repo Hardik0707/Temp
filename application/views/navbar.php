@@ -22,9 +22,9 @@
 				
 					<ul class="nav navbar-nav pull-right mainNav">
 						<li><a href="<?php echo base_url('index.php/welcome'); ?>">Home</a></li>
-						<li><a href="<?php echo base_url('index.php/welcome/#AboutUs'); ?>">About Us</a></li>
+						<li><a class="AboutUs" href="<?php echo base_url('index.php/welcome/#AboutUs'); ?>">About Us</a></li>
 						<li>
-							<a href="<?php echo base_url('index.php/welcome/#Faculty'); ?>">Profile of Faculty</a>
+							<a class="Faculty" href="<?php echo base_url('index.php/welcome/#Faculty'); ?>">Profile of Faculty</a>
 						</li>
 
 						<!-- <li>
@@ -49,7 +49,7 @@
 						</li>
 
 
-						<li><a href="<?php echo base_url('index.php/welcome/ContactUs'); ?>">Contact Us</a></li>
+						<li><a href="<?php echo base_url('index.php/ContactUs_Controller/ContactUs'); ?>">Contact Us</a></li>
 
 
 					</ul>
