@@ -11,6 +11,18 @@
                 border-radius: 20px 20px;
             }
         </style>
+        <style>
+thead {color:blue;}
+tbody {color:blue;}
+tfoot {color:red;}
+
+table, th, td {
+    border: 3px solid black;
+}
+</style>
+<style>
+    p.inset {border-style: inset;}
+</style>
     </head>
     <body>
         <!--  wrapper -->
@@ -55,10 +67,9 @@
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <?php echo $standard->standard; ?>  
-                                <div class="row">
-                                    <div class="col-lg-6 text=left ">
-                                Standard</div><div class="col-md-6 text=right"> <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-info">Add New Standard</a></h1></div></div>
+                                <font face="verdana" color="blue" size="4"><?php echo $standard->standard; ?> standard </font> 
+                                <div class="col-md-8">
+                                <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-xs">Add New Standard</a></div>
                             </div>
 
                             <?php if (isset($_SESSION['SubjectAdded'])) { if ($_SESSION['SubjectAdded'] == '1' && $_SESSION['StandardId'] == $id) { ?>
@@ -81,14 +92,15 @@
 
                             <!-- Welcome -->
                             <div class="panel-body">
-                                <table class="table table-hover table-bordered">
+                                <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Subject</th>
-                                            <th>Action</th>
+                                            <th><font face="verdana" color="red" size="4"><center>Subject</center></font></th>
+                                            <th><font face="verdana" color="red" size="4"><center>Action</center></font></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <font face="verdana" color="" size="4"><center>
                                         <?php foreach($$subjects as $subject) { ?>
 
                                         <tr>
@@ -97,7 +109,7 @@
                                                 <a href="<?php echo base_url("index.php/Subject_Controller/EditSubject/$subject->sub_id");?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil update"></i></a>&nbsp;
                                                 <a  onclick="return confirm('Are You Sure Remove This Record ');" href="<?php echo base_url("index.php/Subject_Controller/DeleteSubject/$subject->sub_id/$subject->standard_id")?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o delete"></i></a>
                                             </td>
-                                        </tr>
+                                        </tr></center></font>
                                         <?php } ?>
                                   </tbody>
                                 </table>
@@ -112,11 +124,10 @@
         <!-- Add Subject Modal -->
         <div id="AddSubject" class="modal fade" role="dialog">
           <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add New Subject</h4>
+                <h1 class="modal-title">Add New Subject</h1>
               </div>
               <div class="modal-body">
                 <form action="<?php echo base_url("index.php/Subject_Controller/InsertSubject") ?>" method="POST" role="form">
@@ -128,9 +139,9 @@
                       <input type="hidden" name="standard_id" id="standard_id" value="">
                     </tr>
                     <tr>
-                      <td></td>
+                      <td>
                         <input type="submit" class="btn btn-default" name="add_subject" value="Add">
-                      <td></td>
+                      </td><td></td>
                     </tr>
                   </tbody>
                 </table>

@@ -88,8 +88,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h3 class="section-title">Your Message</h3>
-				
+				<!-- <h3 class="section-title">Your Message</h3>-->	
+ 				<div id="Feedback">
+				    <header id="head" class="secondary">
+				            <div class="container" style="width: 200px;">
+				                    <h1 style="width: 0px;">Feedback</h1>
+				            </div>
+				    </header>
+				</div>	<br>		
 				<!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
 				<form name="sentMessage" id="contactForm"  novalidate> 
 					<div class="control-group">
@@ -120,13 +126,20 @@
 					</div> 		 
 					<div id="success"> </div> <!-- For success/fail messages -->
 					<br>
-					<button type="submit" class="btn btn-primary pull-right">Send</button><br />
+					<button type="submit" class="btn btn-primary pull-right">Send</button><br /> <br /> <br />
 				</form>
 			</div>
 			<div class="row">				
 				<div class="col-md-6">
-					<h3 class="section-title">Office Address</h3>
-					<div class="contact-info">
+					<!-- <h3 class="section-title">Office Address</h3> -->
+					<div id="Head_branch">
+    					<header id="head" class="secondary">
+            			<div class="container" style="width: 180px;">
+                    	<h1 style="width: 170px;">Head Branch</h1>
+            		</div>
+   				 </header>
+			</div> <div></div>
+					<div class="contact-info" style="padding-left: 20px;">
 
 						<h5>Mumbai</h5>
 						<h5>Address:</h5>
@@ -157,6 +170,41 @@
 		</div>
 	</div></div></div>	
 </div>
+
+</div>
+
+<div id="Branch">
+    <header id="head" class="secondary">
+            <div class="container">
+                    <h1>Our Other Branches</h1>
+            </div>
+    </header>
+</div>
+
+<div class="container">
+	<!-- Data being fetched from backend. -->
+	<div class="row">
+		<?php 
+		if(isset($AllBranch))
+		{
+			 foreach($AllBranch as $branch) {
+		?>
+			<div class="col-md-6">
+				<div class="team-member">
+					<h4 style="text-align: left;"> <?php echo $branch->branch_area; ?> </h4> <br>
+					Address: <br> <?php echo $branch->address; ?> <br>
+					Email: <br> <?php echo $branch->email; ?> <br>
+					Phone No: <br> <?php echo $branch->phone_no1; $branch->phone_no2 ?>
+				</div>
+			</div>
+			<?php } 
+		} 
+		else
+			echo "THIS IS ELSE PART";
+		?>
+
+		
+	</div>
 
 </div>
 <!-- /container -->
