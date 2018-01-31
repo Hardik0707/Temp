@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
@@ -11,7 +11,7 @@ s<!DOCTYPE html>
 
         <header id="head" class="secondary" style="height:50px;">
             <div class="container">
-                <h1>Gallery</h1>
+                <h1>Public Announcement</h1>
             </div>
         </header>
 
@@ -29,10 +29,11 @@ s<!DOCTYPE html>
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Images  <a href="<?php echo base_url("index.php/Gallery_Controller/AddImage")?>" class="btn btn-info">Add New Image</a></h1>
+                            <h1 class="heading">All Public Announcement<a href="<?php echo base_url('index.php/Announcement_Controller/AddPublic');?>"
+                            class="btn btn-info" style="border-radius: 30px;margin-left:10px;font-family:calibri;font-size: 16px; ">Add New</a></h1>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
-                                <li class="active">Gallery</li>
+                                <li class="active">Public Announcement</li>
                             </ol>
                         </div>
                     </div>
@@ -46,39 +47,37 @@ s<!DOCTYPE html>
                     <div class="col-lg-12">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
-                           <!--  <div class="panel-heading">
-                                All Gallery Images
-                            </div> -->
+                            
                             
                             <!-- Welcome -->
                             <div class="panel-body">
 
                                 <?php
-                                if (isset($_SESSION['InsertGalleryData'])) {
-                                    if ($_SESSION['InsertGalleryData'] == '1') { ?>
+                                if (isset($_SESSION['InsertPublicData'])) {
+                                    if ($_SESSION['InsertPublicData'] == '1') { ?>
                                     <div class="alert alert-success"><?php echo "Record Added Succesfully" ?></div>
-                                    <?php unset($_SESSION['InsertGalleryData']);
-                                } else if($_SESSION['InsertGalleryData'] == '1062') { ?>
+                                    <?php unset($_SESSION['InsertPublicData']);
+                                } else if($_SESSION['InsertPublicData'] == '1062') { ?>
 
                                  <div class="alert alert-danger"><?php echo "Something Went Wrong !! Please Try Again.."; ?></div>
                                 <?php
-                                unset($_SESSION['InsertGalleryData']); }
+                                unset($_SESSION['InsertPublicData']); }
                                 }
 
 
-                                if (isset($_SESSION['DeleteGallery'])) {
-                                if ($_SESSION['DeleteGallery'] == '1') {
+                                if (isset($_SESSION['DeletePublic'])) {
+                                if ($_SESSION['DeletePublic'] == '1') {
                                     ?>
                                     <div class="alert alert-success"><?php echo "Record Delete Succesfully" ?></div>
                                     <?php
-                                    unset($_SESSION['DeleteGallery']);
+                                    unset($_SESSION['DeletePublic']);
                                 } else {
                                     ?>
                                     <div class="alert alert-danger"><?php echo "Something Went Wrong !! Please Try Again.." ?></div>
                                     <?php
-                                    unset($_SESSION['DeleteGallery']);
+                                    unset($_SESSION['DeletePublic']);
                                     } //end of else
-                                } //endof if
+                                }  //endof if
                                 ?>
 
 
@@ -88,26 +87,27 @@ s<!DOCTYPE html>
                                         <tr>
                                             <th>No.</th>
                                             <th>Photo</th>
-                                            <th>Category</th>
+                                            <th>Title</th>
                                             <th>Description</th>
-                                            <th>Actions</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
-                                    </thead>
-                                    <?php if(isset($AllImages)){?>
+                                    </thead>    
+                                    <?php if(isset($AllPublic)){?>
                                     <tbody>
                                         <?php $no=1; 
-                                        foreach ($AllImages as $value) {?>
+                                        foreach ($AllPublic as $value) {?>
                                         <tr>
                                             <td><?php echo $no; $no++;?></td>
                                             <!-- <td><?php echo $value->photo;?></td> -->
 
-                                        <td><img src="<?php echo base_url("panel/img/gallery/$value->photo"); ?>" width="100px" height="100px"></td>
+                                            <td><img src='<?php echo base_url("panel/img/Announcement/Public/$value->photo");?>' width="100px" height="100px"></td>
 
-                                            <td><?php echo $value->category;?></td>
+                                            <td><?php echo $value->title;?></td>
                                             <td><?php echo $value->description;?></td>
-
-                                            <td>
-                                                <a onclick="return confirm('Are You Sure Remove This Record ');" href="<?php echo base_url("index.php/Gallery_Controller/DeleteImage/$value->photo");?>" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <td><?php echo $value->date; ?></td>
+                                        <td>
+                                                <a onclick="return confirm('Are You Sure Remove This Record ');" href='<?php echo base_url("index.php/Announcement_Controller/DeletePublic/$value->photo");?>' data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="fa fa-trash-o delete"></i>
                                                 </a>
                                             </td>

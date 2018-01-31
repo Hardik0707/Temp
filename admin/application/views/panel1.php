@@ -2,7 +2,9 @@
 			<div class="navbar-header">
 					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="glyphicon glyphicon-collapse-down"></span>
+						<span class="icon-bar" style="background-color: white;"></span>
+						<span class="icon-bar" style="background-color: white;"></span>
+						<span class="icon-bar" style="background-color: white;"></span>
 					</button>
 			</div>
 
@@ -45,7 +47,7 @@
                     	<a href="#"><i class="fa fa-bullhorn "></i> Announcement</a>
                     	<ul class="nav nav-second-level collapse">
                     		<li>
-                    			<a href="<?php echo base_url(""); ?>"></i>  Public</a>
+                    			<a href="<?php echo base_url("index.php/Announcement_Controller/ViewPublic"); ?>"></i>  Public</a>
                     		</li>
                     		<li>
                     			<a href="<?php echo base_url(""); ?>"></i>  Private</a>

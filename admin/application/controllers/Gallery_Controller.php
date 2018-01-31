@@ -24,8 +24,8 @@ class Gallery_Controller extends CI_Controller {
 
 	public function DeleteImage($id) {
 		if (!empty($id)) {
-			$succes = $this->Gallery_Model->DeleteImage($id);
-			$_SESSION['DeleteImage'] = $succes;
+			$success = $this->Gallery_Model->DeleteImage($id);
+			$_SESSION['DeleteImage'] = $success;
 			redirect('Gallery_Controller/ViewGallery');
 		}
 	}

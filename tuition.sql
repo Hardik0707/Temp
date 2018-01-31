@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2018 at 02:03 PM
+-- Generation Time: Jan 31, 2018 at 07:46 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -90,9 +90,10 @@ CREATE TABLE `faculty_mst` (
 --
 
 INSERT INTO `faculty_mst` (`faculty_id`, `faculty_name`, `experience`, `degree`, `achievment`, `description`, `email`, `password`, `photo`, `contact_no`, `gender`, `active`) VALUES
-(9, 'Mr. ABC', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1111111111111111111111111111111'),
+(9, 'Mr. ABC2', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1111111111111111111111111111111'),
 (16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1111111111111111111111111111111'),
-(17, 'Viper', '10', 'B.Tech In I.T.', 'Topper', ' ', 'hardikthakkar0707@gmail.com', '07071997', 'Viper_1516711159.jpeg', '8655305437', 'Male', b'1111111111111111111111111111111');
+(17, 'nirav', '14', 'MCA', 'NA', ' Nice sir, Testing faculty login', 'nirav.ahm@gmail.com', '123456', 'nirav_1504945219.jpeg', '7710097733', 'Male', b'1111111111111111111111111111111'),
+(19, 'Viper', '10', 'B.Tech In I.T.', 'None', ' ', 'viper@gmail.com', '07071997', 'Viper_1517052526.jpeg', '7777777777', 'Male', b'1111111111111111111111111111111');
 
 -- --------------------------------------------------------
 
@@ -115,10 +116,11 @@ INSERT INTO `faculty_std_sub` (`faculty_std_sub_id`, `faculty_id`, `standard_id`
 (25, 16, 1, 'English,Maths,Science'),
 (26, 16, 2, 'Maths,English,History'),
 (27, 16, 8, 'Civics2'),
-(34, 9, 1, 'English,Maths,Science'),
-(35, 9, 2, 'Maths,English,History'),
-(36, 9, 3, 'Science,Maths'),
-(37, 9, 6, 'History');
+(29, 9, 1, 'English,Maths,Science'),
+(30, 9, 2, 'Maths,English,History'),
+(31, 9, 3, 'Science,Maths'),
+(32, 9, 6, 'History'),
+(33, 17, 1, 'English,Maths,Science');
 
 -- --------------------------------------------------------
 
@@ -137,10 +139,30 @@ CREATE TABLE `gallery_mst` (
 --
 
 INSERT INTO `gallery_mst` (`category`, `description`, `photo`) VALUES
-('Event', 'H', 'H_1516556254.jpeg'),
 ('Classroom', 'asd', 'asd_1516556262.jpeg'),
 ('Classroom', 'sadasd', 'sadasd_1516556271.jpeg'),
 ('Event', 'adasdasd', 'adasdasd_1516556279.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `public_announcement`
+--
+
+CREATE TABLE `public_announcement` (
+  `id` int(250) NOT NULL,
+  `date` date NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` varchar(750) NOT NULL,
+  `photo` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `public_announcement`
+--
+
+INSERT INTO `public_announcement` (`id`, `date`, `title`, `description`, `photo`) VALUES
+(1, '2017-07-07', 'Cricket', 'Hardik Thakkar', '/photos');
 
 -- --------------------------------------------------------
 
@@ -248,123 +270,6 @@ INSERT INTO `result_mst` (`result_id`, `roll_no`, `test_id`, `standard_id`, `sub
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schedule_mst`
---
-
-CREATE TABLE `schedule_mst` (
-  `schedule_id` int(11) NOT NULL,
-  `sub_id` varchar(100) NOT NULL,
-  `standard` varchar(100) NOT NULL,
-  `start_time` varchar(100) NOT NULL,
-  `end_time` varchar(100) NOT NULL,
-  `day` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `schedule_mst`
---
-
-INSERT INTO `schedule_mst` (`schedule_id`, `sub_id`, `standard`, `start_time`, `end_time`, `day`) VALUES
-(1, 'English', '2', '10', '2', 1),
-(2, 'hindi ', '2', '7', '8', 1),
-(3, 'hindi ', '2', '7', '8', 1),
-(4, 'hindi ', '2', '10', '2', 1),
-(5, 'hindi ', '2', '7', '8', 1),
-(6, 'hindi ', '2', '7', '8', 1),
-(7, 'hindi ', '2', '', '', 1),
-(8, 'hindi ', '2', '', '', 1),
-(9, 'hindi ', '2', '', '', 1),
-(10, 'hindi ', '2', '', '', 1),
-(11, 'hindi ', '2', '', '', 1),
-(12, 'hindi ', '2', '', '', 1),
-(13, 'hindi ', '2', '', '', 1),
-(14, 'hindi ', '2', '', '', 1),
-(15, 'hindi ', '2', '', '', 1),
-(16, 'hindi ', '2', '', '', 1),
-(17, 'hindi ', '2', '', '', 1),
-(18, 'hindi ', '2', '', '', 1),
-(19, 'hindi ', '2', '', '', 1),
-(20, 'hindi ', '2', '', '', 1),
-(21, 'hindi ', '2', '', '', 1),
-(22, 'hindi ', '2', '', '', 1),
-(23, 'hindi ', '2', '', '', 1),
-(24, 'hindi ', '2', '', '', 1),
-(25, 'hindi ', '2', '', '', 1),
-(26, 'hindi ', '2', '', '', 1),
-(27, 'hindi ', '2', '', '', 1),
-(28, 'hindi ', '2', '', '', 1),
-(29, 'hindi ', '2', '', '', 1),
-(30, 'hindi ', '2', '', '', 1),
-(31, 'hindi ', '2', '', '', 1),
-(32, 'hindi ', '2', '', '', 1),
-(33, 'hindi ', '2', '', '', 1),
-(34, 'hindi ', '2', '', '', 1),
-(35, 'hindi ', '2', '', '', 1),
-(36, 'hindi ', '2', '', '', 1),
-(37, 'hindi ', '2', '', '', 1),
-(38, 'hindi ', '2', '', '', 1),
-(39, 'hindi ', '2', '', '', 1),
-(40, 'hindi ', '2', '', '', 1),
-(41, 'hindi ', '2', '', '', 1),
-(42, 'hindi ', '2', '', '', 1),
-(43, 'hindi ', '2', '', '', 1),
-(44, 'hindi ', '2', '', '', 1),
-(45, 'hindi ', '2', '', '', 1),
-(46, 'hindi ', '2', '', '', 1),
-(47, 'hindi ', '2', '', '', 1),
-(48, 'hindi ', '2', '', '', 1),
-(195, ' hindi 777 ', '4', '7', '8', 1),
-(196, ' hindi 777 ', '4', '7', '8', 1),
-(197, ' hindi 777 ', '4', '7', '8', 1),
-(198, ' hindi 777 ', '4', '7', '8', 1),
-(199, ' hindi 777 ', '4', '7', '8', 1),
-(200, ' hindi 777 ', '4', '7', '8', 1),
-(201, 'Gujarti ', '4', '8', '9', 1),
-(202, 'Gujarti ', '4', '8', '9', 1),
-(203, 'Gujarti ', '4', '8', '9', 1),
-(204, 'Gujarti ', '4', '8', '9', 1),
-(205, 'Gujarti ', '4', '8', '9', 1),
-(206, ' hindi 777 ', '4', '8', '9', 1),
-(207, ' hindi 777 ', '4', '', '', 1),
-(208, ' hindi 777 ', '4', '', '', 1),
-(209, ' hindi 777 ', '4', '', '', 1),
-(210, ' hindi 777 ', '4', '', '', 1),
-(211, ' hindi 777 ', '4', '', '', 1),
-(212, ' hindi 777 ', '4', '', '', 1),
-(213, ' hindi 777 ', '4', '', '', 1),
-(214, ' hindi 777 ', '4', '', '', 1),
-(215, ' hindi 777 ', '4', '', '', 1),
-(216, ' hindi 777 ', '4', '', '', 1),
-(217, ' hindi 777 ', '4', '', '', 1),
-(218, ' hindi 777 ', '4', '', '', 1),
-(219, ' hindi 777 ', '4', '', '', 1),
-(220, ' hindi 777 ', '4', '', '', 1),
-(221, ' hindi 777 ', '4', '', '', 1),
-(222, ' hindi 777 ', '4', '', '', 1),
-(223, ' hindi 777 ', '4', '', '', 1),
-(224, ' hindi 777 ', '4', '', '', 1),
-(225, ' hindi 777 ', '4', '', '', 1),
-(226, ' hindi 777 ', '4', '', '', 1),
-(227, ' hindi 777 ', '4', '', '', 1),
-(228, ' hindi 777 ', '4', '', '', 1),
-(229, ' hindi 777 ', '4', '', '', 1),
-(230, ' hindi 777 ', '4', '', '', 1),
-(231, ' hindi 777 ', '4', '', '', 1),
-(232, ' hindi 777 ', '4', '', '', 1),
-(233, ' hindi 777 ', '4', '', '', 1),
-(234, ' hindi 777 ', '4', '', '', 1),
-(235, ' hindi 777 ', '4', '', '', 1),
-(236, ' hindi 777 ', '4', '', '', 1),
-(237, ' hindi 777 ', '4', '', '', 1),
-(238, ' hindi 777 ', '4', '', '', 1),
-(239, ' hindi 777 ', '4', '', '', 1),
-(240, ' hindi 777 ', '4', '', '', 1),
-(241, ' hindi 777 ', '4', '', '', 1),
-(242, ' hindi 777 ', '4', '', '', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `standard_mst`
 --
 
@@ -418,8 +323,9 @@ CREATE TABLE `student_mst` (
 --
 
 INSERT INTO `student_mst` (`stud_id`, `roll_no`, `stud_name`, `school_name`, `branch_id`, `standard_id`, `subject`, `email_id`, `password`, `photo`, `contact_no`, `gender`) VALUES
+(1, 123, 'Student 1', 'School', 3, 1, 'Geometry', 'test@gmail.com', 'abc123', 'Student_1_.jpeg', '1234567890', 'Male'),
 (15, 1234, 'Darshan', 'St. George School', 3, 3, 'Science', 'mumbai@mediamaggi.com', 'abc123', 'Darshan_.jpeg', '9867123412', 'Male'),
-(17, 527, 'nirav', 'swastik', 3, 10, 'Geometry', 'mumbai@mediamaggi.com', '123456', NULL, '7710097733', 'Male'),
+(17, 525, 'nirav', 'swastik', 3, 10, 'English,Maths', 'mumbai@mediamaggi.com', '123456', NULL, '7710097733', 'Male'),
 (29, 159, 'Tester', 'St. George School', 3, 1, 'Maths,English,History', 'darshan@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
 (31, 55, 'nirav_stu', 'swastik', 3, 1, 'English,Maths,Science,History,Geography,Hindi', 'nirav.ahm1@gmail.com', '123456', NULL, '7710097733', 'Male'),
 (44, 1987, 'Tester', 'St. George School', 3, 1, 'English', 'test2@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
@@ -467,32 +373,6 @@ INSERT INTO `subject_mst` (`sub_id`, `sub_name`, `standard_id`) VALUES
 (55, 'Hindi', 2),
 (56, 'physics', 17),
 (57, 'CHEMISTRY', 17);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `syllabus_mst`
---
-
-CREATE TABLE `syllabus_mst` (
-  `syllabus_id` int(11) NOT NULL,
-  `standard_id` int(11) NOT NULL,
-  `sub_id` int(11) DEFAULT NULL,
-  `syllabus` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `syllabus_mst`
---
-
-INSERT INTO `syllabus_mst` (`syllabus_id`, `standard_id`, `sub_id`, `syllabus`) VALUES
-(9, 2, 34, '2nd_English.pdf'),
-(10, 1, 32, '1st_Maths_1.pdf'),
-(11, 3, 21, '3rd_Science1.pdf'),
-(12, 2, 20, '2nd_Maths.pdf'),
-(15, 5, 24, '5th_Gujarati.pdf'),
-(18, 17, 57, '12th_science__CHEMISTRY.pdf'),
-(19, 17, 56, '12th_science__physics.pdf');
 
 -- --------------------------------------------------------
 
@@ -550,7 +430,7 @@ CREATE TABLE `topper_mst` (
 --
 
 INSERT INTO `topper_mst` (`topper_id`, `year_id`, `standard_id`, `subject`, `student_name`, `result`, `photo`) VALUES
-(18, 18, 12, 'PCM', 'Kiran', '198/200', 'tpper1503128649.jpeg'),
+(18, 18, 12, 'PCM', 'Darshan', '198/200', 'tpper1503128649.jpeg'),
 (19, 18, 12, 'PCM', 'Sagar', '199/200', 'tpper1503130924.jpeg'),
 (20, 17, 10, 'Maths', 'John Mathew', '97/100', NULL),
 (24, 18, 10, 'Maths', 'Azhar', '88', 'tpper1503467656.jpeg'),
@@ -609,6 +489,12 @@ ALTER TABLE `faculty_std_sub`
   ADD KEY `faculty_std_sub_fk` (`faculty_id`);
 
 --
+-- Indexes for table `public_announcement`
+--
+ALTER TABLE `public_announcement`
+  ADD UNIQUE KEY `ID` (`id`);
+
+--
 -- Indexes for table `result_mst`
 --
 ALTER TABLE `result_mst`
@@ -616,13 +502,6 @@ ALTER TABLE `result_mst`
   ADD KEY `sub_id` (`subject`),
   ADD KEY `stud_id` (`roll_no`),
   ADD KEY `result_test` (`test_id`);
-
---
--- Indexes for table `schedule_mst`
---
-ALTER TABLE `schedule_mst`
-  ADD PRIMARY KEY (`schedule_id`),
-  ADD KEY `sub_id` (`sub_id`);
 
 --
 -- Indexes for table `standard_mst`
@@ -646,14 +525,6 @@ ALTER TABLE `student_mst`
 ALTER TABLE `subject_mst`
   ADD PRIMARY KEY (`sub_id`),
   ADD KEY `standard_id` (`standard_id`);
-
---
--- Indexes for table `syllabus_mst`
---
-ALTER TABLE `syllabus_mst`
-  ADD PRIMARY KEY (`syllabus_id`),
-  ADD KEY `standard_id` (`standard_id`),
-  ADD KEY `sub_id` (`sub_id`);
 
 --
 -- Indexes for table `test_mst`
@@ -692,22 +563,22 @@ ALTER TABLE `branch_mst`
 -- AUTO_INCREMENT for table `faculty_mst`
 --
 ALTER TABLE `faculty_mst`
-  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `faculty_std_sub`
 --
 ALTER TABLE `faculty_std_sub`
-  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `public_announcement`
+--
+ALTER TABLE `public_announcement`
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `result_mst`
 --
 ALTER TABLE `result_mst`
   MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
---
--- AUTO_INCREMENT for table `schedule_mst`
---
-ALTER TABLE `schedule_mst`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 --
 -- AUTO_INCREMENT for table `standard_mst`
 --
@@ -722,12 +593,7 @@ ALTER TABLE `student_mst`
 -- AUTO_INCREMENT for table `subject_mst`
 --
 ALTER TABLE `subject_mst`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
---
--- AUTO_INCREMENT for table `syllabus_mst`
---
-ALTER TABLE `syllabus_mst`
-  MODIFY `syllabus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `test_mst`
 --
@@ -772,19 +638,6 @@ ALTER TABLE `student_mst`
 --
 ALTER TABLE `subject_mst`
   ADD CONSTRAINT `subject_mst_ibfk_1` FOREIGN KEY (`standard_id`) REFERENCES `standard_mst` (`standard_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `syllabus_mst`
---
-ALTER TABLE `syllabus_mst`
-  ADD CONSTRAINT `syllabus_standard` FOREIGN KEY (`standard_id`) REFERENCES `standard_mst` (`standard_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `syllabus_subject` FOREIGN KEY (`sub_id`) REFERENCES `subject_mst` (`sub_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `topper_mst`
---
-ALTER TABLE `topper_mst`
-  ADD CONSTRAINT `topper_mst_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `topper_year_mst` (`year_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
