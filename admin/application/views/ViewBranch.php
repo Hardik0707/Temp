@@ -18,7 +18,7 @@
         <!--sidebar end-->
         <!--main content start-->
         <div id="page-wrapper">
-            <div class="row">
+            <div class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                 <!-- Page Header -->
                 <div class="col-lg-9">
                     <div class="page-header">

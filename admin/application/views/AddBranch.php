@@ -17,7 +17,7 @@
         <div id="page-wrapper">
             <div class="row">
                  <!-- page header -->
-                <div class="col-lg-9">
+                <div class="col-lg-9"  style="padding-left: 0px; padding-right: 0px;">
 
                     <div class="page-header">
                         <h1 class="heading"><?php echo(isset($res)) ? "Edit Branch Details" : "Add Branch Details"; ?></h1>

@@ -7,6 +7,7 @@
 </head>
 <body>
 	<?php $this->load->view('navbar'); ?>
+	<div id="Contactus">
 
 	 <header id="head" class="secondary">
 
@@ -14,6 +15,7 @@
       <h1>Contact Us</h1>    
     </div>
   </header>
+</div>
 	
 	<!-- <header class="secondary" id="head"> -->
 		<div class="container">
@@ -199,8 +201,6 @@
 			</div>
 			<?php } 
 		} 
-		else
-			echo "THIS IS ELSE PART";
 		?>
 
 		

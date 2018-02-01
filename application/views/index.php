@@ -305,9 +305,6 @@
     </section>
     <?php $this->load->view("footer"); ?> 
 
-
-    <script src='<?php echo base_url("\assets\js\jquery.min.js"); ?>'></script>
-
     <script src=></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {

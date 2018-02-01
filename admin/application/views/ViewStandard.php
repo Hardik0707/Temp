@@ -23,7 +23,7 @@
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
             <div id="page-wrapper">
-                <div class="row">
+                <div class="row" style="margin-left: 0px !important; margin-right: 18px;">
                     <!-- Page Header -->
                     <div class="col-lg-9">
                         <div class="page-header">
@@ -38,7 +38,7 @@
                     <!--End Page Header -->
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8" style="padding-right: 0px;">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
