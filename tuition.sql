@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2018 at 07:46 PM
+-- Generation Time: Mar 09, 2018 at 06:52 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -146,6 +146,31 @@ INSERT INTO `gallery_mst` (`category`, `description`, `photo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `private_announcement`
+--
+
+CREATE TABLE `private_announcement` (
+  `id` int(200) NOT NULL,
+  `photo` varchar(256) NOT NULL,
+  `title` varchar(120) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `standard_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `private_announcement`
+--
+
+INSERT INTO `private_announcement` (`id`, `photo`, `title`, `description`, `standard_id`, `subject`, `student_id`, `date`) VALUES
+(1, 'jsdhjkad.jpeg', 'Hardik', 'dasasdsadasdasdasdasd', 1, 'Maths', 56, '0000-00-00'),
+(2, 'sajda.jpeg', 'kkkkkk', 'adasdasndbasdbjkashbdjkhahdadhashjdbhjasdhjasdhjkasdjdhjsadhjsadhjsdhjsadhjasdjasdhj', 2, 'English', 56, '2017-07-07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `public_announcement`
 --
 
@@ -162,7 +187,11 @@ CREATE TABLE `public_announcement` (
 --
 
 INSERT INTO `public_announcement` (`id`, `date`, `title`, `description`, `photo`) VALUES
-(1, '2017-07-07', 'Cricket', 'Hardik Thakkar', '/photos');
+(3, '2018-02-07', 'Hardik', 'My name is Hardik', 'Hardik_1517988901.jpeg'),
+(4, '2018-02-08', 'Events', 'jashdkjsakjdkajsdkjashdkjah', 'Events_1518076374.jpeg'),
+(6, '2018-02-08', 'IPL Auction 2017', 'sadasdasdad', 'IPL_Auction_2017_1518076487.jpeg'),
+(7, '2018-02-08', 'World Cup', 'hardik thakkr is good boy he is the legend and no one can beat him.hardik thakkr is good boy he is the legend and no one can beat him.', 'World_Cup_1518090714.jpeg'),
+(8, '2018-02-11', 'jdhfjsd', 'mfnsjkdfjksdfjksdhfjksdfjkdsfjkdsfhkjsdfjkskfjksdfhkjdsfhjkdsfhkjdsfhkjsdfhjkdsfhjkdsfhjdsfkjdsfhjksdfhjkdsfhjkfhkjdsfhjkdsfhjksdfhkjsdfhjksdfhjksdfhjk', 'jdhfjsd_1518337877.jpeg');
 
 -- --------------------------------------------------------
 
@@ -377,6 +406,53 @@ INSERT INTO `subject_mst` (`sub_id`, `sub_name`, `standard_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `temp`
+--
+
+CREATE TABLE `temp` (
+  `name` varchar(25) NOT NULL,
+  `roll` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `temp`
+--
+
+INSERT INTO `temp` (`name`, `roll`) VALUES
+('hardik', 118),
+('viper', 777);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `test`
+--
+
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL,
+  `standard_id` int(11) NOT NULL,
+  `subject` varchar(25) NOT NULL,
+  `chapter` varchar(75) NOT NULL,
+  `date` date NOT NULL,
+  `total_marks` int(11) NOT NULL,
+  `duration` varchar(25) NOT NULL,
+  `test_type` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`id`, `standard_id`, `subject`, `chapter`, `date`, `total_marks`, `duration`, `test_type`) VALUES
+(1, 2, 'Maths', 'Addition and Subtraction', '2017-12-12', 100, '3 Hours', 'Module'),
+(2, 1, 'Maths', 'Addition', '2018-07-07', 100, '3 Hours', 'Term'),
+(3, 1, 'English', 'Grammar', '1997-07-07', 80, '2 Hours 30 Mins', 'Term'),
+(4, 1, 'History', 'Ajanta', '2018-12-12', 50, '1 hour', 'Module'),
+(5, 1, 'Geography', 'World Map', '2018-01-01', 50, '1 hour', 'Term');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `test_mst`
 --
 
@@ -489,6 +565,12 @@ ALTER TABLE `faculty_std_sub`
   ADD KEY `faculty_std_sub_fk` (`faculty_id`);
 
 --
+-- Indexes for table `private_announcement`
+--
+ALTER TABLE `private_announcement`
+  ADD KEY `ID` (`id`);
+
+--
 -- Indexes for table `public_announcement`
 --
 ALTER TABLE `public_announcement`
@@ -525,6 +607,12 @@ ALTER TABLE `student_mst`
 ALTER TABLE `subject_mst`
   ADD PRIMARY KEY (`sub_id`),
   ADD KEY `standard_id` (`standard_id`);
+
+--
+-- Indexes for table `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `test_mst`
@@ -568,12 +656,17 @@ ALTER TABLE `faculty_mst`
 -- AUTO_INCREMENT for table `faculty_std_sub`
 --
 ALTER TABLE `faculty_std_sub`
-  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT for table `private_announcement`
+--
+ALTER TABLE `private_announcement`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `public_announcement`
 --
 ALTER TABLE `public_announcement`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `result_mst`
 --
@@ -593,7 +686,12 @@ ALTER TABLE `student_mst`
 -- AUTO_INCREMENT for table `subject_mst`
 --
 ALTER TABLE `subject_mst`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+--
+-- AUTO_INCREMENT for table `test`
+--
+ALTER TABLE `test`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `test_mst`
 --
