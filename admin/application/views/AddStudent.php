@@ -112,6 +112,8 @@
                                             </select>
                                         </div>
 
+                                        
+
                                         <div class="col-md-6 form-group">
                                             <label>Subjects [Select multiple Subjects <kbd>Ctrl</kbd>+<kbd>Select</kbd>]</label>
                                             <select class="form-input form-control" name="subject[]" multiple="multiple" id="subject" size="3" required>

@@ -2,6 +2,7 @@
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
+s
 </head>
 <body>
     <div id="wrapper">
@@ -81,14 +82,14 @@
                                 ?>
 
 
-                                <div class="table-responsive">
-                                <table id="example" class="table table-striped table-bordered table-hover">
+                                <div class="table-responsive col-lg-12">
+                                <table id="example" class="table table-striped table-bordered table-hover table-responsive">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Photo</th>
+                                            <th class="col-md-2">Photo</th>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <th class="col-xs-1">Description</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -101,7 +102,7 @@
                                             <td><?php echo $no; $no++;?></td>
                                             <!-- <td><?php echo $value->photo;?></td> -->
 
-                                            <td><img src='<?php echo base_url("panel/img/Announcement/Public/$value->photo");?>' width="100px" height="100px"></td>
+                                            <td><img src='<?php echo base_url("panel/img/Announcement/Public/$value->photo");?>'" class="img-responsive" height="150px" width="150px" ></td>
 
                                             <td><?php echo $value->title;?></td>
                                             <td><?php echo $value->description;?></td>

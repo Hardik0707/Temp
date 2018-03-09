@@ -25,6 +25,25 @@ class Announcement_Model extends CI_Model { // Start of Announcement_Model class
     {
     	 return $this->db->insert('public_announcement', $data);
     }
+
+     public function FetchAllPrivate() {
+        $this->db->select('*');
+        $result = $this->db->get('private_announcement');
+        return $result->result();
+    }
+
+
+    public function FetchStudents($id,$sub) {
+        $this->db->select('*');
+        $array = array('standard_id' =>$id ,'subject LIKE' =>"%".$sub."%");
+        // $this->db->where('standard_id',$id);
+        // $this->db->where("subject LIKE ","%".$sub."%");
+        
+        $this->db->where($array);
+        $result = $this->db->get('student_mst');
+        return $result->result();
+    }
+
 } 
 // End of Gallery_Model Class 
  ?>

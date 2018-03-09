@@ -13,13 +13,24 @@ class Announcement_Controller extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('Announcement_Model');
+		$this->load->model('Student_Model');
 	}
 
+	// function __construct() {
+ //        parent::__construct();
+        
+ //    }
 
 	public function ViewPublic()
 	{
 		$result['AllPublic'] = $this->Announcement_Model->FetchAllPublic();
 		$this->load->view('public_announce_view', $result);
+	}
+
+	public function ViewPrivate()
+	{
+		$result['AllPrivate'] = $this->Announcement_Model->FetchAllPrivate();
+		$this->load->view('private_announce_view', $result);
 	}
 
 	public function DeletePublic($id) {
@@ -34,13 +45,18 @@ class Announcement_Controller extends CI_Controller {
 		$this->load->view('AddPublicAC');
 	}
 
+	public function AddPrivate() {
+		 $result['AllStandards'] = $this->Student_Model->FetchAllStandards();
+		 $this->load->view('AddPrivateAC',$result);
+	}
+
 	public function InsertPublic()
 	{
-		echo "1";
+		
 
 		if(isset($_POST['AddPublic']))
 		{
-			echo "2";
+			
 			$title = $_POST['title'];
 			$description = $_POST['description'];
 			$date = date("Y-m-d");
@@ -59,7 +75,7 @@ class Announcement_Controller extends CI_Controller {
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
 
-                echo "yaha";
+                
                 if ($this->upload->do_upload('ImageUpload')){ 
                 	echo "kider";
                 	$fileData =$this->upload->data();
@@ -80,5 +96,28 @@ class Announcement_Controller extends CI_Controller {
             }
         }
     }
+
+
+     public function FetchSubjects() {
+        $id = $this->input->post('id');
+        $subjects = $this->Student_Model->FetchSubjects($id);
+        echo "<option value='*'>All</option>";
+        foreach ($subjects as $subject) {
+            echo "<option value='".$subject->sub_name."'>".$subject->sub_name."</option>";
+            //$result['subject_id'] = $subject->sub_id;
+        }
+    }
+
+    public function FetchStudents() {
+        $id = $this->input->post('id');
+        $sub = $this->input->post('sub_id');
+        $students = $this->Announcement_Model->FetchStudents($id,$sub);
+        foreach ($students as $student) {
+            echo "<option value='".$student->stud_name."'>".$student->stud_name."</option>";
+            //$result['subject_id'] = $subject->sub_id;
+        }
+    }
+
+
 }
 ?>
