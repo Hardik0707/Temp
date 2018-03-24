@@ -3,11 +3,8 @@
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
 <style type="text/css">
-td,shape-image-threshold: {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+td,th{
+
 }
 </style>
 </head>
@@ -90,13 +87,13 @@ td,shape-image-threshold: {
 
 
                                 <div class="table-responsive col-sm-12">
-                                <table id="example" class="table table-striped table-bordered table-hover table-responsive">
+                                <table id="example" class="table table-striped table-bordered table-hover ">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
                                             <th class="col-md-2">Photo</th>
                                             <th>Title</th>
-                                            <th class="col-xs-1">Description</th>
+                                            <th style="word-wrap: break-word;"">Description</th>
                                             <th>Date</th>
                                             <th>Action</th>
                                         </tr>
@@ -112,7 +109,7 @@ td,shape-image-threshold: {
                                             <td><img src='<?php echo base_url("panel/img/Announcement/Public/$value->photo");?>'" class="img-responsive" height="150px" width="150px" ></td>
 
                                             <td><?php echo $value->title;?></td>
-                                            <td><?php echo $value->description;?></td>
+                                            <td style="word-wrap: break-word;"><?php echo $value->description;?></td>
                                             <td><?php echo $value->date; ?></td>
                                         <td>
                                                 <a onclick="return confirm('Are You Sure Remove This Record ');" href='<?php echo base_url("index.php/Announcement_Controller/DeletePublic/$value->photo");?>' data-toggle="tooltip" data-placement="top" title="Delete">

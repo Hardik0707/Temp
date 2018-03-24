@@ -17,12 +17,13 @@
         <?php $this->load->view("panel1"); ?>
         <!--sidebar end-->
         <!--main content start-->
+        <div class="container col-sm-9">
         <div id="page-wrapper">
             <div class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                 <!-- Page Header -->
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <div class="page-header">
-                        <h1 class="heading">All Branches <a href="<?php echo base_url("index.php/Branch_Controller/AddBranch"); ?>" class="btn btn-info">Add New Branch</a></h1>
+                     <a href="<?php echo base_url("index.php/Branch_Controller/AddBranch"); ?>" class="btn btn-sm">Add New Branch</a>
                          <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li>Branch</li>
@@ -31,13 +32,12 @@
                       </div>
                 </div>
                 <!--End Page Header -->
+            </div>
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            All Branch
-                        </div>
+                        
                         <!-- Welcome -->
                         <div class="panel-body">
                             <?php
@@ -82,7 +82,7 @@
                                 }
                             }
                             ?>
-                            <div class="table-responsive">
+                            <div class="table-responsive col-sm-12">
                                 <table id="example" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>

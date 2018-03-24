@@ -15,7 +15,9 @@ class Login_Controller extends CI_Controller {
     }
     //public function functionName();
     public function index(){
-    if (isset($_SESSION['isAdminLoggedIn']) && $_SESSION['isAdminLoggedIn'] == 1) {
+        
+    if (isset($_SESSION['isAdminLoggedIn']) || $_SESSION['isAdminLoggedIn'] == 1)
+     {
             $this->load->view('Home');
         }else{
             $this->load->view('Index');
@@ -52,6 +54,7 @@ class Login_Controller extends CI_Controller {
                     
                     $this->session->set_userdata('isAdminLoggedIn', 1);
                     $this->load->view('Home');  
+
                 } else {
                     $msg['msg']="Invalid Username And Password";
                     $this->load->view('Index',$msg);

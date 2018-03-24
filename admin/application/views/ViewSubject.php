@@ -35,15 +35,16 @@ table, th, td {
             <div class="container">
                 <h1>Subjects</h1>
             </div>
-        </header>
+            </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
 
             <div class="container col-sm-9">
             <div id="page-wrapper">
+               
                 <div class="row">
                     <!-- Page Header -->
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                       <div class="page-header">
                         
                         <ol class="breadcrumb">
@@ -55,8 +56,11 @@ table, th, td {
                     </div>
                     <!--End Page Header -->
 
-                
+                </div>
+
+
                 <div class="row">
+
                     <?php $count=0; foreach($AllStandards as $standard) {
                         $id = $standard->standard_id;
                         $subjects = 's_'.$id;
@@ -65,12 +69,11 @@ table, th, td {
 
                     <div class="col-lg-6">
                         <!-- Advanced Tables -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <font face="verdana" color="blue" size="4"><?php echo $standard->standard; ?> standard </font> 
-                                <div class="col-md-8">
-                                <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-xs">Add New Standard</a></div>
-                            </div>
+                            <div class="panel panel-default">
+                                
+                                <?php echo $standard->standard; ?> Standard 
+                                
+                                <a href="#" data-toggle="modal" data-target="#AddSubject" class="btn btn-sm">Add New Subject</a>
 
                             <?php if (isset($_SESSION['SubjectAdded'])) { if ($_SESSION['SubjectAdded'] == '1' && $_SESSION['StandardId'] == $id) { ?>
                                 <div class="alert alert-success"><?php echo "Record Added Succesfully" ?></div>
@@ -139,7 +142,7 @@ table, th, td {
                     <tr>
                       <td>Subject</td>
                       <td><input type="text" name="SubjectName"></td>
-                      <input type="hidden" name="standard_id" id="standard_id" value="">
+                      <input type="hidden" name="standard_id" id="standard_id" value="<?php echo $id; ?>">
                     </tr>
                     <tr>
                       <td>

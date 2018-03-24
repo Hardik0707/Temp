@@ -36,10 +36,11 @@ class Subject_Controller extends CI_Controller {
 
     public function InsertSubject() {
         if(isset($_POST['SubjectName'])) {
-            //print_r($_POST);
             $standard = $_POST['standard_id'];
             $subject = $_POST['SubjectName'];
             $data = array('sub_name' => $subject, 'standard_id' => $standard);
+            print_r($data);
+            exit(0);
             $success = $this->Subject_Model->InsertSubject($data);
             $_SESSION['StandardId']= $_POST['standard_id'];
             $_SESSION['SubjectAdded']= $success;

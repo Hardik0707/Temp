@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2018 at 06:52 PM
+-- Generation Time: Mar 24, 2018 at 01:29 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `user_name`, `email`, `password`, `photo`) VALUES
-(1, 'AV', 'admin', '1234', '2.jpeg');
+(1, 'Hardik Thakkar', 'admin@gmail.com', '07071997', '2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -190,8 +190,38 @@ INSERT INTO `public_announcement` (`id`, `date`, `title`, `description`, `photo`
 (3, '2018-02-07', 'Hardik', 'My name is Hardik', 'Hardik_1517988901.jpeg'),
 (4, '2018-02-08', 'Events', 'jashdkjsakjdkajsdkjashdkjah', 'Events_1518076374.jpeg'),
 (6, '2018-02-08', 'IPL Auction 2017', 'sadasdasdad', 'IPL_Auction_2017_1518076487.jpeg'),
-(7, '2018-02-08', 'World Cup', 'hardik thakkr is good boy he is the legend and no one can beat him.hardik thakkr is good boy he is the legend and no one can beat him.', 'World_Cup_1518090714.jpeg'),
-(8, '2018-02-11', 'jdhfjsd', 'mfnsjkdfjksdfjksdhfjksdfjkdsfjkdsfhkjsdfjkskfjksdfhkjdsfhjkdsfhkjdsfhkjsdfhjkdsfhjkdsfhjdsfkjdsfhjksdfhjkdsfhjkfhkjdsfhjkdsfhjksdfhkjsdfhjksdfhjksdfhjk', 'jdhfjsd_1518337877.jpeg');
+(9, '2018-03-24', '123456', 'jasdjksadjkadjsajdhjaskdhjkashdjksadhjkasdhjkasdhjkasdhjkasdhkjasdhjkasdhjksadhjkasdhkjasdhjksadhkjsdhjksadhkjasdhkjasdhkjasdhkjasdhkjasdhk', '123456_1521887082.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `result`
+--
+
+CREATE TABLE `result` (
+  `result_id` int(11) NOT NULL,
+  `roll_no` int(11) NOT NULL,
+  `test_id` int(11) NOT NULL,
+  `standard_id` int(11) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `marks` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`result_id`, `roll_no`, `test_id`, `standard_id`, `subject`, `marks`) VALUES
+(3, 55, 4, 1, 'History', '10/50'),
+(4, 159, 4, 1, 'History', '12/50'),
+(5, 55, 5, 1, 'History', '40/50'),
+(6, 159, 5, 1, 'History', '33/50'),
+(7, 55, 6, 1, 'Maths', '60/75'),
+(8, 159, 6, 1, 'Maths', '70/75'),
+(9, 55, 7, 1, 'Maths', '45/75'),
+(10, 159, 7, 1, 'Maths', '42/75'),
+(11, 55, 8, 1, 'Maths', '25/50'),
+(12, 159, 8, 1, 'Maths', 'N/A');
 
 -- --------------------------------------------------------
 
@@ -401,7 +431,9 @@ INSERT INTO `subject_mst` (`sub_id`, `sub_name`, `standard_id`) VALUES
 (54, 'Science', 2),
 (55, 'Hindi', 2),
 (56, 'physics', 17),
-(57, 'CHEMISTRY', 17);
+(57, 'CHEMISTRY', 17),
+(60, 'Gujarati', 17),
+(61, 'Gujarati', 17);
 
 -- --------------------------------------------------------
 
@@ -419,8 +451,24 @@ CREATE TABLE `temp` (
 --
 
 INSERT INTO `temp` (`name`, `roll`) VALUES
-('hardik', 118),
-('viper', 777);
+('viper', 707),
+('hardik', 777),
+('viper', 707),
+('hardik', 777),
+('kiran', 118),
+('mini', 28),
+('viper', 707),
+('hardik', 777),
+('kiran', 118),
+('mini', 28),
+('viper', 707),
+('hardik', 777),
+('kiran', 118),
+('mini', 28),
+('viper', 707),
+('hardik', 777),
+('kiran', 118),
+('mini', 28);
 
 -- --------------------------------------------------------
 
@@ -436,19 +484,22 @@ CREATE TABLE `test` (
   `date` date NOT NULL,
   `total_marks` int(11) NOT NULL,
   `duration` varchar(25) NOT NULL,
-  `test_type` varchar(25) NOT NULL
+  `test_type` varchar(25) NOT NULL,
+  `uploaded` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `test`
 --
 
-INSERT INTO `test` (`id`, `standard_id`, `subject`, `chapter`, `date`, `total_marks`, `duration`, `test_type`) VALUES
-(1, 2, 'Maths', 'Addition and Subtraction', '2017-12-12', 100, '3 Hours', 'Module'),
-(2, 1, 'Maths', 'Addition', '2018-07-07', 100, '3 Hours', 'Term'),
-(3, 1, 'English', 'Grammar', '1997-07-07', 80, '2 Hours 30 Mins', 'Term'),
-(4, 1, 'History', 'Ajanta', '2018-12-12', 50, '1 hour', 'Module'),
-(5, 1, 'Geography', 'World Map', '2018-01-01', 50, '1 hour', 'Term');
+INSERT INTO `test` (`id`, `standard_id`, `subject`, `chapter`, `date`, `total_marks`, `duration`, `test_type`, `uploaded`) VALUES
+(1, 2, 'Maths', 'Addition and Subtraction', '2017-12-12', 100, '3 Hours', 'Module', 0),
+(3, 1, 'English', 'Grammar', '1997-07-07', 80, '2 Hours 30 Mins', 'Term', 0),
+(4, 1, 'History', 'Ajanta', '2018-12-12', 50, '1 hour', 'Module', 1),
+(5, 1, 'History', 'Shivaji', '2018-01-15', 50, '2 Hours 30 Mins', 'Module', 1),
+(6, 1, 'Maths', 'Probability', '1997-07-07', 75, '3 Hours', 'Module', 1),
+(7, 1, 'Maths', 'Equations', '2017-01-15', 75, '3 Hours', 'Module', 1),
+(8, 1, 'Maths', 'Subtraction', '2018-01-25', 50, '2 Hours 30 Mins', 'Term', 1);
 
 -- --------------------------------------------------------
 
@@ -577,6 +628,12 @@ ALTER TABLE `public_announcement`
   ADD UNIQUE KEY `ID` (`id`);
 
 --
+-- Indexes for table `result`
+--
+ALTER TABLE `result`
+  ADD PRIMARY KEY (`result_id`);
+
+--
 -- Indexes for table `result_mst`
 --
 ALTER TABLE `result_mst`
@@ -666,7 +723,12 @@ ALTER TABLE `private_announcement`
 -- AUTO_INCREMENT for table `public_announcement`
 --
 ALTER TABLE `public_announcement`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `result`
+--
+ALTER TABLE `result`
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `result_mst`
 --
@@ -686,12 +748,12 @@ ALTER TABLE `student_mst`
 -- AUTO_INCREMENT for table `subject_mst`
 --
 ALTER TABLE `subject_mst`
-  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `test_mst`
 --
