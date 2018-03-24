@@ -112,6 +112,8 @@ class Announcement_Controller extends CI_Controller {
         $id = $this->input->post('id');
         $sub = $this->input->post('sub_id');
         $students = $this->Announcement_Model->FetchStudents($id,$sub);
+        
+        $this->load->view('exceldata',$students);
         foreach ($students as $student) {
             echo "<option value='".$student->stud_name."'>".$student->stud_name."</option>";
             //$result['subject_id'] = $subject->sub_id;

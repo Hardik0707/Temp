@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
@@ -29,7 +29,7 @@ s<!DOCTYPE html>
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Images  <a href="<?php echo base_url("index.php/Gallery_Controller/AddImage")?>" class="btn btn-info">Add New Image</a></h1>
+                            <a href="<?php echo base_url("index.php/Gallery_Controller/AddImage")?>" class="btn btn-info">Add New Image</a>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
                                 <li class="active">Gallery</li>
@@ -82,7 +82,7 @@ s<!DOCTYPE html>
                                 ?>
 
 
-                                <div class="table-responsive">
+                                <div class="table-responsive col-sm-12">
                                 <table id="example" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>

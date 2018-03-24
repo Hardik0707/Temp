@@ -81,14 +81,14 @@
       					<li><a href="" style="color: black;">My Announcement</a></li>
       					<li class="divider"></li>
       					<center>
-      					<a href="" class="btn btn-success" style="color: white;font-size: 12px;border-radius: 10px;margin-bottom:5px;"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+      					<a href="<?php echo base_url('index.php/Faculty_Controller/LogOut');?>" class="btn btn-success" style="color: white;font-size: 12px;border-radius: 10px;margin-bottom:5px;"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
       					</center>
     					</ul>
   						</li>
   						<?php } ?>
 
 
-						<li><a href="<?php echo base_url('index.php/welcome/ContactUs'); ?>">Contact Us</a></li>
+						<li><a href="<?php echo base_url('index.php/ContactUS_Controller/ContactUs'); ?>">Contact Us</a></li>
 
 
 
@@ -126,7 +126,7 @@
 							<center>
 								<a href="">Forgot Password?</a>
 								<br>
-							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;">
+							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;border-radius: 20px 20px">
 						
 							
 							</center>
@@ -146,7 +146,7 @@
   <!-- Faculty Modal -->
 
   <div class="modal fade" id="faculty" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -166,7 +166,7 @@
 							</div>
 							<center>
 								<a href="">Forgot Password?</a> <br>
-							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;">
+							<input class="btn btn-lg" type="submit" value="Login" style="margin-top: 30px;border-radius: 20px 20px">
 						
 							
 							</center>

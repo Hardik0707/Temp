@@ -4,6 +4,8 @@ class Result_Model extends CI_Model {
 
     function __construct() {
         parent::__construct();
+
+                $this->load->library('form_validation');
     }
 
     public function insertsubject($data) {
@@ -17,7 +19,7 @@ class Result_Model extends CI_Model {
     }
 
     public function InsertResultData($data) {
-        return $this->db->insert('result_mst',$data);
+        return $this->db->insert('result',$data);
     }
 
     public function FetchSubjects($id) {
@@ -29,10 +31,10 @@ class Result_Model extends CI_Model {
     }
 
     public function FetchResult($rollno) {
-        $this->db->select('*,GROUP_CONCAT(subject) as subject_csv,GROUP_CONCAT(marks) as marks_csv')->from('result_mst r');
+        $this->db->select('*')->from('result r');
         $this->db->where('roll_no',$rollno);
-        $this->db->join('test_mst t','t.test_id=r.test_id');
-        $this->db->group_by('t.test_name');
+        $this->db->join('test t','t.id=r.test_id');
+        // $this->db->group_by('t.test_name');
         $this->db->order_by('r.subject');
         $q = $this->db->get();
         return $q->result();
@@ -53,7 +55,7 @@ class Result_Model extends CI_Model {
 
     public function FetchAllTests() {
         $this->db->select('*');
-        $result = $this->db->get('test_mst');
+        $result = $this->db->get('test');
         return $result->result();
     }
 
@@ -66,7 +68,7 @@ class Result_Model extends CI_Model {
 
     public function FetchTestSubjects($roll) {
         $this->db->where('roll_no',$roll);
-        $this->db->select('*')->from('result_mst');
+        $this->db->select('*')->from('result');
         $this->db->group_by('subject');
         $this->db->order_by('subject');
         $q = $this->db->get();
@@ -76,8 +78,8 @@ class Result_Model extends CI_Model {
     public function FetchStudentsAllTest($roll) {
         $this->db->where('r.roll_no',$roll);
         $this->db->select('r.*,t.*,st.*,s.stud_name,GROUP_CONCAT(r.subject ORDER BY r.subject ASC) as subject_csv,GROUP_CONCAT(marks ORDER BY r.subject) as marks_csv');
-        $this->db->from('result_mst r');
-        $this->db->join('test_mst t', 't.test_id=r.test_id');
+        $this->db->from('result r');
+        $this->db->join('test t', 't.id=r.test_id');
         $this->db->join('student_mst s', 's.roll_no=r.roll_no');
         $this->db->join('standard_mst st', 'st.standard_id=r.standard_id');
         $this->db->group_by('r.test_id');
@@ -105,9 +107,9 @@ class Result_Model extends CI_Model {
         return $rowcount = $q->num_rows();
     }
 
-    public function DeleteExistingResults($id,$sub) {
-        $this->db->where(array('test_id' => $id, 'subject' => $sub));
-        return $this->db->delete('result_mst');
+    public function DeleteResult($id) {
+        $this->db->where('test_id',$id);
+        return $this->db->delete('result');
     }
 
     public function FetchAllStudents() {
@@ -129,6 +131,13 @@ class Result_Model extends CI_Model {
         return $query->result();
     }
 
+    public function UpdateResultData($id,$roll_no,$marks){
+
+        $this->db->set('marks',$marks);
+        $this->db->where('test_id',$id);
+        $this->db->where('roll_no',$roll_no);
+        $this->db->update('result');
+    }
 
 }
 ?>

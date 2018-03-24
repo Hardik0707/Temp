@@ -15,16 +15,21 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+    var standard_id = standard;
+
     function getSubjects(standard) {
         $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchSubjects/", {id: standard.value}, function(data) {
             console.log(data);
+            window.alert(data);
             $('#subject').html(data);
         });
     }
 
      function getStudents(subject) {
-        $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchStudents/", {sub_id: subject.value}, function(data) {
+        $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchStudents/", {
+            id:standard_id,sub_id:subject.value}, function(data) {
             console.log(data);
+            window.alert("Hii");
             $('#student').html(data);
         });
     }
@@ -123,35 +128,14 @@
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label>Subjects </label>
-                                    <select class="form-input form-control" name="subject" id="subject" required onchange="getStudents(this);">
+                                    <select class="form-input form-control" name="subject" id="subject" onselect="getStudents(this);" required">
                                         <option value="">Select Subject</option>
-                                        <!-- <?php if(isset($StudentDetails)) {
-
-                                            foreach($AllSubjects as $subject) {
-                                                ?>
-                                                <option value="<?php echo $subject->sub_name; ?>" <?php if(in_array($subject->sub_name, $subject_selected)) : echo "selected"; endif; ?>>
-                                                    <?php echo $subject->sub_name; ?>
-
-                                                </option>
-                                                <?php } } else { ?>
-                                                <option>Select Standard First</option>
-                                                <?php } ?> -->
-                                            </select>
+                                        </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
                                             <label>Students [Select multiple Students <kbd>Ctrl</kbd>+<kbd>Select</kbd>]</label>
-                                            <select class="form-input form-control" name="student[]" multiple="multiple" id="student" size="3" required>
-                                                <!-- <?php if(isset($StudentDetails)) {
-                                                    foreach($AllStudents as $student) {
-                                                ?>
-                                                <option value="<?php echo $student->stud_name; ?>" <?php if(in_array($student->stud_name, $student_selected)) : echo "selected"; endif; ?>>
-                                                    <?php echo $student->stud_name; ?>
-
-                                                    </option>
-                                                <?php } } else { ?>
-                                                <option>Select Subject First</option>
-                                                <?php } ?> -->
+                                            <select class="form-input form-control" name="student[]" multiple="multiple" id="student" size="3" required >
                                             </select>
                                         </div>
 

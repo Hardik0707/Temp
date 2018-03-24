@@ -36,6 +36,10 @@
 		font-size: 14px;
 		text-overflow:ellipsis;
 	}
+	img {
+  border: 70%;
+}
+
 	
 </style>
 
@@ -49,14 +53,14 @@
 		</div>
 	</header>
 
-	<div class="container" style="margin-top: 10px;">
+	<div class="container" style="margin-top: 8px;">
 
 		<div class="row col-sm-offset-1">
 			<?php if(isset($AllPublic))
 			{
 				foreach ($AllPublic as $public) {
 					?> 
-					<a href="#" data-toggle="modal" data-target="#<?php echo $public->id; ?>" style="text-decoration: none;color: black;">
+					<a href="#" data-toggle="modal" data-target="#<?php echo $public->id; ?>" style="text-decoration:none;color: blue;">
 						<div class="card col-sm-3">
 
 
@@ -65,7 +69,7 @@
 
 
 							<div class="title">
-								<?php echo $public->title;?>	
+								<center><?php echo $public->title;?></center>	
 							</div>
 						</div>
 					</a>
@@ -75,24 +79,25 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-							
+									<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button> -->
 									<h3><?php echo $public->title;?></h3>
 								</div>
 								<div class="modal-body">
-								<center>
-								<img src="<?php echo base_url("/admin/panel/img/Announcement/Public/$public->photo"); ?>" class="img-respnsive" height="200px" width="250px">
+									
+								<center><img src="<?php echo base_url("/admin/panel/img/Announcement/Public/$public->photo"); ?>" class="img-responsive" height="200px" width="200px">
 								</center>
-
-								<br><br>
-								<p style="font-family: calibri;font-size: 20px;word-wrap: break-word;"><?php echo $public->description; ?></p>
 								</div>
 								<div class="modal-footer">
+									<center><?php echo $public->description; ?></center><br><br>
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
 								</div>
 							</div>
 						</div>
 					</div>
+
 
 					<?php }} ?>
 

@@ -33,7 +33,7 @@
                 <!-- Page Header -->
                 <div class="col-lg-12">
                     <div class="page-header">
-                        <h1 class="heading">All Faculties <a href="<?php echo base_url("index.php/Faculty_Controller/AddFaculty"); ?>" class="btn btn-info">Add New Faculty</a></h1>
+                        <a href="<?php echo base_url("index.php/Faculty_Controller/AddFaculty"); ?>" class="btn btn-sm">Add New Faculty</a>
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li>Faculties</li>
@@ -47,9 +47,7 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            All Faculty
-                        </div>
+                        
                         <?php
                         if (isset($_SESSION['InsertFaculty'])) {
                             if ($_SESSION['InsertFaculty'] == '1') {
@@ -106,7 +104,7 @@
                         ?>
                         <!-- Welcome -->
                             <div class="panel-body">
-                                <div class="table-responsive">
+                                <div class="table-responsive col-sm-12">
                                     <table id="example" class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
@@ -154,9 +152,9 @@
                                                         <td><img src=" <?php echo base_url("panel/img/Faculty/$value->photo");?>" width="75px" height="75px"></td>
                                                         <td>
                                                             <?php if($value->active=='0') {?>
-                                                            <a class="btn btn-info" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye-slash"></i></a>
+                                                            <a class="btn btn-sm" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye-slash"></i></a>
                                                             <?php }  else {?>
-                                                                <a class="btn btn-info" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye"></i></a>
+                                                                <a class="btn btn-sm" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye"></i></a>
                                                                <?php }?>
 
                                                             <a href="<?php echo base_url("index.php/Faculty_Controller/EditFaculty/$value->faculty_id");?>"><i class="fa fa-pencil update" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>&nbsp;

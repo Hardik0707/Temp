@@ -73,9 +73,15 @@
         <!-- navbar top -->
         <?php $this->load->view("top"); ?>
         <!-- end navbar top -->
+        <header id="head" class="secondary" style="height:50px;">
+            <div class="container">
+                <h1>Faculty Registration</h1>
+            </div>
+        </header>
         <!-- navbar side -->
         <?php $this->load->view("panel1"); ?>
         <!-- end navbar side -->
+
         <!--  page-wrapper -->
         <div class="container col-sm-9">
         <div id="page-wrapper">
@@ -83,7 +89,7 @@
                  <!-- page header -->
                 <div class="col-lg-12">
                     <div class="page-header">
-                        <h1 class="heading">Faculty Registration</h1>
+                        
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li><a href="<?php echo base_url("index.php/Faculty_Controller/ViewFaculty"); ?>">Faculties</a></li>
@@ -146,7 +152,9 @@
                                         </div>
                                    
                                         <div class="col-md-6 form-group">
-                                            <label>Standards & Subjects</label> <a href="#" class="btn btn-info btn-xs" onclick="addRow('tab_logic')">Add More</a>
+                                            <label>Standards & Subjects</label> 
+
+                                            &emsp;<a href="#" class="btn btn-sm" onclick="addRow('tab_logic')">Add More</a>
                                             <table class="table table-bordered table-hover" style="width:75%" id="tab_logic">
                                                 <tbody>
                                                     <?php if(isset($FacultyDetails)) {
@@ -245,7 +253,9 @@
     </div>
     <!-- end wrapper -->
 
-</div></div>
+</div>
+</div>
+</div>
     <!-- Core Scripts - Include with every page -->
     <?php $this->load->view("footer"); ?>
 

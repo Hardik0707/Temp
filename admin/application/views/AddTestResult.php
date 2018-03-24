@@ -11,7 +11,7 @@
 
         <header id="head" class="secondary">
             <div class="container">
-                <h1>Results</h1>
+                <h1>Add/Edit Test Results</h1>
             </div>
         </header>
 
@@ -29,7 +29,7 @@
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">Add Tests Result</h1> 
+                            
 
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -67,7 +67,7 @@
                         ?>
 
 
-            <div class="table-responsive">
+            <div class="table-responsive col-sm-12">
                 <table id="example" class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
@@ -94,10 +94,46 @@
                          
                             <td><?php echo $value->test_type;?></td>
                             <td><?php echo $value->date;?></td>
+
+                            <?php if($value->uploaded ==0){ ?>
                             <td>
                                 <a href="<?php echo base_url("index.php/Result_Controller/DownloadTemplate/$value->id"); ?>">Download</a>
                             </td>
-                                <td><a href="">Upload</a></td>
+                            <td>     
+                            <?php 
+                            $result = array('id'=>$value->id,'total_marks'=>$value->total_marks,'standard_id'=>$value->standard_id,'subject'=>$value->subject); ?>
+
+                            <?php echo form_open_multipart('Result_Controller/InsertTest/'.$value->id.'/'.$value->total_marks.'/'.$value->standard_id.'/'.$value->subject);?>               
+                            <input type="file" name="userfile" />                                  
+                            <br>
+                            <input type="submit" value="upload" name="upload" />
+                            </form>         
+
+                            </td>
+                            <?php }else{
+                                ?>
+
+
+                            <td>
+                                <a href="<?php echo base_url("index.php/Result_Controller/DownloadResult/$value->id"); ?>">Download Result</a>
+                            </td>
+                            <td>     
+                            <?php 
+                            $result = array('id'=>$value->id,'total_marks'=>$value->total_marks,'standard_id'=>$value->standard_id,'subject'=>$value->subject); ?>
+
+                            <?php echo form_open_multipart('Result_Controller/UpdateTestResult/'.$value->id.'/');?>               
+                            <input type="file" name="userfile" />                                  
+                            <br>
+                            <input type="submit" value="upload" name="upload" />
+                            </form>         
+
+                            </td>  
+
+                            <?php } ?>
+
+                             <!--    echo "<td>Result Uploaded </td>";
+                                echo "<td>File Uploaded</td>";
+                            } ?> -->
                                 
 
 

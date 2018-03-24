@@ -28,19 +28,22 @@
 
 </table> -->
 
-<!-- <?php print_r($employee_data);
+<?php echo FCPATH;
+ print_r($employee_data);
+// foreach ($employee_data as $key => $value) {
+// 	# code...
+// echo $value->subject;
+// echo $value->date;
+// echo $value->duration;
+// echo $value->test_type;
+// } 
+ ?>
 
-foreach ($employee_data as $key => $value) {
-	# code...
-echo $value->subject;
-echo $value->date;
-echo $value->duration;
-echo $value->test_type;
-} 
- ?> -->
+<?php print_r($data);
+echo $data[0]['marks']; ?>
 
-<form action="<?php echo base_url("index.php/ExcelDataInsert/ExcelDataAdd"); ?>">
-
+<!-- <form action="<?php echo base_url("index.php/ExcelDataInsert/ExcelDataAdd"); ?>"> -->
+<?php echo form_open_multipart('ExcelDataInsert/ExcelDataAdd');?> 
 <label>Excel File:</label>                        
 <input type="file" name="userfile" />				                   
 <input type="submit" value="upload" name="upload" />

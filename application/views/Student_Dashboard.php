@@ -1,34 +1,40 @@
 <?php
-    $i=1;
-    //print_r($AllTestTestNames);
-    //print_r($AllTests);
-    //print_r($AllTestsResult);
+    // $i=1;
+    // //print_r($AllTestTestNames);
+    // //print_r($AllTests);
+    // //print_r($AllTestsResult);
 
-    $final_results = array();
-    $i = 0;
-    foreach($AllTestsResult as $test_results) {
-        $marks = explode(",",$test_results->marks_csv);
-        $tests = explode(",",$test_results->test_id_csv);
-        $final_tests = "";
-        $final_marks = "";
-        //$AllTestTestNames = explode(",",$AllTestTestNames);
-        $j=0; $total=0;
-        foreach($AllTestTestNames as $test_names){
-            if(in_array($test_names->test_name,$tests)) {
-                $final_tests .= $test_names->test_name;
-                $final_marks .= $marks[$j];
-                $j++;
-            } else {
-                $final_tests .= $test_names->test_name;
-                $final_marks .= "0/0";
-            }
-            if($total < count($AllTestTestNames)-1) : $final_marks .= ","; $final_tests .= ","; endif;
-            $total++;
-        }
-        $final_results[$i]["test_id_csv"] = $final_tests;
-        $final_results[$i]["marks_csv"] = $final_marks;
-        $i++;
-    }
+    // $final_results = array();
+    // $i = 0;
+    
+    // foreach($AllTestsResult as $test_results) {
+    //     $marks = explode(",",$test_results->marks_csv);
+    //     $tests = explode(",",$test_results->test_id_csv);
+    //     $final_tests = "";
+    //     $final_marks = "";
+    //     //$AllTestTestNames = explode(",",$AllTestTestNames);
+    //     $j=0; $total=0;
+    //     foreach($AllTestTestNames as $test_names){
+    //         if(in_array($test_names->test_name,$tests)) {
+    //             $final_tests .= $test_names->test_name;
+    //             $final_marks .= $marks[$j];
+    //             $j++;
+    //         } else {
+    //             $final_tests .= $test_names->test_name;
+    //             $final_marks .= "0/0";
+    //         }
+    //         if($total < count($AllTestTestNames)-1) : $final_marks .= ","; $final_tests .= ","; endif;
+    //         $total++;
+    //     }
+    //     $final_results[$i]["test_id_csv"] = $final_tests;
+    //     $final_results[$i]["marks_csv"] = $final_marks;
+    //     $i++;
+    // }
+
+
+    
+
+
 
     //print_r($final_results);
 	$graph_colors = array("#DC143C","#00008B","#006400","#20B2AA","#FFA500","#8B4513","#6A5ACD","#800080","#cffa1b","#fe3bcc","#45d7f3","#04e2cd","#ec4a68","#703be8");
@@ -134,7 +140,7 @@
     </header>    
          
 
-        <div class="container">
+        <!-- <div class="container">
 				<div class="row">
                 <?php if($AllTests != 0) { ?>
                <div class="col-md-12 table-responsive" style="margin-top: 50px;">
@@ -203,7 +209,107 @@
                 </div>
                 <?php } else { echo "No Results Found.."; } ?>
             </div>
-        </div>
+        </div> -->
+
+
+
+        <div class="container col-sm-10-offset-2">
+        <div id="page-wrapper">
+        <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                <div class="page-header">
+                    
+                    <ol class="breadcrumb">
+                        <li><a href="<?php echo base_url("index.php/"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active"><?php echo $_SESSION['studentname'] ?>'s Result</li>
+                    </ol>
+                </div>
+                </div>
+                <!--End Page Header -->
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 10px;">
+                    <?php
+                        if(empty($AllTests)) {
+                            echo "No Results Found !!";
+                            die();
+                        }
+                    ?>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="background-color: #3d84e6;color:#fff;">Roll No: <?php echo $row->roll_no; ?></th>
+                                <th style="background-color: #3d84e6;color:#fff;">Name : <?php echo $row->stud_name; ?></th>
+                                <th style="background-color: #3d84e6;color:#fff;">Standard : <?php echo $row->standard; ?></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-bordered dataTable" id="sampleTable">
+                        <tbody>
+                            <tr>
+                                <th>Subject Name</th>
+                                <th>Chapter Name</th>
+                                <th>Marks</th>
+                                <th>Test Type</th>
+                            </tr>
+
+                            <?php 
+                            // print_r($AllTests);
+                             $i = 0;$total_marks=0;$out_of=0;
+                                
+                               
+                            foreach ($AllTests as $test) { ?>
+                            <tr>
+                                <td><?=$test->subject;?></td>
+                                <td><?=$test->chapter; ?></td>
+                                <td><?=$test->marks; ?></td>
+                                <td><?=$test->test_type; ?></td>
+
+
+                                <?php
+                                $marks = $test->marks;
+
+                                if(strcmp($marks,'N/A')!=0 || strcmp($marks,'n/a')!=0){
+                                        //total logic starts
+                                        $mark = explode('/',$marks);
+                                        $total_marks += (int)$mark[0];
+                                        $out_of += (int)$mark[1];
+                                        //total logic ends
+                                        // $i++;
+                                    } else {
+                                        echo "N/A";
+                                    }
+                                    echo "</td>";
+                            
+                                ?>
+                                <!-- <td></td> -->
+                            </tr>
+                            <?php } ?>
+                            
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered">
+                        
+                        <tr>
+                                <th>Total Marks</th>
+                                <th><?php echo $total_marks."/".$out_of; ?></th>
+                                <th>Percentage</th>
+                                <th><?=round(($total_marks/$out_of*100),2)."%";?></th>    
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+        <!-- end page-wrapper -->
+    </div>
+    <!-- end wrapper -->
+</div>
+</div>
+
+
 
         <script>
             $(document).ready(function(){

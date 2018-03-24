@@ -29,8 +29,8 @@
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Tests </h1> <a href="<?php echo base_url("index.php/Test_Controller/AddTest")?>" class="btn btn-info">Add New Test</a>
-                            <a href="<?php echo base_url("index.php/Test_Controller/AddTest")?>" class="btn btn-info">View Results</a>
+                             <a href="<?php echo base_url("index.php/Test_Controller/AddTest")?>" class="btn btn-info">Add New Test</a>
+                            <a href="<?php echo base_url("index.php/Result_Controller/AddTestResult")?>" class="btn btn-info">View Results</a>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
                                 <li class="active">Tests</li>
@@ -80,7 +80,8 @@
                                 ?>
 
 
-                                <div class="table-responsive">
+                                <div class="table-responsive col-sm-12">
+
                                 <table id="example" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
@@ -121,6 +122,7 @@
                                     </tbody>
                                     <?php } ?> <!-- end of if-->
                                 </table>
+                            
                             </div>
                         </div>
                     </div>

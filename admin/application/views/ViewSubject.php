@@ -45,7 +45,7 @@ table, th, td {
                     <!-- Page Header -->
                     <div class="col-lg-9">
                       <div class="page-header">
-                        <h1 class="heading">Standard Wise Subjects</h1>
+                        
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li>Subjects</li>
@@ -92,15 +92,17 @@ table, th, td {
 
                             <!-- Welcome -->
                             <div class="panel-body">
-                                <table class="table">
+                                <div class="table-responsive col-sm-12">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th><font face="verdana" color="red" size="4"><center>Subject</center></font></th>
-                                            <th><font face="verdana" color="red" size="4"><center>Action</center></font></th>
+                                            <th>Subject</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <font face="verdana" color="" size="4"><center>
+
+                                        <!-- <font face="verdana" color="" size="4"><center> -->
                                         <?php foreach($$subjects as $subject) { ?>
 
                                         <tr>
@@ -109,10 +111,11 @@ table, th, td {
                                                 <a href="<?php echo base_url("index.php/Subject_Controller/EditSubject/$subject->sub_id");?>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil update"></i></a>&nbsp;
                                                 <a  onclick="return confirm('Are You Sure Remove This Record ');" href="<?php echo base_url("index.php/Subject_Controller/DeleteSubject/$subject->sub_id/$subject->standard_id")?>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o delete"></i></a>
                                             </td>
-                                        </tr></center></font>
+                                        </tr>
                                         <?php } ?>
                                   </tbody>
                                 </table>
+                            </div>  
                             </div>
                         </div>
                     </div>

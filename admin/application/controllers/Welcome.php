@@ -19,31 +19,8 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function export(){
-	 $this->load->view("exportdata");
-	}
 	public function index() {
             $this->load->view('Index');
-    }
-  	public function Excel() {
-  		$this->load->library('Excel');
-		$file=FCPATH."uploads\Book1.xlsx";
-		$obj=PHPExcel_IOFactory::load($file);
-		$cell=$obj->getActiveSheet()->getCellCollection();
-		foreach($cell as $cl){
-			$column=$obj->getActiveSheet()->getCell($cl)->getColumn();
-			$row=$obj->getActiveSheet()->getCell($cl)->getRow();
-			$data_value=$obj->getActiveSheet()->getCell($cl)->getValue();
-			
-			if($row==1){
-				$header[$row][$column]=$data_value;
-			}else{
-				$arr_data[$row][$column]=$data_value;
-			}
-		}
-		$data['header']=$header;
-		$data['values']=$arr_data;
-            $this->load->view('exceldata',$data);
     }
       
 }

@@ -14,6 +14,7 @@ class Test_Controller extends CI_Controller {
         parent::__construct();
         $this->load->model('Test_Model');
         $this->load->model('Student_Model');
+        $this->load->model('Result_Model');
     }
 
     public function ViewTest(){
@@ -31,7 +32,9 @@ class Test_Controller extends CI_Controller {
     public function DeleteTest($id)
     {
     	if (!empty($id)) {
+
             $success = $this->Test_Model->DeleteTest($id);
+            $this->Result_Model->DeleteResult($id);
             $_SESSION['DeleteTest'] = $success;
             redirect('Test_Controller/ViewTest');
         }

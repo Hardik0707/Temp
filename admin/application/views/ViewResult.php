@@ -16,16 +16,24 @@
     <!--header start-->
      <?php $this->load->view("top"); ?>
     <!--header end-->
+    <header id="head" class="secondary" style="height:50px;">
+            <div class="container">
+                <h1>Result</h1>
+            </div>
+        </header>
     <!--sidebar start-->
      <?php $this->load->view("panel1"); ?>
     <!--sidebar end-->
+
+    <div class="container col-sm-9">
     <!--main content start-->
     <div id="page-wrapper">
         <div class="row">
             <!-- Page Header -->
             <div class="col-lg-12">
             <div class="page-header">
-                <h1 class="heading">All Results <a href="<?php echo base_url("index.php/Result_Controller/AddResult")?>" class="btn btn-info">Add Test Result</a><a href="<?php echo base_url("index.php/Result_Controller/EditResult")?>" class="btn btn-info">Update Existing Test Result</a></h1>
+                <a href="<?php echo base_url("index.php/Result_Controller/AddTestResult")?>" class="btn btn-info">Add/Edit Test Result</a>
+                 
                  <ol class="breadcrumb">
                     <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li>Results</li>
@@ -39,9 +47,7 @@
             <div class="col-lg-12">
                 <!-- Advanced Tables -->
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        All Results
-                    </div>
+                    
                     <!-- Welcome -->
                     <div class="panel-body">
                     <?php
@@ -72,7 +78,8 @@
                             }
                         }
                         ?>
-                        <div class="table-responsive">
+                        <div class="table-responsive col-sm-12  ">
+
                             <table id="example" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -88,7 +95,7 @@
                                         $count=1;
                                         if(isset($AllStudents) && (!empty($AllStudents))) {
                                         foreach($AllStudents as $student) {
-                                        $tests = 't_'.$student->stud_id;
+                                        
                                     ?>
                                     <tr>
                                         <td><?php echo $count; $count++; ?></td>
@@ -96,7 +103,7 @@
                                         <td><?php echo $student->stud_name; ?></td>
                                         <td><?php echo $student->standard; ?></td>
                                         <td>
-                                            <a href="<?php echo base_url('index.php/Result_Controller/TestResult/'.$student->roll_no); ?>" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Result">
+                                            <a href="<?php echo base_url('index.php/Result_Controller/TestResult/'.$student->roll_no); ?>" class="btn btn-sm" data-toggle="tooltip" data-placement="top" title="View Result">
                                             View Results
                                             </a>
                                         </td>
@@ -111,7 +118,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 <?php $this->load->view("footer"); ?>
 <script>

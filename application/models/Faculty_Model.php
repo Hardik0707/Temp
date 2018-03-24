@@ -33,6 +33,7 @@ class Faculty_Model extends CI_Model
         return $q->result();
     }
 
+/*
     public function FetchAllTests($std_id,$subject) {
         $this->db->where(array('r.subject'=>$subject,'r.standard_id'=>$std_id));
         $this->db->select('*')->from('result_mst r');
@@ -75,7 +76,63 @@ class Faculty_Model extends CI_Model
         //$this->db->order_by('t.test_name,r.test_id');
         $q = $this->db->get();
         return $q->result();
+    }*/
+
+
+    /*================================================================================*/
+
+    public function FetchAllTests($std_id,$subject){
+        $this->db->select('*');
+        $this->db->where('standard_id',$std_id);
+        $this->db->where('subject',$subject);
+        $this->db->from('test');
+        $query=$this->db->get();
+        return $query->result();
     }
+
+    public function FetchStudents($standard_id,$subject)
+    {
+        $this->db->select('*')->from('student_mst');
+        $array = array('student_mst.standard_id' =>$standard_id ,'student_mst.subject LIKE' =>"%".$subject."%");
+        $this->db->where($array);
+        $this->db->order_by('roll_no','asc');
+        $query=$this->db->get();
+        return $query->result();
+    }
+
+    public function FetchMarks($id){
+        $this->db->select('marks');
+        $this->db->where('test_id',$id);
+       // $this->db->where('roll_no',$roll_no);
+        $this->db->from('result');
+        $this->db->order_by('roll_no','asc');
+         $query = $this->db->get();
+        return $query->result();   
+    }
+
+    public function FetchResult($roll_no,$standard_id,$subject) {
+        
+        $this->db->select('*')->from('result');
+        $this->db->where('roll_no',$roll_no);
+        $this->db->where('subject',$subject);
+        $this->db->where('standard_id',$standard_id);
+        // $this->db->join('test t','t.id=r.test_id');
+        // $this->db->group_by('t.test_name');
+        $this->db->order_by('test_id');
+        $q = $this->db->get();
+        return $q->result();
+    }
+    // public function FetchAllTestsResults($std_id,$subject) {
+    //     $this->db->where('r.subject',$subject);
+    //     $this->db->where('r.standard_id'=>$std_id);
+    //     $this->db->select('*')->from('result r');
+    //     $this->db->join('test_mst t', 't.test_id=r.test_id');
+    //     $this->db->group_by('r.test_id');
+    //     $this->db->order_by('r.test_id');
+    //     $q = $this->db->get();
+    //     return $q->result();
+    // }
+
 }
 ?>
 

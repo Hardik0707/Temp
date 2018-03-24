@@ -50,26 +50,36 @@ class Student_Controller extends CI_Controller {
 		}
 
 	}
-	public function ViewResults() {
-		if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) {
-			$id = $_SESSION['studentid'];
-			$roll_no = $_SESSION['roll_no'];
-			$result['AllTestsResult'] = $this->Student_Model->GetStudentResultBySubject($roll_no);
-			$result['AllTestTestNames']= $this->Student_Model->FetchTestTestNames($roll_no);
-			$result['AllTestSubjects']= $this->Student_Model->FetchTestSubjects($roll_no);
-			$result['AllTests']= $this->Student_Model->FetchStudentsAllTest($roll_no);
-			if(count($result['AllTests']) > 0) {
-				$this->load->view('Student_Dashboard',$result);
-			} else {
-				$result['AllTestTestNames'] = 0;
-				$result['AllTests'] = 0;
-				$result['AllTestsResult'] = 0;
-				$result['AllTestSubjects'] = 0;
-				$this->load->view('Student_Dashboard',$result);
-			}
 
-		} else {
-			redirect('/welcome');
-		}
+	public function ViewResults(){
+		$roll_no = $_SESSION['roll_no'];
+		$this->load->model('Result_Model');
+        $result['StudentDetails'] = $this->Result_Model->FetchStudentDetails($roll_no);
+        $result['AllTests'] = $this->Result_Model->FetchStudentsAllTest($roll_no);
+        $result['AllTestSubjects'] = $this->Result_Model->FetchTestSubjects($roll_no);
+        //print_r($result['AllTests']); die();
+        $this->load->view('Student_Dashboard',$result);
 	}
+	// public function ViewResults() {
+	// 	if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) {
+	// 		$id = $_SESSION['studentid'];
+	// 		$roll_no = $_SESSION['roll_no'];
+	// 		$result['AllTestsResult'] = $this->Student_Model->GetStudentResultBySubject($roll_no);
+	// 		$result['AllTestTestNames']= $this->Student_Model->FetchTestTestNames($roll_no);
+	// 		$result['AllTestSubjects']= $this->Student_Model->FetchTestSubjects($roll_no);
+	// 		$result['AllTests']= $this->Student_Model->FetchStudentsAllTest($roll_no);
+	// 		if(count($result['AllTests']) > 0) {
+	// 			$this->load->view('Student_Dashboard',$result);
+	// 		} else {
+	// 			$result['AllTestTestNames'] = 0;
+	// 			$result['AllTests'] = 0;
+	// 			$result['AllTestsResult'] = 0;
+	// 			$result['AllTestSubjects'] = 0;
+	// 			$this->load->view('Student_Dashboard',$result);
+	// 		}
+
+	// 	} else {
+	// 		redirect('/welcome');
+	// 	}
+	//}
 	}

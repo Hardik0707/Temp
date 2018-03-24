@@ -34,7 +34,7 @@
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Private Announcement<a href="<?php echo base_url('index.php/Announcement_Controller/AddPrivate');?>"
+                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPrivate');?>"
                             class="btn btn-info" style="border-radius: 30px;margin-left:10px;font-family:calibri;font-size: 16px; ">Add New</a></h1>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>

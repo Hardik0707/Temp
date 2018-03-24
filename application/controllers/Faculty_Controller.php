@@ -65,27 +65,31 @@ class Faculty_Controller extends CI_Controller {
     }
 
 
+    public function SearchResults(){
+       $std_id = $this->input->post('standard');
+       $subject = $this->input->post('subject');
+       $standard = $this->input->post('standard_name');
 
-    public function SearchResults() {
-        $std_id = $this->input->post('standard');
-        $subject = $this->input->post('subject');
-        $standard = $this->input->post('standard_name');
-        $result['SearchTerm'] = array("standard"=>$standard,"subject"=>$subject);
-        $result['AllStudentsAllTestsResults'] = $this->Faculty_Model->AllStudentsAllTestsResults($std_id,$subject);
-        if(!empty($result['AllStudentsAllTestsResults'])) {
-            $result['AllTestsResult'] = $this->Faculty_Model->GetStudentResultBySubject($std_id,$subject);
-            $result['AllTestTestNames']= $this->Faculty_Model->FetchTestTestNames($std_id,$subject);
-            $result['AllTests'] = $this->Faculty_Model->FetchAllTests($std_id,$subject);
-            $this->load->view('FacSearchResults',$result);
-        } else {
-            $result['AllStudentsAllTestsResults'] = '0';
-            $result['AllTests'] = '0';
-            $result['AllTestsResult'] = '0';
-            $this->load->view('FacSearchResults',$result);
-        }
-        //print_r($result['AllStudentsAllTestsResults']); die();
+       $this->session->set_userdata('standard',$standard); 
+       $this->session->set_userdata('subject',$subject);
+       $result['Students'] = $this->Faculty_Model->FetchStudents($std_id,$subject);
+       $result['AllTests'] = $this->Faculty_Model->FetchAllTests($std_id,$subject);
 
+       if(!empty($result['AllTests'])){
+       foreach ($result['Students'] as $value) {
+           
+        $result['StudentResult_'.$value->stud_id] = $this->Faculty_Model->FetchResult($value->roll_no,$std_id,$subject);
+
+       }
+        $this->load->view('FacultyResult',$result);
+   }else{
+    $result['Students'] = '0';
+    $result['AllTests'] = '0';      
+    $this->load->view('FacultyResult',$result);      
     }
+}
+
+    
 
     public function FetchSubjects() {
         $std_id = $this->input->post('id');
@@ -98,7 +102,7 @@ class Faculty_Controller extends CI_Controller {
                 foreach ($sub_array as $sub) {
                     echo "<option value='".$sub."'>".$sub."</option>";
                 }
-                //$result['subject_id'] = $subject->sub_id;
+                
             }
         } else {
             echo "<option value=''>No Subjects Found.</option>";;

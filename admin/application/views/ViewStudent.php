@@ -36,7 +36,7 @@
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Students <a href="<?php echo base_url("index.php/Student_Controller/AddStudent")?>" class="btn btn-info">Add New Student</a></h1>
+                            <a href="<?php echo base_url("index.php/Student_Controller/AddStudent")?>" class="btn btn-info">Add New Student</a>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                                 <li>Students</li>
@@ -52,9 +52,7 @@
                     <div class="col-lg-12">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                All Students
-                            </div>
+                            
                             <!-- Welcome -->
                             <div class="panel-body">
                                 <?php
@@ -98,7 +96,9 @@
                                 }
                             }
                             ?>
-                            <div class="table-responsive">
+
+                            <div class="table-responsive col-sm-12">
+                            
                                 <table id="example" class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>

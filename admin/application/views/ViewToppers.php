@@ -23,7 +23,7 @@
                 <!-- Page Header -->
                 <div class="col-lg-12">
                   <div class="page-header">
-                    <h1 class="heading">All Toppers <a href="<?php echo base_url("index.php/Toper_Controller/AddNewTopper")?>" class="btn btn-info">Add New Topper</a></h1>
+                    <a href="<?php echo base_url("index.php/Toper_Controller/AddNewTopper")?>" class="btn btn-info">Add New Topper</a>
                     <ol class="breadcrumb">
                         <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li>Toppers</li>
@@ -62,7 +62,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">List of All Toppers</div>
                                     <div class="panel-body">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive col-sm-12">
                                             <?php if (isset($ListAllToppers)) { ?>
                                             <table id="example" class="table table-striped table-bordered table-hover">
                                                 <thead>

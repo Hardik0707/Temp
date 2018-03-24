@@ -7,25 +7,84 @@
     <?php $this->load->view("head"); ?>
 
     <style type="text/css">
-        #head.secondary{
-            height: 50px !important;
-            padding-bottom: 25px;
-        }
-    </style>
+    #head.secondary{
+        height: 50px !important;
+        padding-bottom: 25px;
+    }
+</style>
 </head>
 <body>
-    
+
     <!-- Fixed navbar -->
     <?php $this->load->view("top"); ?> 
     <header id="head" class="secondary" >
-            <div class="container">
-                    <h1>Home</h1>
-            </div>
+        <div class="container">
+            <h1>Home</h1>
+        </div>
     </header>
     <?php $this->load->view("panel1"); ?> 
 
-    <!-- <h1>Welcome Hardik</h1> -->
-    <?php $this->load->view("footer"); ?>
+    <?php 
+    //print_r($_SESSION['Admin']); 
+    $user_name = $_SESSION['Admin']['user_name'];
+    $id =$_SESSION['Admin']['id'];
+    $email = $_SESSION['Admin']['email'];
+
+    ?>
+
+    <div class="container col-sm-9" style="margin-top: 25px;">
+        <div id="page-wrapper">
+            <?php 
+            if (isset($_SESSION['DashboardUpdated'])) {
+                ?>
+                <div class="alert alert-danger"><?php echo $_SESSION['DashboardUpdated'] ?></div>
+                <?php unset($_SESSION['DashboardUpdated']);
+            } 
+            ?>
+            <!-- Add Image Form -->
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="panel panel-default">
+                        <!-- Welcome -->
+                        <div class="panel-body">
+
+                            <form role="form" enctype="multipart/form-data" method="post" action="<?php echo base_url("index.php/Login_Controller/Update") ?>">  
+
+                               <div class="col-md-6 form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-input form-control branch" name="user_name" required value="<?php echo $user_name ?>" >
+
+
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Email Id: </label>
+                                <input type="email" class="form-input form-control branch" name="email" required value="<?php echo $email ?>" >
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Old Password</label>
+                                <input type="password" class="form-input form-control branch" name="password" required>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>New Password</label>
+                                <input type="password" class="form-input form-control branch" name="npassword" required>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <input type="submit" class="btn btn-default" value="Update" name="update" >
+                            </div>
+                        </form> 
+                    </div>
+                </div> 
+            </div>
+        </div>               
+
+    </div>
+</div>
+
+
+<!-- <h1>Welcome Hardik</h1> -->
+<?php $this->load->view("footer"); ?>
 
 </body>
 </html>    

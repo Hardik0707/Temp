@@ -140,8 +140,8 @@
                                 <img alt="" src="<?php echo base_url('assets/images/Testimonials/1.jpg'); ?>" class="img-circle img-responsive"/>
                             </div> 
                             <div class="testimonials col-lg-10"> 
-                                <h3><p>“Thank you so much....We too had a very good time under your tutelage.....it really was an unforgettable experience and a pleasant memory for us students to cherish forever....Thanks a lot”
-</p>
+                                <h3><p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
+                                 Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people</p>
                                 
                                     - <small>Viper</small> 
                                 </h3> 
@@ -154,8 +154,8 @@
                             </div> 
                             <div class="testimonials col-lg-10"> 
                             <h3>
-                            <p>Thank u Sir for taking us to silent resort and giving wonderful memories with JDs ! Wonderful day and unforgettable experience !
-</p>- 
+                            <p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
+                            Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people </p>- 
                             
                             <small>The Beast</small> </h3> 
                             </div> 
@@ -167,8 +167,8 @@
                                 <img alt="" src="<?php echo base_url('assets/images/Testimonials/3.jpg'); ?>" class="img-circle img-responsive"/>
                             </div> 
                             <div class="testimonials col-lg-10"> 
-                                <h3><p>“Regular tests have boosted up confidence in kids before their semester tests. Daily practice is mantra  which JDs  follow it with utmost rigor” 
-</p> - <small>The Rock</small> 
+                                <h3><p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
+                            Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people</p> - <small>The Rock</small> 
                                 </h3> 
                             </div> 
                         </div> 
@@ -205,17 +205,14 @@
         <div class="row">
             <!-- main content -->
             <section class="col-sm-8 maincontent">
-            	<center><h2>Building “Neev” for Future</h2>
+            	<center><h2>Turn A Setback Into A Comeback</h2>
                 <!-- <h3>About Us</h3> -->
                   <br><br>
                     <img src='<?php echo base_url("assets/images/about.jpg"); ?>' alt="" class="img-rounded pull-right" width="350">
                       
                     <p>
-                   <h3> We are a private tuition providing personal mentoring based out of Borvali (W).<br>
-                   <br>We Offer Mentoring/Tutions and Test series<br>
-Batches for:  Std. VIII , IX and X<br>
-Boards : CBSE, ICSE and SSC<br>
-Subjects: Maths, Science, Social Studies and English<br>                </p>
+                    Nevertheless, we immensely value our traditional ethos and systems of education. MaggieMedia through the adoption of methods of teaching and syllabus of national and state Examination Boards. The essence of our success is not only in our best quality of our teacher, our institute and culture centers, our education hub, our modern infrastructure… but also because “we care”. We have a best and well qualified teachers staff for making your children future brighter.
+                </p>
                 </center>
                 
             </section>

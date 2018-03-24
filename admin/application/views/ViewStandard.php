@@ -27,7 +27,7 @@
                     <!-- Page Header -->
                     <div class="col-lg-9">
                         <div class="page-header">
-                            <h1 class="heading">All Standards <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-info">Add New Standard</a></h1>
+                            <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-sm">Add New Standard</a>
                             <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li>Standards</li>
@@ -41,9 +41,7 @@
                     <div class="col-lg-8" style="padding-right: 0px;">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                All Standards
-                            </div>
+                            
                             <!-- Welcome -->
                             <div class="panel-body">
 
@@ -71,7 +69,7 @@
                                 <?php unset($_SESSION['StandardUpdated']); } } ?>
 
                                 <?php if(isset($res)) {?>
-                                <div class="table-responsive">
+                                <div class="table-responsive col-sm-12">
 
                                     <table id="example" class="table table-striped table-bordered table-hover">
                                         <thead>

@@ -44,7 +44,7 @@
                     <!-- page header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                        <h1 class="heading">Add New Student</h1>
+                        
                          <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li><a href="<?php echo base_url("index.php/Login_Controller/ViewStudent"); ?>">All Students</a></li>

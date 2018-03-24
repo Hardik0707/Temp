@@ -2,7 +2,14 @@
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
-s
+<style type="text/css">
+td,shape-image-threshold: {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
 </head>
 <body>
     <div id="wrapper">
@@ -30,8 +37,8 @@ s
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">All Public Announcement<a href="<?php echo base_url('index.php/Announcement_Controller/AddPublic');?>"
-                            class="btn btn-info" style="border-radius: 30px;margin-left:10px;font-family:calibri;font-size: 16px; ">Add New</a></h1>
+                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPublic');?>"
+                            class="btn btn-sm ">Add New</a>
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
                                 <li class="active">Public Announcement</li>
@@ -82,7 +89,7 @@ s
                                 ?>
 
 
-                                <div class="table-responsive col-lg-12">
+                                <div class="table-responsive col-sm-12">
                                 <table id="example" class="table table-striped table-bordered table-hover table-responsive">
                                     <thead>
                                         <tr>
