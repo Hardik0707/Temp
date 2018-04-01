@@ -4,35 +4,45 @@
 	<title>Contact Us</title>
 	<?php $this->load->view('head'); ?>
 	
+	<style type="text/css">
+		.contact_info{
+        float: right; text-align: center;margin-top: 10px;
+    }    
+    .contact_info span{
+        background: #3d84e6;color:#fff;font-size: 16px; height:;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: -05px;margin-left: 15px;font-family:'Lato', sans-serif;
+    }
+    #head.secondary{
+        height: 45px !important;
+        min-height: 45px;
+        margin-top:-10px;
+
+    }
+
+    h2{
+       margin-top: -05px;
+    }
+	</style>
 </head>
 <body>
 
 	<?php $this->load->view('navbar'); ?>
 	
 	<!-- ====================================================== -->
-	<div id="Contactus">
-
-		<header id="head" class="secondary">
-
-			<div class="container">
-				<h1>Contact Us</h1>    
-			</div>
+	<div>
+		<header id="head" class="secondary container" style="margin-top: 10px;">
+				<h2>Contact Us</h2>    
 		</header>
 	</div>
 	<!-- ========================================================= -->
-	
-	<!-- <header class="secondary" id="head"> -->
-		<div class="container">
-			<h1>
+		<div class="container" style="margin-top: 15px;">
+			<h2>
 				Frequently Asked Questions(FAQ)
-			</h1>
+			</h2>
 		</div>
 		<!-- </header> -->
 
 		<!-- container -->
-		
-
-		<div class="container" style="margin-top: 25px;">
+		<div class="container" style="margin-top: 10px;">
 			<div class="panel-group" id="accordion">
 				
 				<div class="panel panel-default">
@@ -105,18 +115,16 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<!-- <h3 class="section-title">Your Message</h3>-->	
-				<div id="Feedback">
+
+
+			<div class="container col-md-6">
 					<header id="head" class="secondary">
-						<div class="container" style="width: 200px;">
-							<h1 style="width: 0px;">Feedback</h1>
-						</div>
+							<h2>Feedback</h2>
 					</header>
-				</div>	<br>		
-				<!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
+				<br>		
+				
 				<form name="sentMessage" id="contactForm"  novalidate> 
-					<div class="control-group">
+					<div class="control-group col-xs-5">
 						<div class="controls">
 							<input type="text" class="form-control" 
 							placeholder="Full Name" id="name" required
@@ -125,63 +133,49 @@
 						</div>
 					</div> 	
 
-					<div class="control-group">
+					<div class="control-group col-xs-7">
 						<div class="controls">
 							<input type="email" class="form-control" placeholder="Email" 
 							id="email" required
 							data-validation-required-message="Please enter your email" />
 						</div>
 					</div> 	
-
-					<div class="control-group">
+					<div class="control-group col-sm-12">
 						<div class="controls">
-							<br>
 							<textarea rows="4" cols="500" class="form-control" 
 							placeholder="Message" id="message" required
 							data-validation-required-message="Please enter your message" minlength="5" 
 							data-validation-minlength-message="Min 5 characters" 
 							maxlength="999" style="resize:none"></textarea>
 						</div>
+						<input type="submit" class="btn pull-right" value="Send" name="send" style="margin: 10px 10px 20px 10px;">
 					</div> 
 
-					<div id="success"> </div> <!-- For success/fail messages -->
-					<br>
-					<button type="submit" class="btn btn-primary pull-right">Send</button><br /> <br /> <br />
 				</form>
 			</div>
 
-				<div class="col-md-6">
-					<!-- <h3 class="section-title">Office Address</h3> -->
-					<div id="Head_branch">
-						<header id="head" class="secondary">
-							<div class="container" style="width: 180px;">
-								<h1 style="width: 170px;">Head Branch</h1>
-							</div>
-						</header>
-					</div> 
+			<div class="container col-md-6">
+				<header id="head" class="secondary">
+								<h2>Head Branch</h2>				
+				</header>
 
-					<div class="contact-info" style="padding-left: 20px;">
+				<div class="contact-info" style="padding-left:20px;margin-top: 5px;margin-bottom: 20px;">
 
-				<h5>Mumbai</h5>
-				<h5>Address:</h5>
-				<!-- 7th floor, SV Road,  --><!-- <br> -->Borivali West<br>Mumbai-400092.
+				<h3 align="center"><u>Mumbai</u></h3>
+				<center>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30136.97285565413!2d72.82168834910802!3d19.233531217838006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0ce3cd117f7%3A0x515d558b955bf692!2sBorivali+West%2C+Mumbai%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1521647356664" frameborder="0" style="border:0; float: right;margin:10px 10px 15px 0px;width:320px;height: 210px;" allowfullscreen class="embed-responsive-item"></iframe>
+				</center>
+				<h4>Address:</h4>
+				7th floor, SV Road<br>Borivali West<br>Mumbai-400092.
 
-				<h5>Email</h5>
-				mumbai@gmail.com
+				<h4>Email</h4>
+				acdehs@#$__asjdhj@gmail.com
 
-				<h5>Phone</h5>
+				<h4>Phone</h4>
 				Jimit Sir: 7303781863 <br>
 				Deval Sir: 9920564563
-
-			</div>
-			<div>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30136.97285565413!2d72.82168834910802!3d19.233531217838006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0ce3cd117f7%3A0x515d558b955bf692!2sBorivali+West%2C+Mumbai%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1521647356664" frameborder="0" style="border:0" allowfullscreen></iframe>
-			
-			</div>
-
-			
-		</div> 
-
+				</div>			
+			</div> 
 
 		</div> 
 		<!-- End of Row -->
@@ -191,9 +185,9 @@
 
 
 <div id="Branch">
-	<header id="head" class="secondary">
+	<header id="head" class="secondary container">
 		<div class="container">
-			<h1>Our Other Branches</h1>
+			<h2>Our Other Branches</h2>
 		</div>
 	</header>
 </div>
@@ -207,18 +201,17 @@
 		{
 			foreach($AllBranch as $branch) {
 				?>
-				<div class="col-md-6">
-					<div class="team-member">
-						<h4 style="text-align: left;"> <?php echo $branch->branch_area; ?> </h4> <br>
-						Address: <br> <?php echo $branch->address; ?> <br>
-						Email: <br> <?php echo $branch->email; ?> <br>
-						Phone No: <br> <?php echo $branch->phone_no1; $branch->phone_no2 ?>
-					</div>
+				<div class="col-sm-4" style="align-items: center;">
+						<h3> <?php echo $branch->branch_area; ?> </h3>
+						<h5>Address: <?php echo $branch->address; ?></h5> 
+						<h5> Email:  <?php echo $branch->email; ?> </h5>
+						<h5>Phone No: <?php echo $branch->phone_no1; $branch->phone_no2 ?></h5>
+					
 				</div>
 				<?php } 
 			} 
 			else
-				echo "THIS IS ELSE PART";
+				echo "No Other Branches are situated Right now";
 			?>
 
 
@@ -226,6 +219,7 @@
 
 	</div>
 	<!-- /container -->
+
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src='<?php echo base_url("assets/js/modernizr-latest.js"); ?>'></script> 
 	<script type='text/javascript' src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>

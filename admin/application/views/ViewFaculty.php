@@ -9,6 +9,15 @@
         .table-bordered .subject  > tbody > tr > td  {
             line-height: 1;
         }
+         #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
+        padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
+    }
     </style>
 </head>
 <body>
@@ -16,10 +25,10 @@
         <!--header start-->
         <?php $this->load->view("top"); ?>
 
-        <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Faculty</h1>
-            </div>
+        <header id="head" class="secondary">
+            
+                <h2>Faculty</h2>
+            
         </header>
         <!--header end-->
         <!--sidebar start-->
@@ -36,8 +45,8 @@
                         <a href="<?php echo base_url("index.php/Faculty_Controller/AddFaculty"); ?>" class="btn btn-sm">Add New Faculty</a>
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-                            <li>Faculties</li>
-                            <li class="active">All Faculties</li>
+                           
+                            <li class="active">Faculty</li>
                         </ol>
                       </div>
                 </div></div>

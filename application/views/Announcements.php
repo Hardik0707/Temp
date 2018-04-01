@@ -36,16 +36,32 @@
 		font-size: 14px;
 		text-overflow:ellipsis;
 	}
+
+	.contact_info{
+        float: right; text-align: center;margin-top: 10px;
+    }    
+    .contact_info span{
+    	background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 15px;margin-left: 15px;font-family:'Lato', sans-serif;font-style: normal;
+    }
+
+	#head.secondary{
+		min-height: 45px;
+		height: 45px !important;
+		margin-top:-10px;
+	}
+	h2{
+		margin-top: -05px;
+	}
 	
 </style>
 
 </head>
-<body style="background-color: ">
+<body>
 	<?php $this->load->view("navbar"); ?>
 
-	<header id="head" class="secondary">
+	<header id="head" class="secondary container" style="margin-top: 10px;">
 		<div class="container">
-			<h1>Announcements</h1>
+			<h2>Public Announcements</h2>
 		</div>
 	</header>
 
@@ -98,6 +114,8 @@
 
 
 				</div>
+			</div>
+			
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 				<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 

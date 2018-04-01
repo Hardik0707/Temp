@@ -2,6 +2,18 @@
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
+
+    <style type="text/css">
+        #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+            }
+            h2{
+            margin-top: -07px;
+            }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -9,10 +21,8 @@
         <?php $this->load->view("top"); ?>
         <!--header end-->
 
-        <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Gallery</h1>
-            </div>
+        <header id="head" class="secondary">
+                <h2>Gallery</h2>
         </header>
 
         <!--sidebar start-->
@@ -26,7 +36,7 @@
                     <!-- Page Header -->
                     <div class="col-lg-12">
                         <div class="page-header">
-                            <h1 class="heading">Add New Image</h1>
+                            
 
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>

@@ -8,6 +8,15 @@
         .row {
             margin-left: 0px;
         }
+         #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
+        padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
+    }
     </style>
     <body>
         <!--  wrapper -->
@@ -15,10 +24,10 @@
             <!-- navbar top -->
             <?php $this->load->view("top"); ?>
             <!-- end navbar top -->
-            <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Standards</h1>
-            </div>
+            <header id="head" class="secondary">
+            
+                <h2>Standards</h2>
+            
         </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>

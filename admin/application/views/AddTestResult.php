@@ -2,6 +2,18 @@
 <head>
     <title>Tution Classes | Admin</title>
     <?php $this->load->view("head"); ?>
+
+    <style type="text/css">
+        #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+            }
+            h2{
+            margin-top: -07px;
+            }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -10,9 +22,7 @@
         <!--header end-->
 
         <header id="head" class="secondary">
-            <div class="container">
-                <h1>Add/Edit Test Results</h1>
-            </div>
+                <h2>Add/Edit Test Results</h2>
         </header>
 
         <!--sidebar start-->

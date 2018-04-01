@@ -32,6 +32,7 @@ class Student_Controller extends CI_Controller {
 					$student_name = $value->stud_name;
 					$_SESSION['stud_name']=$student_name;
 					$student_photo = $value->photo;
+					$standard_id = $value->standard_id;
 					$flag = 1;
 					break;
 				}
@@ -41,6 +42,7 @@ class Student_Controller extends CI_Controller {
 				$_SESSION['studentid'] = $id;
 				$_SESSION['studentname'] = $student_name;
 				$_SESSION['roll_no'] = $roll_no;
+				$_SESSION['standard_id'] = $standard_id;
 				redirect('Student_Controller/ViewResults');
 			} else {
 				$_SESSION['StudentRestricted'] = '0';
@@ -53,11 +55,14 @@ class Student_Controller extends CI_Controller {
 
 	public function ViewResults(){
 		$roll_no = $_SESSION['roll_no'];
+		$standard_id = $_SESSION['standard_id'];
 		$this->load->model('Result_Model');
-        $result['StudentDetails'] = $this->Result_Model->FetchStudentDetails($roll_no);
-        $result['AllTests'] = $this->Result_Model->FetchStudentsAllTest($roll_no);
-        $result['AllTestSubjects'] = $this->Result_Model->FetchTestSubjects($roll_no);
-        //print_r($result['AllTests']); die();
+        $result['StudentDetails'] = $this->Result_Model->FetchStudentDetails($roll_no,$standard_id);
+
+        $result['AllTests'] = $this->Result_Model->FetchStudentsAllTest($roll_no,$standard_id);
+        $result['AllTestSubjects'] = $this->Result_Model->FetchTestSubjects($roll_no,$standard_id);
+
+        // print_r($result['AllTestSubjects']); die(); 	
         $this->load->view('Student_Dashboard',$result);
 	}
 	// public function ViewResults() {

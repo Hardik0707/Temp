@@ -8,8 +8,13 @@
 
     <style type="text/css">
     #head.secondary{
-        height: 50px !important;
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
         padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
     }
 </style>
 </head>
@@ -18,21 +23,18 @@
     <!-- Fixed navbar -->
     <?php $this->load->view("top"); ?> 
     <header id="head" class="secondary" >
-        <div class="container">
-            <h1>Home</h1>
-        </div>
+        
+            <h2>Home</h2>
+        
     </header>
-    <?php $this->load->view("panel1"); ?> 
-
-    <?php 
-    //print_r($_SESSION['Admin']); 
+    <?php $this->load->view("panel1");
+     
     $user_name = $_SESSION['Admin']['user_name'];
     $id =$_SESSION['Admin']['id'];
     $email = $_SESSION['Admin']['email'];
-
     ?>
 
-    <div class="container col-sm-9" style="margin-top: 25px;">
+    <div class="container col-sm-9" style="margin-top: 10px;">
         <div id="page-wrapper">
             <?php 
             if (isset($_SESSION['DashboardUpdated'])) {

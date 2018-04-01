@@ -20,7 +20,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 	margin-top: 0px;
 }
 h2 {
-	margin: 30px 0;
+	margin: 00px 0;
 }
 a{
     color:#3d84e6;
@@ -73,7 +73,6 @@ label {
 }
 /* Header */
 #head {
-	/*background: #181015 url( ../images/bg_header.jpg) no-repeat;*/
 	background-size: cover;
 	height: 600px;
 	text-align: center;
@@ -85,8 +84,7 @@ label {
 
 
 #head.secondary {
-	height: 60px;
-	min-height: 60px;
+	height: 40px;
 	padding-top: 0px;
 	border-radius: 20px 20px;
 }
@@ -189,9 +187,9 @@ label {
 	color: #c0c0c0;
 }
 ul, .list.custom-list ul {
-	margin: 0 0 11px;
+	margin: 0 0 ;
 	list-style-type: none;
-	padding-left: 10px;
+	padding-left: 0px;
 }
 .list.custom-list ul li {
 	margin: 0;
@@ -827,8 +825,8 @@ nav#filter a.current {
 */
 @media (max-width: 767px) {
 #head.secondary {
-	height: 50px;
-	/*min-height:	 80px;*/
+	height: 40px;
+	
 	background-size: initial;
 }
 #camera_wrap_4, #head{
@@ -859,7 +857,7 @@ height:480px !important;
 @media (max-width: 768px) {
 /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
 #head.secondary{ 
-height: 60px !important;
+height: 40px !important;
 }
 
 #camera_wrap_4, #head{

@@ -5,6 +5,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin Login</title>
 	<?php $this->load->view("head"); ?>
+	<style type="text/css">
+		#head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+            }
+            h2{
+            margin-top: -07px;
+            }
+
+            .form-control{
+            	border-radius: 20px 20px;
+            }
+	</style>
 </head>
 <body>
 
@@ -12,46 +27,45 @@
 	<div class="navbar navbar-inverse">
 		<div class="container">
 			<center>
-				<img src='<?php echo base_url("assets/images/1logo.png"); ?>' alt="Logo">
+				<img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo" style="height:100;width: 150px;">
 			</center>
 		</div>
 	</div>	
 
 
-	<header id="head" class="secondary" style="height:50px;">
-		<div class="container">
-			<h1>Administrator Panel</h1>
-		</div>
-	</header>
+	<header id="head" class="secondary">
+		
+			<h2>Administrator Panel</h2>
+			</header>
 
 
 	<div class="container">
 
-		<div style="margin-top: 8rem;">
+		<div style="margin-top: 4rem;">
 			<div class="col-md-4 col-md-offset-4"
-			style="background: #e9e9f3bd; height: 240px; border-radius: 12px;">
+			style="background: #e9e9f3bd; height: 240px; border-radius: 20px 20px;">
 			<div class="panel panel-default">
-				<div class="panel-heading" style="background-color:  transparent !important; ">
-					<h3 class="panel-title"><center>Admin Login</center></h3>
+				<div class="panel-heading" style="background-color:transparent;border: 0px; ">
+					<h2 class="panel-title"><center>Admin Login</center></h2>
 				</div>
 				<div class="panel-body">
-					<?php if(isset($msg))
-					{
-						echo "<p style='text-align: center;font-weight: 900;color: white;'>".$msg."</p>";
-					}?>
+					
 
 					<form accept-charset="UTF-8" role="form" method="POST" action="<?php echo base_url('index.php/Login_Controller/Home'); ?>">
-						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="Username" name="username" type="text" required="true">
 							</div>
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="" required="true">
+								<input class="form-control" placeholder="Password" name="password" type="password" required="true">
 							</div>
 							
-							<input class="btn btn-lg btn-block" type="submit" value="Login" style="margin-top: 30px;">
-						</fieldset>
+							<input class="btn btn-lg btn-block" type="submit" value="Login" style="border-radius: 20px 20px;">
+						
 					</form>
+					<?php if(isset($msg))
+					{
+						echo "<p style='text-align: center;font-weight: 900;color:Red;margin-top:5px;'>*".$msg."</p>";
+					}?>
 				</div>
 			</div>
 		</div>

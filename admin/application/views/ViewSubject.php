@@ -4,25 +4,28 @@
         <title>View Subjects</title>
         <?php $this->load->view("head"); ?>
         <style type="text/css">
-            .alert {
-                margin: 10px 10px;
-            }
-            .btn{
-                border-radius: 20px 20px;
-            }
-        </style>
-        <style>
-thead {color:blue;}
-tbody {color:blue;}
-tfoot {color:red;}
+        .alert {
+            margin: 10px 10px;
+        }
+        .btn{
+            border-radius: 20px 20px;
+        }
 
-table, th, td {
-    border: 3px solid black;
-}
-</style>
-<style>
-    p.inset {border-style: inset;}
-</style>
+        table, th, td {
+            border: 3px solid black;
+        }
+        p.inset {border-style: inset;}
+
+        #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+        }
+        h2{
+            margin-top: -07px;
+        }
+    </style>
     </head>
     <body>
         <!--  wrapper -->
@@ -32,9 +35,9 @@ table, th, td {
             <?php $this->load->view("top"); ?>
             <!-- end navbar top -->
             <header id="head" class="secondary" >
-            <div class="container">
-                <h1>Subjects</h1>
-            </div>
+            
+                <h2>Subjects</h2>
+            
             </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>

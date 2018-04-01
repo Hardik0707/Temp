@@ -1,17 +1,14 @@
 
-	<div class="navbar navbar-inverse" style="padding-top: 0px;">
-		<div class="contact_info" style="float: right; text-align: center; margin-top: 5px; margin-right: 10px;">
-			<span class="fa fa-envelope"></span> abc.xyz@pqr.com 
-			<span style="background: #FA6210;color: #fff;font-size: 16px;font-style: normal;border-radius: 0 6px 6px 0;">&nbsp;<span class="fa fa-phone"></span> &nbsp;+91 9876543210</span>
-		</div>
-		<div class="container" style="padding-top: 1.8rem">
-			<div class="navbar-header">
+	<div class="navbar navbar-inverse" style="margin-top:-25px;">
+		
+		<div class="container" style="padding-top: 1.5rem">
+			<div class="navbar-header" style="margin-bottom: 10px;">
 				<!-- Button for smallest screens -->
 
 
 				<a class="navbar-brand" href='<?php echo base_url("index.php/welcome"); ?>'>
 
-					<img src='<?php echo base_url("assets/images/1logo.png"); ?>' alt="Logo">
+					<img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo" style="margin-top:0px;width: 150px; height:80px;">
 				</a><br />
 
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
@@ -92,7 +89,9 @@
 
 
 
-						
+						<div class="contact_info">
+							&nbsp;<span><i class="fa fa-phone"></i> &nbsp;+91 9876543210 </span>
+						</div>
 					</ul>
 					
 				</div>
@@ -134,9 +133,7 @@
 						</fieldset>
 					</form>
         </div>
-       <!--  <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
+       
       </div>
       
     </div>

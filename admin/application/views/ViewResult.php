@@ -9,6 +9,15 @@
         .table-bordered .tests  > tbody > tr > td  {
             line-height: 1;
         }
+        #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+        }
+        h2{
+            margin-top: -07px;
+        }
     </style>
 </head>
 <body>
@@ -16,10 +25,8 @@
     <!--header start-->
      <?php $this->load->view("top"); ?>
     <!--header end-->
-    <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Result</h1>
-            </div>
+    <header id="head" class="secondary">
+                <h2>Result</h2>
         </header>
     <!--sidebar start-->
      <?php $this->load->view("panel1"); ?>

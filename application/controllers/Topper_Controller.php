@@ -17,6 +17,6 @@ class Topper_Controller extends CI_Controller {
             $result['a_'.$year->year_id] = $this->Topper_Model->fetchAllToppers($year->year_id);
         }
         $result['AllYears'] = $years;
-        $this->load->view('Toppers',$result);
+        $this->load->view('Toppers_old',$result);
     }
 }

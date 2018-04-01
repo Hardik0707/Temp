@@ -36,15 +36,15 @@
 
 
 
-    //print_r($final_results);
-	$graph_colors = array("#DC143C","#00008B","#006400","#20B2AA","#FFA500","#8B4513","#6A5ACD","#800080","#cffa1b","#fe3bcc","#45d7f3","#04e2cd","#ec4a68","#703be8");
+ //    //print_r($final_results);
+	// $graph_colors = array("#DC143C","#00008B","#006400","#20B2AA","#FFA500","#8B4513","#6A5ACD","#800080","#cffa1b","#fe3bcc","#45d7f3","#04e2cd","#ec4a68","#703be8");
     ?>
 <!DOCTYPE HTML>
 <html>
     <head>
         <?php $this->load->view("head") ?>
         <title>TutionClasses</title>
-        <script>
+        <!-- <script>
             $(document).ready(function(){
             	$(".canvasjs-chart-credit").remove();
             	$("Trial Version").hide();
@@ -120,7 +120,7 @@
               chart.render();
             }
         </script>
-        <script src="<?php echo base_url("assets/js/canvasjs.min.js"); ?>"></script>
+        <script src="<?php echo base_url("assets/js/canvasjs.min.js"); ?>"></script> -->
     </head>
     <body>
         <?php
@@ -135,7 +135,7 @@
             <!-- page header -->    
     <header id="head" class="secondary" style="height:40px;">
         <div class="container heading">
-        <h1><?php echo $_SESSION['studentname'] ?>'s Result</h1>
+        <h2><?php echo $_SESSION['studentname'] ?>'s Result</h2>
         </div>
     </header>    
          
@@ -245,30 +245,38 @@
                             </tr>
                         </thead>
                     </table>
-                    <table class="table table-bordered dataTable" id="sampleTable">
+
+
+
+<!-- =========================================================================================== -->
+<?php foreach ($AllTestSubjects as $sub) { ?>
+<div class="table table-responsive">
+    <table class="table table-bordered dataTable" id="sampleTable">
                         <tbody>
                             <tr>
                                 <th>Subject Name</th>
-                                <th>Chapter Name</th>
-                                <th>Marks</th>
-                                <th>Test Type</th>
-                            </tr>
+                                <?php foreach ($AllTests as $test){
+                                    if($test->subject==$sub->subject)
+                                    echo "<th>".$test->chapter."</th>";
+                                } ?>
+                                 <th>Total Marks</th>   
+                                 <th>Percentage</th>
+                                </tr>
 
                             <?php 
-                            // print_r($AllTests);
+                            
                              $i = 0;$total_marks=0;$out_of=0;
-                                
-                               
-                            foreach ($AllTests as $test) { ?>
+                            
+                            ?>
+                        
                             <tr>
-                                <td><?=$test->subject;?></td>
-                                <td><?=$test->chapter; ?></td>
-                                <td><?=$test->marks; ?></td>
-                                <td><?=$test->test_type; ?></td>
+                                <td><?=$sub->subject?></td>
 
-
-                                <?php
-                                $marks = $test->marks;
+                                <?php foreach ($AllTests as $test){
+                                    if($test->subject==$sub->subject){
+                                    echo "<td>".$test->marks."</td>"; 
+                                    
+                                    $marks = $test->marks;
 
                                 if(strcmp($marks,'N/A')!=0 || strcmp($marks,'n/a')!=0){
                                         //total logic starts
@@ -280,17 +288,19 @@
                                     } else {
                                         echo "N/A";
                                     }
-                                    echo "</td>";
-                            
+                                }}
+                                    
+                                
                                 ?>
-                                <!-- <td></td> -->
+                                <td><?php echo $total_marks."/".$out_of; ?></td>
+                                <td><?=round(($total_marks/$out_of*100),2)."%";?></td>
                             </tr>
-                            <?php } ?>
+                            <?php ?>
                             
                         </tbody>
                     </table>
 
-                    <table class="table table-bordered">
+                    <!-- <table class="table table-bordered">
                         
                         <tr>
                                 <th>Total Marks</th>
@@ -299,8 +309,27 @@
                                 <th><?=round(($total_marks/$out_of*100),2)."%";?></th>    
                         </tr>
 
-                    </table>
-                </div>
+                    </table> -->
+    </div>
+                    <?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============================================================================================== -->
+
+            
             </div>
 
         <!-- end page-wrapper -->
@@ -312,9 +341,9 @@
 
 
         <script>
-            $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-            });
+            // $(document).ready(function(){
+            // $('[data-toggle="tooltip"]').tooltip();
+            // });
         </script>
     </body>
 </html>

@@ -15,6 +15,15 @@
         select.subject {
             padding: 6px 4px;
         }
+        #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+        }
+        h2{
+            margin-top: -07px;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
@@ -73,10 +82,10 @@
         <!-- navbar top -->
         <?php $this->load->view("top"); ?>
         <!-- end navbar top -->
-        <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Faculty Registration</h1>
-            </div>
+        <header id="head" class="secondary" >
+            
+                <h2>Faculty Registration</h2>
+            
         </header>
         <!-- navbar side -->
         <?php $this->load->view("panel1"); ?>
@@ -92,7 +101,7 @@
                         
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-                            <li><a href="<?php echo base_url("index.php/Faculty_Controller/ViewFaculty"); ?>">Faculties</a></li>
+                            <li><a href="<?php echo base_url("index.php/Faculty_Controller/ViewFaculty"); ?>">Faculty</a></li>
                             <li class="active">Faculty Registration</li>
                         </ol>
                       </div>

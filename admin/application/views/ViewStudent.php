@@ -3,9 +3,14 @@
     <title>View Student</title>
     <?php $this->load->view("head"); ?>
     <style type="text/css">
-    #head.secondary{
-        height: 70px !important;
+     #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
         padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
     }
 </style>
 </head>
@@ -18,9 +23,9 @@
         <!--sidebar start-->
 
         <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Students</h1>
-            </div>
+            
+                <h2>Students</h2>
+            
         </header>
         
 

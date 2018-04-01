@@ -1,4 +1,4 @@
-		<div class="col-sm-2" style="padding-top: 20px;"> 
+		<div class="col-sm-2" style="padding-top: 0px;"> 
 			<div class="navbar-header">
 					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

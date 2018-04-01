@@ -1,9 +1,9 @@
 <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse" style="padding-top: 0px; min-height: 70px;">
         <div class="container">
             <center>
             <a href="" class="navbar-brand">
-            <img src='<?php echo base_url("assets/images/1logo.png"); ?>' alt="Logo">
+            <img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo">
             </a>
             </center>
 

@@ -14,38 +14,70 @@ class Standard_Controller extends CI_Controller {
     }
 
     public function DeleteStandard($id){
-        $success=$this->Standard_Model->DeleteStandard($id);
-        $_SESSION['StandardDeleted']=$success;
-        redirect('Standard_Controller/ViewStandard');
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            $success=$this->Standard_Model->DeleteStandard($id);
+            $_SESSION['StandardDeleted']=$success;
+            redirect('Standard_Controller/ViewStandard');
+        }
     }
 
     public function ViewStandard() {
-        $result['res']=$this->Standard_Model->FetchRecord();
-        $this->load->view('ViewStandard',$result);
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            $result['res']=$this->Standard_Model->FetchRecord();
+            $this->load->view('ViewStandard',$result);
+        }
     }
 
     public function InsertStandard() {
-        if(isset($_POST['add_standard'])) {
-            //print_r($_POST);
-            $subject = $_POST['StandardName'];
-            $data = array('standard' => $subject);
-            $success=$this->Standard_Model->InsertStandard($data);
-             $_SESSION['StandardAdded']=$success;
-            redirect('Standard_Controller/ViewStandard');
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            if(isset($_POST['add_standard'])) {
+    //print_r($_POST);
+                $subject = $_POST['StandardName'];
+                $data = array('standard' => $subject);
+                $success=$this->Standard_Model->InsertStandard($data);
+                $_SESSION['StandardAdded']=$success;
+                redirect('Standard_Controller/ViewStandard');
+            }
         }
     }
     public function EditStandard($id){
-      $result['res']=  $this->Standard_Model->FetchRecord1($id);
-      $this->load->view('EditStandard',$result);
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            $result['res']=  $this->Standard_Model->FetchRecord1($id);
+            $this->load->view('EditStandard',$result);
+        }
     }
     public function UpdateStandard(){
-        if(isset($_POST['UpdateStandard'])){
-            $stdid=$_POST['stdid'];
-            $StandardName=$_POST['StandardName'];
-            $data=array('standard'=>$StandardName);
-            $success=$this->Standard_Model->UpdateStandard($stdid,$data);
-            $_SESSION['StandardUpdated']=$success;
-            redirect('Standard_Controller/ViewStandard');
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            if(isset($_POST['UpdateStandard'])){
+                $stdid=$_POST['stdid'];
+                $StandardName=$_POST['StandardName'];
+                $data=array('standard'=>$StandardName);
+                $success=$this->Standard_Model->UpdateStandard($stdid,$data);
+                $_SESSION['StandardUpdated']=$success;
+                redirect('Standard_Controller/ViewStandard');
+            }
         }
     }
 }
+
+?>

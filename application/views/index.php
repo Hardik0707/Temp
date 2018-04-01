@@ -7,16 +7,24 @@
 	<meta name="description" content="JD Tutorial">
 	<meta name="author" content="JD.com">
 	<?php $this->load->view("head"); ?>
-    
-
         <style type="text/css">
 
 
+    .contact_info{
+        float: right; text-align: center;margin-top: 10px;
+    }    
+    .contact_info span{
+        background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: -05px;margin-left: 15px;font-family:'Lato', sans-serif;
+    }
     .carousel indicator{
 
         border: 1px solid black;    
     }
 
+    .camera_wrap .camera_pag .camera_pag_ul li
+    {
+        margin: 5px 5px;
+    }
     .testimonials h3{margin-top:15px; }
     
     #camera_wrap_4,#head
@@ -33,98 +41,38 @@
 
 
     #head.secondary{
-        height: 60px !important;
+        height: 45px !important;
+        min-height: 45px;
+        margin-top:-10px;
     }
-/*
-    .img-responsive{
-        height:150px;
-        width:150px
-    }*/
+
+    h2{
+       margin-top: -05px;
+    }
+
     </style>
 </head>
 <body>
 	
 	<?php $this->load->view("navbar"); ?>
-	<?php $this->load->view("slider"); ?>  
-
-
+	<div class="container">
+    <?php $this->load->view("slider"); ?>  
+    </div>
     <br><br>   
     <!-- Testimonials -->
 
-    <header id="head" class="secondary">
+    <header id="head" class="secondary container" style="">
             <div class="container">
-                    <h1>Testimonials</h1>
+                    <h2>Testimonials</h2>
             </div>
     </header>    
 
 
-    <!-- <div class="container" id="testimonials-row"> 
-        <div class="row"> 
-            <div class="col-md-12 column"> 
-                <h2 class="page-header" style="text-align:center;"> 
-                    <small>Our Students Love Us!</small>
-                </h2>
-
-                <div class="carousel slide" id="testimonials-rotate"> 
-                    <div class="carousel-inner"> 
-                        <div class="item active">   
-                            <div class="col-lg-2">
-                                <img alt="" src="<?php echo base_url('assets/images/Testimonials/1.jpg'); ?>" class="img-circle img-responsive"/>
-                            </div> 
-                            <div class="testimonials col-lg-10"> 
-                                <h3><p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
-                                 Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people</p>
-                                
-                                    - <small>Viper</small> 
-                                </h3> 
-                            </div> 
-                            
-                        </div> 
-                        <div class="item">  
-                            <div class="col-lg-2">
-                                <img alt="" src="<?php echo base_url('assets/images/Testimonials/2.jpg'); ?>" class="img-circle img-responsive"/>
-                            </div> 
-                            <div class="testimonials col-lg-10"> 
-                            <h3>
-                            <p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
-                            Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people </p>- 
-                            
-                            <small>The Beast</small> </h3> 
-                            </div> 
-
-                           
-                        </div> 
-                        <div class="item"> 
-                            <div class="col-lg-2">
-                                <img alt="" src="<?php echo base_url('assets/images/Testimonials/3.jpg'); ?>" class="img-circle img-responsive"/>
-                            </div> 
-                            <div class="testimonials col-lg-10"> 
-                                <h3><p>Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people
-                            Stay positive and happy. Work hard and don't give up hope. Be open to criticism and keep learning. Surround yourself with happy, warm and genuine people</p> - <small>The Rock</small> 
-                                </h3> 
-                            </div> 
-                        </div> 
-                    </div> 
-                    
-            
-                <div class="pull-right">
-                   <a class="left" href="#testimonials-rotate" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> 
-                   <a class="right" href="#testimonials-rotate" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                   </a>
-                   <div class="clearfix">
-
-                   </div>  
-               </div>
-               </div>  
-           </div> 
-       </div> 
-   </div> --><!--end of container-->
 
       <div class="container" id="testimonials-row" data-ride="carousel"> 
         <div class="row"> 
             <div class="col-md-12 column"> 
-                <h2 class="page-header" style="text-align:center;"> 
+                <h2 class="page-header" style="text-align:center; margin: 20px 0 20px;"> 
                     <small>Our Students Love Us!</small>
                 </h2>
 
@@ -194,30 +142,26 @@
                     <!-- About Us -->
 <br><br>
 <div id="AboutUs">
-	<header id="head" class="secondary">
+	<header id="head" class="secondary container">
             <div class="container">
-                    <h1>About Us</h1>
+                    <h2>About Us</h2>
             </div>
     </header>
 </div>
     <!-- container -->
-    <section class="container" >
+    <section class="container">
         <div class="row">
             <!-- main content -->
-            <section class="col-sm-8 maincontent">
-            	<center><h2>Building “Neev” for Future</h2>
-                <!-- <h3>About Us</h3> -->
-                  <br><br>
-                    <img src='<?php echo base_url("assets/images/about.jpg"); ?>' alt="" class="img-rounded pull-right" width="350">
+            <section class="col-sm-8 maincontent" style="margin-top: 10px;">
+            	<h2>Building “Neev” for Future</h2>    
+                <img src='<?php echo base_url("assets/images/about.jpg"); ?>' alt="" class="img-rounded pull-right" style="width: 350px;height: 250px;">
                       
-                    <p>
-                   <h3> We are a private tuition providing personal mentoring based out of Borvali (W).<br>
+                <p>
+                   We are a private tuition providing personal mentoring based out of Borvali (W).
                    <br>We Offer Mentoring/Tutions and Test series<br>
 Batches for:  Std. VIII , IX and X<br>
 Boards : CBSE, ICSE and SSC<br>
 Subjects: Maths, Science, Social Studies and English<br>                </p>
-                </center>
-                
             </section>
             <!-- /main -->
 
@@ -225,6 +169,8 @@ Subjects: Maths, Science, Social Studies and English<br>                </p>
             <aside class="col-sm-4 sidebar sidebar-right">  
                 <div class="panel">
                     <center><h3>Announcement</h3></center>
+                    
+                    <ul><li><a href="<?php echo base_url("index.php/Announcement_Controller/PublicAC"); ?>">Click here....</a></li></ul>
                     <!-- <ul class="list-unstyled list-spaces">
                         <li><a href="">Upcoming Exams</a><br>
                             <span class="small text-muted">Date:12/01/18-Std:4-Sucject:English.</span></li>
@@ -249,9 +195,9 @@ Subjects: Maths, Science, Social Studies and English<br>                </p>
 <br><br>
 
 <div id="Faculty">
-    <header id="head" class="secondary">
+    <header id="head" class="secondary container">
             <div class="container">
-                    <h1>Profile of Faculty</h1>
+                    <h2>Profile of Faculty</h2>
             </div>
     </header>
 </div>

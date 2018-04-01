@@ -10,15 +10,18 @@ class Result_Model extends CI_Model {
 
     
 
-    public function FetchStudentDetails($roll) {
+    public function FetchStudentDetails($roll,$standard_id) {
         $this->db->where('roll_no',$roll);
+        $this->db->where('standard_id',$standard_id);
         $this->db->select('*')->from('student_mst');
         $q = $this->db->get();
         return $q->result();
     }
 
-    public function FetchTestSubjects($roll) {
+    public function FetchTestSubjects($roll,$standard_id) {
         $this->db->where('roll_no',$roll);
+        $this->db->where('standard_id',$standard_id);
+        
         $this->db->select('*')->from('result');
         $this->db->group_by('subject');
         $this->db->order_by('subject');
@@ -26,8 +29,9 @@ class Result_Model extends CI_Model {
         return $q->result();
     }
 
-    public function FetchStudentsAllTest($roll) {
+    public function FetchStudentsAllTest($roll,$standard_id) {
         $this->db->where('r.roll_no',$roll);
+        $this->db->where('r.standard_id',$standard_id);
         $this->db->select('r.*,t.*,st.*,s.stud_name,GROUP_CONCAT(r.subject ORDER BY r.subject ASC) as subject_csv,GROUP_CONCAT(marks ORDER BY r.subject) as marks_csv');
         $this->db->from('result r');
         $this->db->join('test t', 't.id=r.test_id');

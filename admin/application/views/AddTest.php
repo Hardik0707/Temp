@@ -1,4 +1,4 @@
-<?php //print_r($StudentDetails); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +11,15 @@
             select.standard, select.branch {
                 -webkit-appearance: menulist;
             }
-    
+            #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+            }
+            h2{
+            margin-top: -07px;
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
@@ -27,13 +35,13 @@
         <!--  wrapper -->
         <div id="wrapper">
             <!-- navbar top -->
-            <?php $this->load->view("top"); ?>.
+            <?php $this->load->view("top"); ?>
             <!-- end navbar top -->
 
-            <header id="head" class="secondary" style="height:50px;">
-            <div class="container">
-                <h1>Test</h1>
-            </div>
+            <header id="head" class="secondary" >
+            
+                <h2>Test</h2>
+            
         </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
@@ -51,7 +59,7 @@
                             <li><a href="<?php echo base_url("index.php/Test_Controller/ViewTest"); ?>">All Tests</a></li>
                             <li class="active">Add Test</li>
                         </ol>
-                      </div>
+                        </div>
                     </div>
                     <!--end page header -->
                 </div>
