@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2018 at 01:29 PM
+-- Generation Time: Apr 02, 2018 at 05:32 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -82,7 +82,7 @@ CREATE TABLE `faculty_mst` (
   `photo` varchar(200) NOT NULL,
   `contact_no` varchar(50) NOT NULL,
   `gender` varchar(50) NOT NULL,
-  `active` bit(1) NOT NULL
+  `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -90,10 +90,10 @@ CREATE TABLE `faculty_mst` (
 --
 
 INSERT INTO `faculty_mst` (`faculty_id`, `faculty_name`, `experience`, `degree`, `achievment`, `description`, `email`, `password`, `photo`, `contact_no`, `gender`, `active`) VALUES
-(9, 'Mr. ABC2', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', b'1111111111111111111111111111111'),
-(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', b'1111111111111111111111111111111'),
-(17, 'nirav', '14', 'MCA', 'NA', ' Nice sir, Testing faculty login', 'nirav.ahm@gmail.com', '123456', 'nirav_1504945219.jpeg', '7710097733', 'Male', b'1111111111111111111111111111111'),
-(19, 'Viper', '10', 'B.Tech In I.T.', 'None', ' ', 'viper@gmail.com', '07071997', 'Viper_1517052526.jpeg', '7777777777', 'Male', b'1111111111111111111111111111111');
+(9, 'Mr. ABC2', '52', 'MCA2', 'test2', ' Test2', 'test@gmail.com', '123456', 'Mr__ABC2_1503414549.jpeg', '98712347892', 'Male', 0),
+(16, 'Ranajit Basu', '10', 'MA', 'Gold Medal', ' Hello there,', 'ranajit@gmail.com', 'abc123', 'Ranajit_Basu_1504233585.jpeg', '9874563210', 'Male', 1),
+(17, 'nirav', '14', 'MCA', 'NA', ' Nice sir, Testing faculty login', 'nirav.ahm@gmail.com', '123456', 'nirav_1504945219.jpeg', '7710097733', 'Male', 1),
+(20, 'Viper', '5', 'B.Tech In I.T.', '55', ' ', 'hardikthakkar0707@gmail.com', '07071997', 'female.png', '8655305437', 'Female', 1);
 
 -- --------------------------------------------------------
 
@@ -116,11 +116,14 @@ INSERT INTO `faculty_std_sub` (`faculty_std_sub_id`, `faculty_id`, `standard_id`
 (25, 16, 1, 'English,Maths,Science'),
 (26, 16, 2, 'Maths,English,History'),
 (27, 16, 8, 'Civics2'),
-(29, 9, 1, 'English,Maths,Science'),
-(30, 9, 2, 'Maths,English,History'),
-(31, 9, 3, 'Science,Maths'),
-(32, 9, 6, 'History'),
-(33, 17, 1, 'English,Maths,Science');
+(34, 9, 1, 'English,Maths,Science'),
+(35, 9, 2, 'Maths,English,History'),
+(36, 9, 3, 'Science,Maths'),
+(37, 9, 6, 'History'),
+(38, 17, 1, 'English,Maths,Science'),
+(39, 17, 3, 'Maths'),
+(51, 20, 2, 'Maths,English'),
+(52, 20, 7, 'Geography');
 
 -- --------------------------------------------------------
 
@@ -226,109 +229,6 @@ INSERT INTO `result` (`result_id`, `roll_no`, `test_id`, `standard_id`, `subject
 -- --------------------------------------------------------
 
 --
--- Table structure for table `result_mst`
---
-
-CREATE TABLE `result_mst` (
-  `result_id` int(11) NOT NULL,
-  `roll_no` int(11) NOT NULL,
-  `test_id` int(11) NOT NULL,
-  `standard_id` int(11) NOT NULL,
-  `subject` varchar(250) NOT NULL,
-  `marks` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `result_mst`
---
-
-INSERT INTO `result_mst` (`result_id`, `roll_no`, `test_id`, `standard_id`, `subject`, `marks`) VALUES
-(32, 123, 1, 1, 'Hindi', '60/100'),
-(35, 123, 1, 1, 'History', '90/100'),
-(38, 123, 1, 1, 'Maths', '80/100'),
-(41, 123, 1, 1, 'Science', '70/100'),
-(47, 123, 2, 1, 'English', '80/100'),
-(50, 123, 2, 1, 'Maths', '75/100'),
-(59, 123, 2, 1, 'Geography', '90/100'),
-(62, 123, 2, 1, 'Science', '90/100'),
-(85, 123, 26, 1, 'English', '90/100'),
-(96, 1, 27, 4, 'Hindi', '80/100'),
-(97, 2, 27, 4, 'Hindi', '90/100'),
-(98, 3, 27, 4, 'Hindi', '67/100'),
-(99, 4, 27, 4, 'Hindi', '67/100'),
-(100, 5, 27, 4, 'Hindi', '69/100'),
-(101, 6, 27, 4, 'Hindi', '55/100'),
-(102, 7, 27, 4, 'Hindi', '22/100'),
-(103, 8, 27, 4, 'Hindi', '00/100'),
-(104, 9, 27, 4, 'Hindi', '01/100'),
-(105, 10, 27, 4, 'Hindi', '23/100'),
-(116, 1, 29, 3, 'Maths', '11'),
-(117, 2, 29, 3, 'Maths', '12'),
-(118, 3, 29, 3, 'Maths', '13'),
-(119, 4, 29, 3, 'Maths', '14'),
-(120, 11, 30, 2, 'English', '30/100'),
-(121, 12, 30, 2, 'English', '40/100'),
-(122, 111, 30, 2, 'English', '50/100'),
-(123, 1111, 30, 2, 'English', '60/100'),
-(124, 11111, 30, 2, 'English', '70/100'),
-(125, 11, 31, 2, 'English', '30/100'),
-(126, 12, 31, 2, 'English', '40/100'),
-(127, 111, 31, 2, 'English', '50/100'),
-(128, 1111, 31, 2, 'English', '60/100'),
-(129, 11111, 31, 2, 'English', '70/100'),
-(132, 123, 28, 3, 'Maths', '65/100'),
-(133, 11, 32, 3, 'Maths', '30/100'),
-(134, 12, 32, 3, 'Maths', '40/100'),
-(135, 111, 32, 3, 'Maths', '50/100'),
-(136, 1111, 32, 3, 'Maths', '60/100'),
-(137, 11111, 32, 3, 'Maths', '70/100'),
-(138, 11, 33, 2, 'English', '30/100'),
-(139, 12, 33, 2, 'English', '40/100'),
-(140, 111, 33, 2, 'English', '50/100'),
-(141, 1111, 33, 2, 'English', '60/100'),
-(142, 11111, 33, 2, 'English', '70/100'),
-(143, 11, 34, 2, 'English', '30/100'),
-(144, 12, 34, 2, 'English', '40/100'),
-(145, 111, 34, 2, 'English', '50/100'),
-(146, 1111, 34, 2, 'English', '60/100'),
-(147, 11111, 34, 2, 'English', '70/100'),
-(149, 159, 1, 1, 'Hindi', '50/100'),
-(150, 159, 1, 1, 'History', '100/100'),
-(151, 159, 1, 1, 'Maths', '70/100'),
-(152, 159, 1, 1, 'Science', '90/100'),
-(153, 159, 2, 1, 'English', '50/100'),
-(154, 159, 2, 1, 'Maths', '65/100'),
-(155, 159, 2, 1, 'Geography', '80/100'),
-(156, 159, 2, 1, 'Science', '70/100'),
-(157, 159, 26, 1, 'English', '70/100'),
-(161, 123, 35, 1, 'English', '55 / 100'),
-(162, 55, 35, 1, 'English', '100 / 100'),
-(163, 159, 35, 1, 'English', '99/100'),
-(164, 0, 36, 4, 'Hindi', '42937'),
-(165, 0, 36, 4, 'Hindi', '42635'),
-(166, 0, 36, 4, 'Hindi', '42637'),
-(167, 0, 36, 4, 'Hindi', '42637'),
-(168, 0, 36, 4, 'Hindi', '42638'),
-(169, 0, 36, 4, 'Hindi', '42638'),
-(170, 0, 36, 4, 'Hindi', '42639'),
-(171, 0, 36, 4, 'Hindi', '42639'),
-(172, 0, 36, 4, 'Hindi', '42639'),
-(173, 525, 1, 1, 'English', '70/100'),
-(174, 1234, 1, 1, 'English', '90/100'),
-(175, 123, 1, 1, 'English', '70/100'),
-(176, 55, 37, 1, 'English', '50/100'),
-(177, 123, 37, 1, 'English', '99/100'),
-(178, 159, 37, 1, 'English', '75/100'),
-(179, 55, 38, 1, 'English', '75/100'),
-(180, 123, 38, 1, 'English', '98/100'),
-(181, 159, 38, 1, 'English', '65/100'),
-(182, 55, 39, 1, 'Maths', '75/100'),
-(183, 123, 39, 1, 'Maths', '98/100'),
-(184, 159, 39, 1, 'Maths', '65/100');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `standard_mst`
 --
 
@@ -388,7 +288,7 @@ INSERT INTO `student_mst` (`stud_id`, `roll_no`, `stud_name`, `school_name`, `br
 (29, 159, 'Tester', 'St. George School', 3, 1, 'Maths,English,History', 'darshan@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
 (31, 55, 'nirav_stu', 'swastik', 3, 1, 'English,Maths,Science,History,Geography,Hindi', 'nirav.ahm1@gmail.com', '123456', NULL, '7710097733', 'Male'),
 (44, 1987, 'Tester', 'St. George School', 3, 1, 'English', 'test2@gmail.com', 'abc123', NULL, '9867123412', 'Male'),
-(45, 100, 'rajesh', 'mount litra', 3, 4, 'Hindi', 'sbj.jalla@gmail.com', '123', 'rajesh_1504105468.jpeg', '8989822288', 'Male');
+(45, 55, 'rajesh', 'mount litra', 3, 4, 'Hindi', 'sbj.jalla@gmail.com', '123', 'rajesh_1504105468.jpeg', '8989822288', 'Male');
 
 -- --------------------------------------------------------
 
@@ -438,41 +338,6 @@ INSERT INTO `subject_mst` (`sub_id`, `sub_name`, `standard_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp`
---
-
-CREATE TABLE `temp` (
-  `name` varchar(25) NOT NULL,
-  `roll` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `temp`
---
-
-INSERT INTO `temp` (`name`, `roll`) VALUES
-('viper', 707),
-('hardik', 777),
-('viper', 707),
-('hardik', 777),
-('kiran', 118),
-('mini', 28),
-('viper', 707),
-('hardik', 777),
-('kiran', 118),
-('mini', 28),
-('viper', 707),
-('hardik', 777),
-('kiran', 118),
-('mini', 28),
-('viper', 707),
-('hardik', 777),
-('kiran', 118),
-('mini', 28);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `test`
 --
 
@@ -500,41 +365,6 @@ INSERT INTO `test` (`id`, `standard_id`, `subject`, `chapter`, `date`, `total_ma
 (6, 1, 'Maths', 'Probability', '1997-07-07', 75, '3 Hours', 'Module', 1),
 (7, 1, 'Maths', 'Equations', '2017-01-15', 75, '3 Hours', 'Module', 1),
 (8, 1, 'Maths', 'Subtraction', '2018-01-25', 50, '2 Hours 30 Mins', 'Term', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `test_mst`
---
-
-CREATE TABLE `test_mst` (
-  `test_id` int(11) NOT NULL,
-  `test_name` varchar(50) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `test_mst`
---
-
-INSERT INTO `test_mst` (`test_id`, `test_name`) VALUES
-(1, 'Test 1'),
-(2, 'Test 2'),
-(3, 'Test 3'),
-(25, 'Test 4'),
-(26, 'Test 4'),
-(27, 'test 10'),
-(28, 'Test maths'),
-(29, '_maths'),
-(30, 'open'),
-(31, 'Test 1'),
-(32, 'Test 1'),
-(33, 'test'),
-(34, 'test 4'),
-(35, 'nirav_test1'),
-(36, 'demo1'),
-(37, 'test2'),
-(38, 'test3'),
-(39, 'Maths1');
 
 -- --------------------------------------------------------
 
@@ -634,15 +464,6 @@ ALTER TABLE `result`
   ADD PRIMARY KEY (`result_id`);
 
 --
--- Indexes for table `result_mst`
---
-ALTER TABLE `result_mst`
-  ADD PRIMARY KEY (`result_id`),
-  ADD KEY `sub_id` (`subject`),
-  ADD KEY `stud_id` (`roll_no`),
-  ADD KEY `result_test` (`test_id`);
-
---
 -- Indexes for table `standard_mst`
 --
 ALTER TABLE `standard_mst`
@@ -670,12 +491,6 @@ ALTER TABLE `subject_mst`
 --
 ALTER TABLE `test`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `test_mst`
---
-ALTER TABLE `test_mst`
-  ADD PRIMARY KEY (`test_id`);
 
 --
 -- Indexes for table `topper_mst`
@@ -708,12 +523,12 @@ ALTER TABLE `branch_mst`
 -- AUTO_INCREMENT for table `faculty_mst`
 --
 ALTER TABLE `faculty_mst`
-  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `faculty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `faculty_std_sub`
 --
 ALTER TABLE `faculty_std_sub`
-  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `faculty_std_sub_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `private_announcement`
 --
@@ -729,11 +544,6 @@ ALTER TABLE `public_announcement`
 --
 ALTER TABLE `result`
   MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT for table `result_mst`
---
-ALTER TABLE `result_mst`
-  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 --
 -- AUTO_INCREMENT for table `standard_mst`
 --
@@ -755,11 +565,6 @@ ALTER TABLE `subject_mst`
 ALTER TABLE `test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `test_mst`
---
-ALTER TABLE `test_mst`
-  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
---
 -- AUTO_INCREMENT for table `topper_mst`
 --
 ALTER TABLE `topper_mst`
@@ -779,12 +584,6 @@ ALTER TABLE `topper_year_mst`
 ALTER TABLE `faculty_std_sub`
   ADD CONSTRAINT `faculty_std_sub_fk` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_mst` (`faculty_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `faculty_std_sub_std` FOREIGN KEY (`standard_id`) REFERENCES `standard_mst` (`standard_id`);
-
---
--- Constraints for table `result_mst`
---
-ALTER TABLE `result_mst`
-  ADD CONSTRAINT `result_test` FOREIGN KEY (`test_id`) REFERENCES `test_mst` (`test_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_mst`
