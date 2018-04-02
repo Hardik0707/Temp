@@ -221,6 +221,7 @@ Subjects: Maths, Science, Social Studies and English<br>                </p>
     {
         
         foreach($AllFaculty as $faculty) {
+            if($faculty->active==1){
      ?>      
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <!-- Team Member -->
@@ -244,7 +245,7 @@ Subjects: Maths, Science, Social Studies and English<br>                </p>
                     </div>
                 </div>
 
-<?php }
+<?php }}
 } ?>
 <!-- End of Dynamic Part -->
 
