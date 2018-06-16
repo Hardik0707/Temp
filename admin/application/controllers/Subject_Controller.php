@@ -11,10 +11,9 @@
         function __construct() {
             parent::__construct();
             $this->load->model('Subject_Model');
-        }
+            $this->load->model('Student_Model');
 
-        //$sub_id = $this->uri->segment(3);
-        //$std_id = $this->uri->segment(4);
+        }
         public function DeleteSubject($sub_id, $std_id){
             if(!isset($_SESSION['Admin'])) {
                 $this->load->view('Index');
@@ -33,7 +32,8 @@
             } 
             else 
             {
-                $this->load->view('AddSubject');
+                $result['AllStandards'] = $this->Student_Model->FetchAllStandards();
+                $this->load->view('AddSubject',$result);
             }
         }
 
@@ -59,13 +59,21 @@
             else 
             {
                 if(isset($_POST['SubjectName'])) {
-                    $standard = $_POST['standard_id'];
+                    $standard = $_POST['Standard'];
                     $subject = $_POST['SubjectName'];
                     $data = array('sub_name' => $subject, 'standard_id' => $standard);
-                    print_r($data);
-                    exit(0);
+                    $_SESSION['StandardId']= $_POST['Standard'];
+
+                    $check = $this->Subject_Model->FetchAllSubject();
+                    foreach ($check as $value) {
+                    if($value->standard_id == $standard && $value->sub_name== $subject)
+                    {
+                        $_SESSION['SubjectAdded']="Subject Already present";
+                        redirect('Subject_Controller/ViewSubject');
+                        exit;
+                    }
+                }
                     $success = $this->Subject_Model->InsertSubject($data);
-                    $_SESSION['StandardId']= $_POST['standard_id'];
                     $_SESSION['SubjectAdded']= $success;
                     redirect('Subject_Controller/ViewSubject');
                 }
@@ -89,10 +97,22 @@
         {
             if(isset($_POST['UpdateSubject'])){
                 $subid=$_POST['subid'];
-                $SubjectName=$_POST['SubjectName'];
-                $data=array('sub_name'=>$SubjectName);
-                $success=$this->Subject_Model->updatesubject($subid,$data);
+                $stdid = $_POST['stdid'];
+                $subject=$_POST['SubjectName'];
+                $data=array('sub_name'=>$subject);
+                $check = $this->Subject_Model->FetchAllSubject();
+                print_r($check);
                 $_SESSION['StandardId']= $_POST['stdid'];
+                    foreach ($check as $value) {
+
+                    if($value->standard_id == $stdid && $value->sub_name==$subject && $value->sub_id!= $subid)
+                    {
+                        $_SESSION['SubjectUpdated']="Subject Already present";
+                        redirect('Subject_Controller/ViewSubject');
+                        exit;
+                    }
+                }
+                $success=$this->Subject_Model->updatesubject($subid,$data);
                 $_SESSION['SubjectUpdated']=$success;
                 redirect('Subject_Controller/ViewSubject');
             }

@@ -37,20 +37,23 @@
         <!--main content start-->
          <div class="container col-sm-9">
             <div id="page-wrapper">
-                <div class="row">
+                <div class="row col-sm-12">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-sm-10" style="margin-top: -20px;">
                         <div class="page-header">
-                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPrivate');?>"
-                            class="btn btn-info" style="border-radius: 30px;margin-left:10px;font-family:calibri;font-size: 16px; ">Add New</a></h1>
                             <ol class="breadcrumb">
-                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
+                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                                 <li class="active">Private Announcement</li>
                             </ol>
                         </div>
                     </div>
                     <!--End Page Header -->
+                    <div class="col-sm-2" style="margin-top: 10px;">
+                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPrivate');?>"
+                            class="btn btn-default btn-sm">Add</a>
+                    </div>
+                </div>
 
                 </div>
 
@@ -101,7 +104,7 @@
                                             <th>No.</th>
                                             <th class="col-md-2">Photo</th>
                                             <th>Title</th>
-                                            <th class="col-xs-1">Description</th>
+                                            <th style="word-wrap: break-word;">Description</th>
                                             <th>Standard</th>
                                             <th>Subject</th>
                                             <th>To</th>
@@ -117,14 +120,18 @@
                                             <td><?php echo $no; $no++;?></td>
                                             <!-- <td><?php echo $value->photo;?></td> -->
 
+                                            <?php if($value->photo!='NULL'){ ?>
+                                            
                                             <td><img src='<?php echo base_url("panel/img/Announcement/Private/$value->photo");?>'" class="img-responsive" height="150px" width="150px" ></td>
+
+                                            <?php }else echo "<td><h4 align=center>No Image</h4></td>"; ?>
 
                                             <td><?php echo $value->title;?></td>
                                             <td><?php echo $value->description;?></td>
                                             <td><?php echo $value->standard_id;?> </td>
                                             <td><?php echo $value->subject; ?></td>
                                             <td><?php echo $value->student_id; ?></td>
-                                            <td><?php echo $value->date; ?></td>
+                                            <td><?php echo date("d/m/Y",strtotime(str_replace('-','/', $value->date))); ?></td>
                                         <td>
                                                 <a onclick="return confirm('Are You Sure Remove This Record ');" href='<?php echo base_url("index.php/Announcement_Controller/DeletePrivate/$value->id");?>' data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="fa fa-trash-o delete"></i>

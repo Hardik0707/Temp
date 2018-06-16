@@ -10,6 +10,14 @@ class Student_Model extends CI_Model
         return $result->result();
     }
 
+    public function UpdatePassword($id,$password)
+    {
+        $this->db->set("password",$password);
+        $this->db->where("stud_id",$id);
+        $result=$this->db->update('student_mst');
+        return $result;
+    }
+
     public function GetUserName($id)
     {
         $this->db->select('stud_name')->from('student_mst');
@@ -35,16 +43,6 @@ class Student_Model extends CI_Model
         return $q->result();
     }
 
-    public function FetchTestTestNames($roll) {
-        $this->db->where('roll_no',$roll);
-        //GROUP_CONCAT(t.test_name ORDER BY r.subject DESC,r.test_id) as test_name_csv
-        $this->db->select('t.*')->from('result r');
-        $this->db->join('test t', 't.test_id=r.test_id');
-        $this->db->order_by('r.subject ASC,r.test_id ASC');
-        //$this->db->order_by('r.subject DESC,r.test_id');
-        $q = $this->db->get();
-        return $q->result();
-    }
 
     public function FetchStudentsAllTest($roll) {
         $this->db->where('r.roll_no',$roll);

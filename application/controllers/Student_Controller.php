@@ -16,6 +16,8 @@ class Student_Controller extends CI_Controller {
 		unset($_SESSION['studentid']);
 		unset($_SESSION['roll_no']);
 		unset($_SESSION['isLoggedIn']);
+		$data = "Session Logged Out.";
+        $this->session->set_userdata('sent',$data);
 		redirect('/welcome');
 	}
 
@@ -30,9 +32,9 @@ class Student_Controller extends CI_Controller {
 					$id = $value->stud_id;
 					$roll_no = $value->roll_no;
 					$student_name = $value->stud_name;
-					$_SESSION['stud_name']=$student_name;
 					$student_photo = $value->photo;
 					$standard_id = $value->standard_id;
+					$subject = $value->subject;
 					$flag = 1;
 					break;
 				}
@@ -40,12 +42,14 @@ class Student_Controller extends CI_Controller {
 			if ($flag == 1) {
 				$_SESSION['isLoggedIn'] = '1';
 				$_SESSION['studentid'] = $id;
-				$_SESSION['studentname'] = $student_name;
+				$_SESSION['stud_name'] = $student_name;
 				$_SESSION['roll_no'] = $roll_no;
 				$_SESSION['standard_id'] = $standard_id;
+				$_SESSION['subject']=$subject;
 				redirect('Student_Controller/ViewResults');
 			} else {
-				$_SESSION['StudentRestricted'] = '0';
+				$data = "Invalid Email Id and Password";
+                $this->session->set_userdata('sent',$data);
 				redirect('/welcome');
 			}
 
@@ -54,6 +58,8 @@ class Student_Controller extends CI_Controller {
 	}
 
 	public function ViewResults(){
+		if(isset($_SESSION['studentid']) && $_SESSION['isLoggedIn']=='1')
+		{
 		$roll_no = $_SESSION['roll_no'];
 		$standard_id = $_SESSION['standard_id'];
 		$this->load->model('Result_Model');
@@ -61,30 +67,15 @@ class Student_Controller extends CI_Controller {
 
         $result['AllTests'] = $this->Result_Model->FetchStudentsAllTest($roll_no,$standard_id);
         $result['AllTestSubjects'] = $this->Result_Model->FetchTestSubjects($roll_no,$standard_id);
-
-        // print_r($result['AllTestSubjects']); die(); 	
+        $result['get_max'] = $this->Result_Model->FetchMax($standard_id);
+        
+        // print_r($result['get_max']);
+        // exit(0);
         $this->load->view('Student_Dashboard',$result);
+    	}
+    	else{
+    		redirect('/welcome','2');
+    	}
 	}
-	// public function ViewResults() {
-	// 	if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) {
-	// 		$id = $_SESSION['studentid'];
-	// 		$roll_no = $_SESSION['roll_no'];
-	// 		$result['AllTestsResult'] = $this->Student_Model->GetStudentResultBySubject($roll_no);
-	// 		$result['AllTestTestNames']= $this->Student_Model->FetchTestTestNames($roll_no);
-	// 		$result['AllTestSubjects']= $this->Student_Model->FetchTestSubjects($roll_no);
-	// 		$result['AllTests']= $this->Student_Model->FetchStudentsAllTest($roll_no);
-	// 		if(count($result['AllTests']) > 0) {
-	// 			$this->load->view('Student_Dashboard',$result);
-	// 		} else {
-	// 			$result['AllTestTestNames'] = 0;
-	// 			$result['AllTests'] = 0;
-	// 			$result['AllTestsResult'] = 0;
-	// 			$result['AllTestSubjects'] = 0;
-	// 			$this->load->view('Student_Dashboard',$result);
-	// 		}
-
-	// 	} else {
-	// 		redirect('/welcome');
-	// 	}
-	//}
+	
 	}

@@ -38,18 +38,23 @@
         <!--main content start-->
         <div class="container col-sm-9">
         <div id="page-wrapper">
-            <div class="row">
+            <div class="row col-sm-12">
                 <!-- Page Header -->
-                <div class="col-lg-12">
+                <div class="col-sm-10" style="margin-top: -20px;">
                     <div class="page-header">
-                        <a href="<?php echo base_url("index.php/Faculty_Controller/AddFaculty"); ?>" class="btn btn-sm">Add New Faculty</a>
+                        
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                            
                             <li class="active">Faculty</li>
                         </ol>
                       </div>
-                </div></div>
+                </div>
+
+                <div class="col-sm-2" style="margin-top: 10px">
+                    <a href="<?php echo base_url("index.php/Faculty_Controller/AddFaculty"); ?>" class="btn btn-sm btn-default">Add New Faculty</a>
+                </div>
+            </div>
                 <!--End Page Header -->
             </div>
             <div class="row">
@@ -161,9 +166,9 @@
                                                         <td><img src=" <?php echo base_url("panel/img/Faculty/$value->photo");?>" width="75px" height="75px"></td>
                                                         <td>
                                                             <?php if($value->active=='0') {?>
-                                                            <a class="btn btn-sm" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye-slash"></i></a>
+                                                            <a  href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Unhide"> <i class="fa fa-eye-slash"></i></a>
                                                             <?php }  else {?>
-                                                                <a class="btn btn-sm" href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye"></i></a>
+                                                                <a href="<?php echo base_url("index.php/Faculty_Controller/activedeactive/$value->faculty_id/$value->active");?>" data-toggle="tooltip" data-placement="top" title="Hide"> <i class="fa fa-eye"></i></a>
                                                                <?php }?>
 
                                                             <a href="<?php echo base_url("index.php/Faculty_Controller/EditFaculty/$value->faculty_id");?>"><i class="fa fa-pencil update" data-toggle="tooltip" data-placement="top" title="Edit"></i></a>&nbsp;

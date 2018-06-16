@@ -15,4 +15,14 @@ class Announcement_Controller extends CI_Controller {
         $Public['AllPublic'] = $this->Announcement_Model->fetchAllPublic();
         $this->load->view('Announcements',$Public);
     }
+
+    public function PrivateAC() {
+         $id =$_SESSION['studentid']; 
+         $standard_id =$_SESSION['standard_id'];
+         $subject = $_SESSION['subject'];
+         $subject = "('".str_replace(',',"','", $subject)."')";
+         
+        $Private['AllPrivate'] = $this->Announcement_Model->fetchAllPrivate($id,$standard_id,$subject);
+        $this->load->view('PrivateAnnouncements',$Private);
+    }
 }

@@ -10,6 +10,13 @@ class Faculty_Model extends CI_Model
         return $result->result();
     }
 
+    public function UpdatePassword($id,$password)
+    {
+        $this->db->set('password',$password);
+        $this->db->where('faculty_id',$id);
+        $result=$this->db->update('faculty_mst');
+        return $result;
+    }
     public function FacultyTeaches($id) {
         $this->db->select('*')->from('faculty_std_sub f');
         $this->db->where('faculty_id',$id);
@@ -85,6 +92,7 @@ class Faculty_Model extends CI_Model
         $this->db->select('*');
         $this->db->where('standard_id',$std_id);
         $this->db->where('subject',$subject);
+        $this->db->where('uploaded',1);
         $this->db->from('test');
         $query=$this->db->get();
         return $query->result();

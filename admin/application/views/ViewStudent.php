@@ -22,7 +22,7 @@
         <!--header end-->
         <!--sidebar start-->
 
-        <header id="head" class="secondary" style="height:50px;">
+        <header id="head" class="secondary">
             
                 <h2>Students</h2>
             
@@ -36,12 +36,12 @@
 
         <div class="container col-sm-9">
             <div id="page-wrapper">
-                <div class="row">
+                <div class="row col-sm-12">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-sm-8" style="margin-top: -20px;">
                         <div class="page-header">
-                            <a href="<?php echo base_url("index.php/Student_Controller/AddStudent")?>" class="btn btn-info">Add New Student</a>
+                            
                             <ol class="breadcrumb">
                                 <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                                 <li>Students</li>
@@ -50,6 +50,14 @@
                         </div>
                     </div>
                     <!--End Page Header -->
+                    <div class="col-sm-2" style="margin-top: 10px;">
+                        <a href="<?php echo base_url("index.php/Student_Controller/AddStudent")?>" class="btn btn-sm btn-default">Add</a>
+                    </div>
+                    <div class="col-sm-2" style="margin-top: 10px;">
+                        <a href="<?php echo base_url("index.php/Student_Controller/DownloadList")?>" class="btn btn-sm btn-default">Export List</a>
+                        
+                    </div>
+
                 </div>
 
 

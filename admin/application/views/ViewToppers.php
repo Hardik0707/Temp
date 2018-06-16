@@ -20,7 +20,7 @@
         <!--header start-->
         <?php $this->load->view("top"); ?>
         <!--header end-->
-        <header id="head" class="secondary" style="height:50px;">
+        <header id="head" class="secondary">
             
                 <h2>Toppers</h2>
             
@@ -31,17 +31,20 @@
         <!--main content start-->
         <div class="container col-sm-9">
         <div id="page-wrapper">
-            <div class="row">
+            <div class="row col-sm-12">
                 <!-- Page Header -->
-                <div class="col-lg-12">
+                <div class="col-sm-10" style="margin-top: -20px;">
                   <div class="page-header">
-                    <a href="<?php echo base_url("index.php/Toper_Controller/AddNewTopper")?>" class="btn btn-info">Add New Topper</a>
+                    
                     <ol class="breadcrumb">
                         <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li>Toppers</li>
-                        <li class="active">All Toppers</li>
+                        <li class="active">Toppers</li>
                     </ol>
                    </div>
+                </div>
+
+                <div class="col-sm-2" style="margin-top: 10px;"> 
+                    <a href="<?php echo base_url("index.php/Toper_Controller/AddNewTopper")?>" class="btn btn-default btn-sm">Add</a>
                 </div>
             </div>
             <!--End Page Header -->
@@ -72,7 +75,7 @@
 
                                 <!-- Advanced Tables -->
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">List of All Toppers</div>
+                                    
                                     <div class="panel-body">
                                         <div class="table-responsive col-sm-12">
                                             <?php if (isset($ListAllToppers)) { ?>

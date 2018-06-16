@@ -118,6 +118,18 @@
             }
         </script>
         <script src="<?php echo base_url("assets/js/canvasjs.min.js"); ?>"></script>
+
+        <style type="text/css">
+         #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
+        padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
+    }
+    </style>
     </head>
     <body>
         <?php
@@ -132,10 +144,8 @@
 
 
     <!-- page header -->    
-    <header id="head" class="secondary" style="height:40px;">
-      <div class="container">
-        <h1>Search Results</h1>
-      </div>
+    <header id="head" class="secondary">
+        <h2>Search Results</h2>
     </header>    
     <div class="container">
           <div class="row">

@@ -40,7 +40,7 @@
 
             <header id="head" class="secondary" >
             
-                <h2>Test</h2>
+                <h2>Add Test</h2>
             
         </header>
             <!-- navbar side -->
@@ -51,7 +51,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <!-- page header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                         <!-- <h1 class="heading">Add New Test</h1> -->
                          <ol class="breadcrumb">
@@ -64,6 +64,14 @@
                     <!--end page header -->
                 </div>
                 
+                             <?php
+                                if (isset($_SESSION['InsertTestData'])) {
+                                    ?>
+                                    <div class="alert alert-danger"><?php echo $_SESSION['InsertTestData'] ?></div>
+                                    <?php unset($_SESSION['InsertTestData']);
+                                } 
+                                ?>
+
              <!-- Add Image Form -->
                 <div class="row">
                     <div class="col-lg-11">
@@ -134,7 +142,7 @@
                                         </div> 
 
                                         <div class="col-md-6 form-group">
-                                            <label>Add Test Paper<br> <span style="color:blue;font-size:12px;font-weight: normal;">(Note: Photo format : jpg | png | jpeg | gif & Maximum Size : 500kb are allowed.)</span></label>
+                                            <label>Add Test Paper<br> <span style="color:blue;font-size:12px;font-weight: normal;">(Note: Photo format : jpg | png | jpeg | PDF | Docx | Docs & Maximum Size : 1 MB are allowed.)</span></label>
                                             <input type="file" class="form-input" name="ImageUpload" accept="image/*" >
                                 </div>   
 

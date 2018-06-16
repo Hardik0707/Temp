@@ -54,6 +54,20 @@ class Announcement_Controller extends CI_Controller {
         }
     }
 
+    public function DeletePrivate($id) {
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            if (!empty($id)) {
+                $success = $this->Announcement_Model->DeletePrivate($id);
+                $_SESSION['DeletePrivate'] = $success;
+                redirect('Announcement_Controller/ViewPrivate');
+            }
+        }
+    }
+
     public function AddPublic() {
         if(!isset($_SESSION['Admin'])) {
             $this->load->view('Index');
@@ -75,6 +89,7 @@ class Announcement_Controller extends CI_Controller {
         }
     }
 
+
     public function InsertPublic()
     {
         if(!isset($_SESSION['Admin'])) {
@@ -82,10 +97,8 @@ class Announcement_Controller extends CI_Controller {
         } 
         else 
         {
-
             if(isset($_POST['AddPublic']))
             {
-
                 $title = $_POST['title'];
                 $description = $_POST['description'];
                 $date = date("Y-m-d");
@@ -96,11 +109,72 @@ class Announcement_Controller extends CI_Controller {
                     $config['upload_path'] = $uploadPath;
                     $config['allowed_types'] = 'gif|jpg|png|jpeg';
                     $config['file_name'] = $new_file_name;
-                    $config['max_size']	= '500'; //500 Kb
-                    // $config['max_width'] = '400';
-                    // $config['max_height'] = '400';
-                    // $config['min_width'] = '400';
-                    // $config['min_height'] = '400';
+                    $config['max_size'] = '500'; 
+                    $this->load->library('upload', $config);
+                    $this->upload->initialize($config);
+                    
+                if ($this->upload->do_upload('ImageUpload')){ 
+                    
+                    $fileData =$this->upload->data();
+                    $data = array('date'=>$date, 'title' => $title, 'description' => $description, 'photo' => $fileData['file_name']);
+                }
+
+                else{
+                    
+                    $error = array('error' => $this->upload->display_errors());
+                    $_SESSION['InsertPublicData'] = $error;
+                    echo $this->upload->display_errors();
+                    redirect("Announcement_Controller/ViewPublic");
+                }
+
+                }
+
+                if ($this->input->post('AddPublic') && empty($_FILES['ImageUpload']['name'])){
+                    $data = array('date'=>$date, 'title' => $title, 'description' => $description, 'photo' => 'NULL');
+
+                }   
+
+                if(!empty($data))   
+                {   
+                    $success = $this->Announcement_Model->InsertPublic($data);
+                    $_SESSION['InsertPublicData'] = $success;
+                    redirect("Announcement_Controller/ViewPublic");
+                }
+                }
+            }
+        }
+
+
+    public function InsertPrivate()
+    {
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            if(isset($_POST['AddPrivate']))
+            {
+
+                $title = $_POST['title'];
+                $description = $_POST['description'];
+                $date = date("Y-m-d");
+                $standard_id = $_POST['standard'];
+                $subject=$_POST['subject'];
+
+                print_r($_POST['student']);
+                // exit(0);
+                if($_POST['student']=="all")
+                    $student="all";
+                else
+                $students = ','.implode(",",$_POST['student']).',';
+                $new_file_name = $title."_".time() . ".jpeg";
+
+                if ($this->input->post('AddPrivate') && !empty($_FILES['ImageUpload']['name'])) {
+                    $uploadPath = 'panel/img/Announcement/Private/';
+                    $config['upload_path'] = $uploadPath;
+                    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                    $config['file_name'] = $new_file_name;
+                    $config['max_size']	= '500'; 
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
 
@@ -108,22 +182,30 @@ class Announcement_Controller extends CI_Controller {
                 if ($this->upload->do_upload('ImageUpload')){ 
     
                     $fileData =$this->upload->data();
-                    $data = array('date'=>$date, 'title' => $title, 'description' => $description, 'photo' => $fileData['file_name']);
+                    $data = array('date'=>$date, 'title' => $title, 'description' => $description, 'photo' => $fileData['file_name'],'standard_id'=>$standard_id,'subject'=>$subject,'student_id'=>$students);
                 }
                 else{
                     $error = array('error' => $this->upload->display_errors());
-                    $_SESSION['InsertPublicData'] = $error;
-                    $this->load->view('public_announce_view');
+                    echo $error;
+                    $_SESSION['InsertPrivateData'] = $error;
+                    redirect('Announcement_Controller/ViewPrivate');
                 }	
+                }
+                   
+                if ($this->input->post('AddPrivate') && empty($_FILES['ImageUpload']['name'])) {
+                    $data = array('date'=>$date, 'title' => $title, 'description' => $description, 'photo' => 'NULL','standard_id'=>$standard_id,'subject'=>$subject,'student_id'=>$students);
 
+                }  
                 if(!empty($data))	
                 {	
-                    $success = $this->Announcement_Model->InsertPublic($data);
-                    $_SESSION['InsertPublicsData'] = $success;
-                    redirect("Announcement_Controller/ViewPublic");
+                    $success = $this->Announcement_Model->InsertPrivate($data);
+                    
+                   
+                    $_SESSION['InsertPrivateData'] = $success;
+
+                    redirect("Announcement_Controller/ViewPrivate");
                 }
                 }
-            }
         }
     }
 
@@ -135,8 +217,9 @@ class Announcement_Controller extends CI_Controller {
         else 
         {
             $id = $this->input->post('id');
+            $_SESSION['standard_id'] = $id;
             $subjects = $this->Student_Model->FetchSubjects($id);
-            echo "<option value='*'>All</option>";
+            echo "<option value='all'>All</option>";
             foreach ($subjects as $subject) {
                 echo "<option value='".$subject->sub_name."'>".$subject->sub_name."</option>";
 //$result['subject_id'] = $subject->sub_id;
@@ -150,18 +233,21 @@ class Announcement_Controller extends CI_Controller {
         } 
         else 
         {
-            $id = $this->input->post('id');
-            $sub = $this->input->post('sub_id');
+            $sub = $this->input->post('id');
+            $id = $_SESSION['standard_id'];
+            
             $students = $this->Announcement_Model->FetchStudents($id,$sub);
-
-            $this->load->view('exceldata',$students);
             foreach ($students as $student) {
-                echo "<option value='".$student->stud_name."'>".$student->stud_name."</option>";
-//$result['subject_id'] = $subject->sub_id;
+                echo "<option value='".$student->stud_id."'>".$student->stud_name."</option>";
+
             }
+
         }
     }
 
 
+
+
+// Important Note: add unset($_SESSION['standard_id']); in InsertPrivate()
 }
 ?>

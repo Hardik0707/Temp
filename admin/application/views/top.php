@@ -3,7 +3,7 @@
         <div class="container">
             <center>
             <a href="" class="navbar-brand">
-            <img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo" style="margin-top:-05px;width: 150px; height: 75px;">
+            <img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo" style="margin-top:-05px;width: 130px; height: 75px;">
             </a>
             </center>
 

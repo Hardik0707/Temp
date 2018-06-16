@@ -26,65 +26,48 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->model('Faculty_Profile_Model');
         $this->load->model('Student_Model');
+        $this->load->model('Announcement_Model');
     }
 	public function index()
 	{
 		$_SESSION['login']=1;
-		$Faculties['AllFaculty'] = $this->Faculty_Profile_Model->fetchAll();
-        $this->load->view('index',$Faculties);
+		$Result['AllFaculty'] = $this->Faculty_Profile_Model->fetchAll();
+		$Result['AllPublic'] = $this->Announcement_Model->fetchTopPublic();
+        $this->load->view('index',$Result);
 
 	}
-       public function AboutUs()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('AboutUs');
-	}
+ //       public function AboutUs()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('AboutUs');
+	// }
 	
-	public function ContactUs()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('ContactUs');
-	}
-	public function LoginStaff()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('LoginStaff');
-	}
-        public function SyllabusStandard()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('SyllabusStd');
-	}
-	public function Syllabus()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('Syllabus');
-	}
-//	public function LoginStudent()
-//	{
-//		$_SESSION['login']=1;
-//		$this->load->view('LoginStudent');
-//	}
-//	public function Student()
-//	{
-//		$_SESSION['login']=0;
-//		$this->load->view('Student');
-//	}
-	public function TopperYear()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('TopperYears');
-	}
-	public function Toppers()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('Toppers');
-	}
-	public function Schedule()
-	{
-		$_SESSION['login']=1;
-		$this->load->view('Schedule');
-	}
+	// public function LoginStaff()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('LoginStaff');
+	// }
+ //        public function SyllabusStandard()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('SyllabusStd');
+	// }
+	
+	// public function TopperYear()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('TopperYears');
+	// }
+	// public function Toppers()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('Toppers');
+	// }
+	// public function Schedule()
+	// {
+	// 	$_SESSION['login']=1;
+	// 	$this->load->view('Schedule');
+	// }
 	public function FacultyProfile()
 	{
 		$_SESSION['login']=1;

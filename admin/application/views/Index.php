@@ -32,6 +32,53 @@
 		</div>
 	</div>	
 
+	<!-- =============================Sent Successful Message================================== -->
+                  <!-- Modal -->
+  <div class="modal fade" id="message" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+        
+            <div class="modal-body" style="color:Red;">
+                <h4><?php echo $_SESSION['sentAdmin'];?></h4>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+	<!-- ========================Forgot Password===============================-->
+  <div class="modal fade" id="forgot" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" data-backdrop="static">&times;</button>
+          <h4 class="modal-title" style="text-align: center;font-size:28px;">Forgot Password</h4>
+        </div>
+        <div class="modal-body">
+          <form accept-charset="UTF-8" role="form" action="<?php echo base_url('index.php/Login_Controller/ForgotPassword'); ?>" Method="POST" name="for" > 
+						<fieldset>
+							<div class="form-group">
+								<input class="form-control" placeholder="Username" name="email" type="text" required="true">
+							</div>
+							
+							<center>
+							<input class="btn btn-sm" type="submit" value="Submit" style="margin-top: 05px;border-radius: 20px 20px">
+							</center>
+
+						</fieldset>
+					</form>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+
+
 
 	<header id="head" class="secondary">
 		
@@ -43,7 +90,7 @@
 
 		<div style="margin-top: 4rem;">
 			<div class="col-md-4 col-md-offset-4"
-			style="background: #e9e9f3bd; height: 240px; border-radius: 20px 20px;">
+			style="background: #e9e9f3bd; height: 270px; border-radius: 20px 20px;">
 			<div class="panel panel-default">
 				<div class="panel-heading" style="background-color:transparent;border: 0px; ">
 					<h2 class="panel-title"><center>Admin Login</center></h2>
@@ -66,6 +113,10 @@
 					{
 						echo "<p style='text-align: center;font-weight: 900;color:Red;margin-top:5px;'>*".$msg."</p>";
 					}?>
+					<br>
+					<center>
+					<a href="" data-toggle="modal" data-target="#forgot">Forgot Password?</a>
+					</center>
 				</div>
 			</div>
 		</div>
@@ -73,6 +124,20 @@
 </div>	
 
 <?php $this->load->view('footer'); ?>
+
+
+<?php 
+    if( isset($_SESSION['sent'])){
+    ?>
+    <script type='text/javascript'>
+        jQuery(document).ready(function(){
+        jQuery('#message').modal('toggle');
+        setTimeout(function(){jQuery('#message').modal('hide');
+        },3000);
+    });
+    </script>
+
+<?php $this->session->unset_userdata('sentAdmin');}?>
 
 </body>
 </html>	

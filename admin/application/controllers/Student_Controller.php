@@ -12,6 +12,8 @@
                         function __construct() {
                             parent::__construct();
                             $this->load->model('Student_Model');
+                            $this->load->library('excel');
+                            $this->load->library('form_validation');
                         }
 
                         public function UpdateStudentData() {
@@ -34,7 +36,30 @@
                                     $gender = $_POST['gender'];
                                     $contact = $_POST['contact'];
                                     $new_file_name = $SName."_".time() . ".jpeg";
-                                    /*             * *****************************************image*************************************** */
+
+
+
+                                    $result = $this->Student_Model->FetchAllStudents();
+                                    foreach ($result as $value) {
+                                        if ($value->email_id == $Email && $id!=$value->stud_id)
+                                        {
+                                            $msg = 'Email Id already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Student_Controller/EditStudent/'.$id);
+                                            exit;
+
+                                        }
+                                        else if($value->roll_no == $Rno && $value->standard_id==$Standard && $id!=$value->stud_id)
+                                        {
+                                            $msg = 'Roll Number already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Student_Controller/EditStudent/'.$id);
+                                            exit;
+                                        }
+                                    }
+
+
+                                                                            /*             * *****************************************image*************************************** */
                                     if ($this->input->post('AddStudent') && !empty($_FILES['ImageUpload']['name'])) {
                                         $_FILES['Topper']['name'] = $_FILES['ImageUpload']['name'];
                                         $_FILES['Topper']['type'] = $_FILES['ImageUpload']['type'];
@@ -113,6 +138,45 @@
         }
     }
 
+    public function DownloadList()
+    {
+        if(!isset($_SESSION['Admin'])) {
+            $this->load->view('Index');
+        } 
+        else 
+        {
+            $object = new PHPExcel();
+              $object->setActiveSheetIndex(0);
+              
+              $student= $this->Student_Model->FetchAllStudents();
+              $ColumnName = array('Student Name','Roll Number','Gender','School Name','Branch Name','Standard','subjects','email','Contact No.');
+                $col = 0;
+
+                foreach ($ColumnName as $value) {
+                $object->getActiveSheet()->setCellValueByColumnAndRow($col,1,$value);
+                $col++;
+            }
+
+            $row=2;
+            foreach ($student as $value) {   
+               $object->getActiveSheet()->setCellValueByColumnAndRow(0,$row,$value->stud_name);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(1,$row,$value->roll_no);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(2,$row,$value->gender);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(3,$row,$value->school_name);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(4,$row,$value->branch_area);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(5,$row,$value->standard);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(6,$row,$value->subject);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(7,$row,$value->email_id);
+               $object->getActiveSheet()->setCellValueByColumnAndRow(8,$row,$value->contact_no);
+               $row++;
+           }
+
+           $object_writer = PHPExcel_IOFactory::createWriter($object, 'CSV');
+           header('Content-Type: application/vnd.ms-excel');
+           header("Content-Disposition: attachment;filename='Student.csv'");
+           $object_writer->save('php://output');
+        }
+    }
     public function AddStudent() {
         if(!isset($_SESSION['Admin'])) {
             $this->load->view('Index');
@@ -159,6 +223,24 @@
                 $contact = $_POST['contact'];
                 $new_file_name = $SName."_".time() . ".jpeg";
 
+                $result = $this->Student_Model->FetchAllStudents();
+                                    foreach ($result as $value) {
+                                        if ($value->email_id == $Email)
+                                        {
+                                            $msg = 'Email Id already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Student_Controller/AddStudent');
+                                            exit;
+
+                                        }
+                                        else if($value->roll_no == $Rno && $value->standard_id==$Standard)
+                                        {
+                                            $msg = 'Roll Number already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Student_Controller/AddStudent');
+                                            exit;
+                                        }
+                                    }
                 /************************************************imageuploadin****************************** */
                 if ($this->input->post('AddStudent') && !empty($_FILES['ImageUpload']['name'])) {
                     $_FILES['Topper']['name'] = $_FILES['ImageUpload']['name'];

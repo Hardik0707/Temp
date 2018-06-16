@@ -34,7 +34,8 @@ class Faculty_Controller extends CI_Controller {
                 $_SESSION['facultyname'] = $facultyname;
                 redirect('Faculty_Controller/ViewResults');
             } else {
-                $_SESSION['FacultyRestricted'] = '0';
+                $data = "Invalid Email Id and Password";
+                $this->session->set_userdata('sent',$data);
                 redirect('/welcome');
             }
         } else {
@@ -46,6 +47,8 @@ class Faculty_Controller extends CI_Controller {
         unset($_SESSION['facultyid']);
         unset($_SESSION['facultyname']);
         unset($_SESSION['isFacLoggedIn']);
+        $data = "Session Logged Out.";
+        $this->session->set_userdata('sent',$data);
         redirect('/welcome');
     }
 
@@ -66,6 +69,8 @@ class Faculty_Controller extends CI_Controller {
 
 
     public function SearchResults(){
+
+        if (isset($_SESSION['isFacLoggedIn']) && $_SESSION['isFacLoggedIn'] == 1) {
        $std_id = $this->input->post('standard');
        $subject = $this->input->post('subject');
        $standard = $this->input->post('standard_name');
@@ -87,6 +92,8 @@ class Faculty_Controller extends CI_Controller {
     $result['AllTests'] = '0';      
     $this->load->view('FacultyResult',$result);      
     }
+    }else
+    redirect('/welcome');
 }
 
     

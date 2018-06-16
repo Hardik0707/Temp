@@ -38,10 +38,10 @@
 	}
 
 	.contact_info{
-        float: right; text-align: center;margin-top: 10px;
+        float:right;text-align: center;padding-top:3rem;margin-right: 05px;
     }    
     .contact_info span{
-    	background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 15px;margin-left: 15px;font-family:'Lato', sans-serif;font-style: normal;
+        background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 05px;margin-left:0px;font-family:'Lato', sans-serif;
     }
 
 	#head.secondary{
@@ -68,18 +68,22 @@
 	<div class="container" style="margin-top: 10px;">
 
 		<div class="row col-sm-offset-1">
-			<?php if(isset($AllPublic))
+			<?php 
+			$flag=0;
+			if(isset($AllPublic) && !empty($AllPublic))
 			{
 				foreach ($AllPublic as $public) {
+					$flag++;
 					?> 
 					<a href="#" data-toggle="modal" data-target="#<?php echo $public->id; ?>" style="text-decoration: none;color: black;">
 						<div class="card col-sm-3">
 
-
+							<?php if($public->photo!="NULL"){ ?>
 							<img src="<?php echo base_url("/admin/panel/img/Announcement/Public/$public->photo"); ?>">
-							
+							<?php }else{ ?>
 
-
+							<img src="<?php echo base_url("/admin/panel/img/Announcement/Public/NULL.png"); ?>">
+							<?php } ?>
 							<div class="title">
 								<?php echo $public->title;?>	
 							</div>
@@ -91,17 +95,28 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-							
-									<h3><?php echo $public->title;?></h3>
+									
+									<h4><?php echo $public->title;?> 
+
+										<div style="float:right;">
+
+										<?php echo "Date: ".date("d/m/Y",strtotime(str_replace('-','/', $public->date))); ?>
+										</div></h4>
+									
 								</div>
+
 								<div class="modal-body">
+								<?php if($public->photo!='NULL'){ ?>
 								<center>
+
 								<img src="<?php echo base_url("/admin/panel/img/Announcement/Public/$public->photo"); ?>" class="img-respnsive" height="200px" width="250px">
 								</center>
 
 								<br><br>
+								<?php } ?>
 								<p style="font-family: calibri;font-size: 20px;word-wrap: break-word;"><?php echo $public->description; ?></p>
 								</div>
+
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
@@ -110,7 +125,12 @@
 						</div>
 					</div>
 
-					<?php }} ?>
+					<?php }} 
+					else{
+						echo "<h4>No Announcements</h4>";
+						
+					}
+					?>
 
 
 				</div>
@@ -119,6 +139,14 @@
 				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 				<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
+				<?php 
 
+
+				if($flag<=12)
+					$this->load->view('footer2'); 
+
+				else
+					$this->load->view('footer');
+					?>
 			</body>
 			</html>

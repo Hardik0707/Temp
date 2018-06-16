@@ -12,6 +12,8 @@ class Faculty_Profile_Model extends CI_Model
         return $result->result();
     }
 
+    
+
 
 
     // public function fetchAll($id){

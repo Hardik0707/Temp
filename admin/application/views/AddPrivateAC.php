@@ -24,22 +24,20 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
-    var standard_id = standard;
 
     function getSubjects(standard) {
-        $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchSubjects/", {id: standard.value}, function(data) {
-            console.log(data);
-            window.alert(data);
+        // 
+        $.post("<?php echo base_url('index.php/Announcement_Controller/FetchSubjects/');?>", {id: standard.value}, function(data) {   
+            
             $('#subject').html(data);
         });
+        return standard;
     }
 
      function getStudents(subject) {
-        $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchStudents/", {
-            id:standard_id,sub_id:subject.value}, function(data) {
+        $.post("<?php echo base_url(); ?>index.php/Announcement_Controller/FetchStudents/", {id:subject.value}, function(data) {
             console.log(data);
-            window.alert("Hii");
-            $('#student').html(data);
+            $('#student').html(data);               
         });
     }
 </script>
@@ -65,7 +63,7 @@
                 <div class="row">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                             <!-- <h1 class="heading">Add New Image</h1> -->
 
@@ -105,7 +103,7 @@
 
                                  <div class="col-md-6 form-group">
                                     <label>Announcement Image<br> <span style="color:blue;font-size:12px;font-weight: normal;">(Note: Photo format : jpg | png | jpeg | gif & Maximum Size : 500kb are allowed.)</span></label>
-                                    <input type="file" class="form-input" name="ImageUpload" accept="image/*" required>
+                                    <input type="file" class="form-input" name="ImageUpload" accept="image/*">
 
 
                                     <!-- <?php if(isset($row)){?><img src="<?php echo base_url("panel/img/student/$row->photo"); ?>" width="100px" height="100px"><?php }?> -->
@@ -125,8 +123,8 @@
 
                                 <div class="col-md-6 form-group">
                                     <label>Standard</label>
-                                    <select class="form-input form-control standard" name="Standard" onchange="getSubjects(this);" required>
-                                        <option value="">Select Standard</option>
+                                    <select class="form-input form-control standard" name="standard" onchange="getSubjects(this);" required>
+                                        <option value="all">All</option>
                                         <?php foreach($AllStandards as $standard) 
                                         { ?>
                                            <option value="<?php echo $standard->standard_id ?>" <?php echo(isset($StudentDetails) && $standard->standard_id == $row->standard_id) ? "selected" : "" ; ?>>
@@ -136,15 +134,17 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Subjects </label>
-                                    <select class="form-input form-control" name="subject" id="subject" onselect="getStudents(this);" required">
-                                        <option value="">Select Subject</option>
-                                        </select>
+                                    <label>Subjects</label>
+                                    <select class="form-input form-control standard" name="subject" id="subject" onchange="getStudents(this);" required">
+                                    <option value="all">All</option>
+
+                                    </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
                                             <label>Students [Select multiple Students <kbd>Ctrl</kbd>+<kbd>Select</kbd>]</label>
-                                            <select class="form-input form-control" name="student[]" multiple="multiple" id="student" size="3" required >
+                                            <select class="form-input form-control" name="student[]" multiple="multiple" id="student" size="3" required>
+                                                <option value="all">All</option>
                                             </select>
                                         </div>
 

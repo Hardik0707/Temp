@@ -19,7 +19,8 @@ class Standard_Model extends CI_Model {
 
     //Fetch all standards
     public function FetchAllStandards() {
-        //$this->
+        $result= $this->db->select('*')->get('standard_mst');
+        return $result->result();
     }
 
     public function FetchRecord() {

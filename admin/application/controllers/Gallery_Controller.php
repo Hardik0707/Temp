@@ -13,6 +13,7 @@
 		function __construct() {
 			parent::__construct();
 			$this->load->model('Gallery_Model');
+			$this->load->library('smart_resize');
 		}
 
 
@@ -67,33 +68,32 @@
 				$new_file_name = $description."_".time() . ".jpeg";
 
 				if ($this->input->post('AddImage') && !empty($_FILES['ImageUpload']['name'])) {
-					echo "Idher";
+					
 					$uploadPath = 'panel/img/gallery';
 					$config['upload_path'] = $uploadPath;
 					$config['allowed_types'] = 'gif|jpg|png|jpeg';
 					$config['file_name'] = $new_file_name;
-	                $config['max_size']	= '500'; //500 Kb
-	                // $config['max_width'] = '400';
-	                // $config['max_height'] = '400';
-	                // $config['min_width'] = '400';
-	                // $config['min_height'] = '400';
+	                $config['max_size']	= '500'; 
 	                $this->load->library('upload', $config);
 	                $this->upload->initialize($config);
 
+	                
 	                if ($this->upload->do_upload('ImageUpload')){ 
-	                	echo "kider";
-	                	$fileData =$this->upload->data();
+	            
+	                	$fileData =$this->upload->data(); 
 	                	$data = array('category' => $category, 'description' => $description, 'photo' => $fileData['file_name']);
+
+	                                     
 	                }
 	                else{
 	                	$error = array('error' => $this->upload->display_errors());
-	                	$_SESSION['InsertGalleryData'] = $error;
-	                    $this->load->view('AddImage');
+	                	$_SESSION['InsertGalleryData'] = $error['error'];
+	                    redirect('/Gallery_Controller/AddImage');
 	                }	
 
 	                if(!empty($data))	
 	                {	
-	                	$success = $this->Gallery_Model->InsertImage($data);
+	                	$success = $this->Gallery_Model->InsertImage($data);	                	 
 	                	$_SESSION['InsertGalleryData'] = $success;
 	                	redirect("Gallery_Controller/ViewGallery");
 	                }

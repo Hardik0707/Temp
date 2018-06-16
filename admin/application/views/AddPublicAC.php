@@ -20,7 +20,7 @@
         <?php $this->load->view("top"); ?>
         <!--header end-->
 
-        <header id="head" class="secondary" style="height:50px;">
+        <header id="head" class="secondary">
             
                 <h2>Public Announcement</h2>
             
@@ -35,7 +35,7 @@
                 <div class="row">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                             <!-- <h1 class="heading">Add New Image</h1> -->
 
@@ -75,10 +75,8 @@
 
                                  <div class="col-md-6 form-group">
                                             <label>Announcement Image<br> <span style="color:blue;font-size:12px;font-weight: normal;">(Note: Photo format : jpg | png | jpeg | gif & Maximum Size : 500kb are allowed.)</span></label>
-                                            <input type="file" class="form-input" name="ImageUpload" accept="image/*" required>
+                                            <input type="file" class="form-input" name="ImageUpload" accept="image/*">
                                             
-
-                                            <!-- <?php if(isset($row)){?><img src="<?php echo base_url("panel/img/student/$row->photo"); ?>" width="100px" height="100px"><?php }?> -->
                                 </div>   
 
                                  <div class="col-md-6 form-group">

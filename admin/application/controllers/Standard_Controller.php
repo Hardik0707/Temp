@@ -43,9 +43,20 @@ class Standard_Controller extends CI_Controller {
         else 
         {
             if(isset($_POST['add_standard'])) {
-    //print_r($_POST);
                 $subject = $_POST['StandardName'];
                 $data = array('standard' => $subject);
+                $check = $this->Standard_Model->FetchAllStandards();
+
+                foreach ($check as $value) {
+
+                    if($value->standard == $subject)
+                    {
+
+                        $_SESSION['StandardAdded']="Standard Already present";
+                        redirect('Standard_Controller/ViewStandard');
+                        exit;
+                    }
+                }
                 $success=$this->Standard_Model->InsertStandard($data);
                 $_SESSION['StandardAdded']=$success;
                 redirect('Standard_Controller/ViewStandard');
@@ -72,6 +83,17 @@ class Standard_Controller extends CI_Controller {
                 $stdid=$_POST['stdid'];
                 $StandardName=$_POST['StandardName'];
                 $data=array('standard'=>$StandardName);
+                $check = $this->Standard_Model->FetchAllStandards();
+
+                foreach ($check as $value) {
+
+                    if($value->standard == $StandardName && $stdid!= $value->standard_id)
+                    {
+                        $_SESSION['StandardUpdated']="Standard Already present";
+                        redirect('Standard_Controller/ViewStandard');
+                        exit;
+                    }
+                }
                 $success=$this->Standard_Model->UpdateStandard($stdid,$data);
                 $_SESSION['StandardUpdated']=$success;
                 redirect('Standard_Controller/ViewStandard');

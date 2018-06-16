@@ -24,6 +24,10 @@ class Subject_Model extends CI_Model {
         return $q->result();
     }
 
+    public function FetchAllSubject(){
+        $result = $this->db->select('*')->get('subject_mst');
+        return $result->result();
+    }
     public function FetchSubjects($id) {
         $this->db->select('*')->from('subject_mst sub');
         $this->db->join('standard_mst std', 'sub.standard_id = std.standard_id');

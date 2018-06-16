@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
     <link rel='stylesheet' id='camera-css'  href='<?php echo base_url("assets/css/camera.css"); ?>' type='text/css' media='all'> 
     <link rel='stylesheet' id='camera-css'  href='<?php echo base_url("assets/css/bootstrap.icon-large.min.css"); ?>' type='text/css' media='all'>
-	
+
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="assets/js/html5shiv.js"></script>

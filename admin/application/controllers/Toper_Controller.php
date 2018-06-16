@@ -104,13 +104,8 @@
                 $result['AllStandards'] = $this->Toper_Model->FetchAllStandards();
                 $result['EditTopper'] = $this->Toper_Model->SelectTopperDetails($id);
                 $this->load->view('AddToppers', $result);
-                if(!isset($_SESSION['Admin'])) {
-                    $this->load->view('Index');
-                } 
-                else 
-                {
-                }
-
+            }
+        }
         //Insert Topper Into Database
                 public function InsertNewTopper() {
                     if(!isset($_SESSION['Admin'])) {
@@ -125,6 +120,7 @@
                             $Subject = $_POST['Subject'];
                             $StudentName = $_POST['StudentName'];
                             $Result = $_POST['Result'];
+                            $quote = $_POST['quote'];
                             $new_file_name = 'tpper' . time() . '.jpeg';
                             /*             * ***************************imageuploading****************************************** */
                             if (!empty($_FILES['ImageUpload']['name'])) {
@@ -144,7 +140,7 @@
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('Topper')) {
                         $fileData = $this->upload->data();
-                        $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result, 'photo' => $fileData['file_name']);
+                        $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result, 'photo' => $fileData['file_name'],'quote'=>$quote);
                     } else {
                         $error['AllYears'] = $this->Toper_Model->FetchAllYears();
                         $error['AllStandards'] = $this->Toper_Model->FetchAllStandards();
@@ -157,7 +153,7 @@
                         redirect("Toper_Controller/ViewToppers");
                     }
                 } else {
-                    $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result);
+                    $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result,'quote'=>$quote);
                     $success = $this->Toper_Model->TopperInsert($data);
                     $_SESSION["InsertTopper"] = $success;
                     redirect("Toper_Controller/ViewToppers");
@@ -181,6 +177,7 @@
             $Subject = $_POST['Subject'];
             $StudentName = $_POST['StudentName'];
             $Result = $_POST['Result'];
+            $quote = $_POST['quote'];
 
             /*             * ***********************************imageuploadin***************************************** */
             if (!empty($_FILES['ImageUpload']['name'])) {
@@ -201,7 +198,7 @@
                     $this->upload->initialize($config);
                     if ($this->upload->do_upload('Topper')) {
                         $fileData = $this->upload->data();
-                        $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result, 'photo' => $fileData['file_name']);
+                        $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result, 'photo' => $fileData['file_name'],'quote'=>$quote);
                     } else {
                         $error['AllYears'] = $this->Toper_Model->FetchAllYears();
                         $error['AllStandards'] = $this->Toper_Model->FetchAllStandards();
@@ -217,7 +214,7 @@
                     }
                 }
                 else {
-                    $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result);
+                    $data = array('year_id' => $yearid, 'standard_id' => $Standard, 'subject' => $Subject, 'student_name' => $StudentName, 'result' => $Result,'quote'=>$quote);
                     $success = $this->Toper_Model->updatetoper($toperid, $data);
                     $_SESSION["UpdateTopper"] = $success;
                     $id = trim($yearid);

@@ -18,6 +18,9 @@
         h2{
             margin-top: -07px;
         }
+        table,th{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -35,18 +38,20 @@
     <div class="container col-sm-9">
     <!--main content start-->
     <div id="page-wrapper">
-        <div class="row">
+        <div class="row col-sm-12">
             <!-- Page Header -->
-            <div class="col-lg-12">
+            <div class="col-sm-10" style="margin-top: -20px;">
             <div class="page-header">
-                <a href="<?php echo base_url("index.php/Result_Controller/AddTestResult")?>" class="btn btn-info">Add/Edit Test Result</a>
+                
                  
                  <ol class="breadcrumb">
                     <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li>Results</li>
                     <li class="active">All Results</li>
                 </ol>
               </div>
+            </div>
+            <div class="col-sm-2" style="margin-top: 10px;">
+                <a href="<?php echo base_url("index.php/Result_Controller/AddTestResult")?>" class="btn btn-sm btn-default">Add/Edit Test Result</a>
             </div>
             <!--End Page Header -->
         </div>
@@ -85,7 +90,7 @@
                             }
                         }
                         ?>
-                        <div class="table-responsive col-sm-12  ">
+                        <div class="table-responsive col-sm-12">
 
                             <table id="example" class="table table-striped table-bordered table-hover">
                                 <thead>
@@ -110,7 +115,7 @@
                                         <td><?php echo $student->stud_name; ?></td>
                                         <td><?php echo $student->standard; ?></td>
                                         <td>
-                                            <a href="<?php echo base_url('index.php/Result_Controller/TestResult/'.$student->roll_no); ?>" class="btn btn-sm" data-toggle="tooltip" data-placement="top" title="View Result">
+                                            <a href="<?php echo base_url('index.php/Result_Controller/TestResult/'.$student->roll_no.'/'.$student->standard_id); ?>" class="btn btn-sm" data-toggle="tooltip" data-placement="top" title="View Result">
                                             View Results
                                             </a>
                                         </td>

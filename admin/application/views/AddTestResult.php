@@ -37,12 +37,12 @@
                 <div class="row">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                             
 
                             <ol class="breadcrumb">
-                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
+                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
 
                                 <li><a href="<?php echo base_url("index.php/Result_Controller/ViewResult"); ?>"></i>Results</a></li>
                                 <li class="active">Add Test Result</li>
@@ -62,7 +62,6 @@
 
                             <!-- Welcome -->
                             <div class="panel-body">
-
                                 <?php
                                 if (isset($_SESSION['InsertTestResult'])) {
                                 if ($_SESSION['InsertTestResult'] == '1') { ?>
@@ -74,7 +73,7 @@
                             <?php
                             unset($_SESSION['InsertTestResult']); }
                         }
-                        ?>
+                        ?> 
 
 
             <div class="table-responsive col-sm-12">
@@ -103,7 +102,7 @@
                             <td><?php echo $value->chapter;?></td>
                          
                             <td><?php echo $value->test_type;?></td>
-                            <td><?php echo $value->date;?></td>
+                            <td><?php echo date("d/m/Y",strtotime(str_replace('-','/', $value->date))); ?></td>
 
                             <?php if($value->uploaded ==0){ ?>
                             <td>
@@ -114,7 +113,7 @@
                             $result = array('id'=>$value->id,'total_marks'=>$value->total_marks,'standard_id'=>$value->standard_id,'subject'=>$value->subject); ?>
 
                             <?php echo form_open_multipart('Result_Controller/InsertTest/'.$value->id.'/'.$value->total_marks.'/'.$value->standard_id.'/'.$value->subject);?>               
-                            <input type="file" name="userfile" />                                  
+                            <input type="file" name="userfile" required="on" accept=".csv" />                                  
                             <br>
                             <input type="submit" value="upload" name="upload" />
                             </form>         
@@ -132,7 +131,7 @@
                             $result = array('id'=>$value->id,'total_marks'=>$value->total_marks,'standard_id'=>$value->standard_id,'subject'=>$value->subject); ?>
 
                             <?php echo form_open_multipart('Result_Controller/UpdateTestResult/'.$value->id.'/');?>               
-                            <input type="file" name="userfile" />                                  
+                            <input type="file" name="userfile" required="on" accept=".csv" />                                  
                             <br>
                             <input type="submit" value="upload" name="upload" />
                             </form>         
@@ -140,12 +139,6 @@
                             </td>  
 
                             <?php } ?>
-
-                             <!--    echo "<td>Result Uploaded </td>";
-                                echo "<td>File Uploaded</td>";
-                            } ?> -->
-                                
-
 
                         </tr>
                         <?php }?> <!-- end of foreach-->

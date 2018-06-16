@@ -1,5 +1,5 @@
 
-  <footer class="footer2" style="position:relatve;
+  <footer class="footer2" style="position:relative;
       left: 0;
       bottom: 0;
       width: 100%;
@@ -11,7 +11,7 @@
                 <p class="simplenav">
                   <a href="<?php echo base_url('index.php/welcome/'); ?>">Home</a> | 
                   <a href="<?php echo base_url('index.php/welcome/#AboutUs'); ?>">About</a> |
-                  <a href="<?php echo base_url('index.php/welcome/#Faculty'); ?>">Profile Of Faculty</a> |
+                  <a href="<?php echo base_url('index.php/welcome/#Faculty'); ?>">Faculty</a> |
                   <a href="<?php echo base_url('index.php/Topper_Controller/Toppers'); ?>">Toppers</a> |
                   <a href="<?php echo base_url('index.php/GalleryDisplay_Controller/Gallery'); ?>">Gallery</a> |
                   <a href="<?php echo base_url('index.php/ContactUs_Controller/ContactUs'); ?>">Contact us</a> 

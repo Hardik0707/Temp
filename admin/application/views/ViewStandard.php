@@ -31,20 +31,29 @@
         </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
+            
+
+            <div class="container col-sm-9">
+                
+            
             <div id="page-wrapper">
-                <div class="row" style="margin-left: 0px !important; margin-right: 18px;">
+                <div class="row col-sm-12" >
                     <!-- Page Header -->
-                    <div class="col-lg-9">
+                    <div class="col-sm-10" style="margin-top: -20px;">
                         <div class="page-header">
-                            <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-sm">Add New Standard</a>
+                            
                             <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li>Standards</li>
                             <li class="active">All Standards</li>
-                        </ol>
-                          </div>
+                            </ol>
+                        </div>
                     </div>
                     <!--End Page Header -->
+
+                    <div class="col-sm-2" style="margin-top: 10px;">
+                        <a href="#" data-toggle="modal" data-target="#AddStandard" class="btn btn-sm btn-default">Add New Standard</a>
+                    </div>
 
                 <div class="row">
                     <div class="col-lg-8" style="padding-right: 0px;">
@@ -58,7 +67,7 @@
                                 if ($_SESSION['StandardAdded'] == '1') { ?>
                                     <div class="alert alert-success"><?php echo "Record Added Succesfully" ?></div>
                                 <?php unset($_SESSION['StandardAdded']); }  else { ?>
-                                    <div class="alert alert-danger"><?php echo "Something went wrong. Please try again." ?></div>
+                                    <div class="alert alert-danger"><?php echo $_SESSION['StandardAdded']; ?></div>
                                 <?php unset($_SESSION['StandardAdded']); } } ?>
 
 
@@ -74,7 +83,7 @@
                                 if ($_SESSION['StandardUpdated'] == '1') { ?>
                                     <div class="alert alert-success"><?php echo "Record updata Succesfully" ?></div>
                                 <?php unset($_SESSION['StandardUpdated']); } else { ?>
-                                    <div class="alert alert-danger"><?php echo "Something went wrong. Please try again." ?></div>
+                                    <div class="alert alert-danger"><?php echo $_SESSION['StandardUpdated'] ?></div>
                                 <?php unset($_SESSION['StandardUpdated']); } } ?>
 
                                 <?php if(isset($res)) {?>
@@ -146,6 +155,7 @@
             </div>
           </div>
         </div>
+    </div>
         <!-- Add Subject Modal Ends -->
         <script>
             $(function () {

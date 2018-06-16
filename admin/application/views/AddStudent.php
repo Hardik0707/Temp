@@ -32,7 +32,25 @@
         }
         </script>
     </head>
+
     <body>
+
+        <div class="modal fade" id="message" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+        
+            <div class="modal-body" style="color:Red;">
+                <h4><?php echo $_SESSION['msg'];?></h4>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <?php print_r($_SESSION['msg']);?> -->
         <!--  wrapper -->
         <div id="wrapper">
             <!-- navbar top -->
@@ -49,7 +67,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <!-- page header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                         
                          <ol class="breadcrumb">
@@ -179,6 +197,18 @@
                     <!-- end wrapper -->
 </div></div>
 </div>
+
+<?php 
+    if( isset($_SESSION['msg'])){
+    ?>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+        $('#message').modal('toggle');
+        setTimeout(function(){$('#message').modal('hide');
+        },5000);
+    });
+    </script>
+<?php $this->session->unset_userdata('msg');}?>
                     <!-- Core Scripts - Include with every page -->
 <?php $this->load->view("footer"); ?>
 

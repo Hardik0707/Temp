@@ -17,6 +17,13 @@ class Login_Model extends CI_Model
     	$this->db->where('admin_id',$data['admin_id']);
     	$this->db->update('admin');
     }
+    public function UpdatePassword($id,$password)
+    {
+        $this->db->set("password",$password);
+        $this->db->where("admin_id",$id);
+        $result=$this->db->update('admin');
+        return $result;
+    } 
 }
 ?>  
 

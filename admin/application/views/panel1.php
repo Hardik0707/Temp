@@ -1,4 +1,4 @@
-		<div class="col-sm-2" style="padding-top: 0px;"> 
+		<div class="col-lg-2" style="padding-top: 0px;"> 
 			<div class="navbar-header">
 					
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -39,7 +39,7 @@
 					</li>
 					
                     <li>
-                        <a href="<?php echo base_url("index.php/Test_Controller/ViewTest"); ?>"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Test</a>
+                        <a href="<?php echo base_url("index.php/Test_Controller/ViewTest"); ?>"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Tests</a>
                     </li>
 					<li>
 						<a href="<?php echo base_url("index.php/Toper_Controller/ViewToppers"); ?>"><i class="fa fa-star-o"></i> Toppers</a>

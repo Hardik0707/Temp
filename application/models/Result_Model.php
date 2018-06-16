@@ -43,7 +43,24 @@ class Result_Model extends CI_Model {
         return $result->result();
     }
 
-    
+    public function FetchMax($standard_id)
+    {
+
+
+        $this->db->select("COUNT(subject),subject");
+        $this->db->from("test");
+        $this->db->where("standard_id",$standard_id);
+        $this->db->group_by('subject');
+        $this->db->order_by('COUNT(subject) DESC LIMIT 1');
+        $result = $this->db->get();
+
+        return $result->result_array();
+
+        
+        // $result = $this->db->query("SELECT COUNT(subject),subject from test where standard_id=".$standard_id." GROUP BY subject ORDER BY COUNT(subject) DESC LIMIT 1");
+        // print_r($result);
+        // exit;
+    } 
 
 }
 ?>

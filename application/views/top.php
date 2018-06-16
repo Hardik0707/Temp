@@ -1,13 +1,11 @@
 <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse" style="padding-top: 0px; min-height: 70px;">
+    <div class="navbar navbar-inverse" style="padding-top: 0px; min-height: 75px;">
         <div class="container">
-            <center>
             <a href="" class="navbar-brand">
-            <img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo">
+            <img src='<?php echo base_url("assets/images/logo.jpg"); ?>' alt="Logo" style="margin-top:-05px;width: 150px; height: 75px;">
             </a>
-            </center>
 
-            <div style="float:right;">
+            <div style="float:right;margin-top: 0px;">
             
             <?php if(isset($_SESSION['isFacLoggedIn']) && $_SESSION['isFacLoggedIn'] == 1) { ?>
                 <p>Welcome <?php echo $_SESSION['facultyname']; ?></p>
@@ -15,7 +13,7 @@
             <?php } ?>
 
             <?php if(isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) { ?>
-                <p>Welcome <?php echo $_SESSION['studentname']; ?></p>
+                <p>Welcome <?php echo $_SESSION['stud_name']; ?></p>
                 <a href="<?php echo base_url("index.php/Student_Controller/LogOut"); ?>" class="btn btn-sm"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
             <?php } ?>
 

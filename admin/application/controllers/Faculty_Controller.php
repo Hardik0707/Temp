@@ -43,6 +43,19 @@
                         $Password = $_POST['Password'];
                         $new_file_name = $FName."_".time().".jpeg";
 
+
+                        $result = $this->Faculty_Model->FetchAllFaculties();
+                                    foreach ($result as $value) {
+                                        if ($value->email == $Email && $id!=$value->faculty_id)
+                                        {
+                                            $msg = 'Email Id already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Faculty_Controller/EditFaculty/'.$id);
+                                            exit;
+
+                                        }
+                                    }
+
                         /*             * ***************************************image upoding ****************************************** */
                         if ($this->input->post('AddFaculty') && !empty($_FILES['ImageUpload']['name'])) {
                             $_FILES['Topper']['name'] = $_FILES['ImageUpload']['name'];
@@ -223,9 +236,21 @@
             $gender = $_POST['gender'];
             $Password = $_POST['Password'];
             $new_file_name = $FName."_".time().".jpeg";
+
+            $result = $this->Faculty_Model->FetchAllFaculties();
+                                    foreach ($result as $value) {
+                                        if ($value->email == $Email)
+                                        {
+                                            $msg = 'Email Id already Exist';
+                                            $this->session->set_userdata('msg',$msg);
+                                            redirect('/Faculty_Controller/AddFaculty/');
+                                            exit;
+
+                                        }
+                                    }
             /*             * ***************************************image upoding ****************************************** */
             if ($this->input->post('AddFaculty') && !empty($_FILES['ImageUpload']['name'])) {
-                echo "2";
+                // echo "2";
                 $_FILES['Topper']['name'] = $_FILES['ImageUpload']['name'];
                 $_FILES['Topper']['type'] = $_FILES['ImageUpload']['type'];
                 $_FILES['Topper']['tmp_name'] = $_FILES['ImageUpload']['tmp_name'];

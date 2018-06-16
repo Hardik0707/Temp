@@ -3,6 +3,22 @@
     <head>
         <title>Add Subjects</title>
         <?php $this->load->view("head"); ?>
+
+
+        <style type="text/css">
+            
+
+            #head.secondary{
+            min-height: 40px;
+            height: 40px !important;
+            margin-top:10px;
+            padding-bottom: 25px;
+        }
+        h2{
+            margin-top: -07px;
+        }
+        
+        </style>
     </head>
     <body>
         <!--  wrapper -->
@@ -10,6 +26,13 @@
             <!-- navbar top -->
             <?php $this->load->view("top"); ?>
             <!-- end navbar top -->
+
+
+            <header id="head" class="secondary" >
+            
+                <h2>Edit Subject</h2>
+            
+            </header>
             <!-- navbar side -->
             <?php $this->load->view("panel1"); ?>
             <!-- end navbar side -->
@@ -17,9 +40,9 @@
             <div id="page-wrapper">
                 <div class="row">
                     <!-- page header -->
-                    <div class="col-lg-9">
+                    <div class="col-lg-9" style="margin-top: -20px;">
                        <div class="page-header">
-                        <h1 class="heading">Edit Subject</h1>
+                        
                         <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                             <li><a href="<?php echo base_url("index.php/Subject_Controller/ViewSubject"); ?>">Subjects</a></li>
@@ -34,9 +57,6 @@
                     <div class="col-lg-9">
                         <!-- Form Elements -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Enter Subject Details
-                            </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">

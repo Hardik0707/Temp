@@ -34,7 +34,7 @@
                 <div class="row">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" style="margin-top: -20px;">
                         <div class="page-header">
                             
 
@@ -49,13 +49,14 @@
                     <!--End Page Header -->
 
                 </div>
-                <!-- <?php
+                
+                <?php
                                 if (isset($_SESSION['InsertGalleryData'])) {
                                     ?>
                                     <div class="alert alert-danger"><?php echo $_SESSION['InsertGalleryData'] ?></div>
                                     <?php unset($_SESSION['InsertGalleryData']);
                                 } 
-                                ?> -->
+                                ?>
                 <!-- Add Image Form -->
                 <div class="row">
                     <div class="col-lg-10">

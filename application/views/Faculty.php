@@ -8,17 +8,38 @@ $graph_colors = array("#DC143C","#00008B","#006400","#20B2AA","#FFA500","#8B4513
 
   <title>Faculty Dashboard</title>
 
+  <style type="text/css">
+         #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
+        padding-bottom: 25px;
+    }
+    h2{
+        margin-top: -07px;
+    }
+     .contact_info{
+        float:right;text-align: center;padding-top:3rem;margin-right: 05px;
+    }    
+    .contact_info span{
+        background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 05px;margin-left:0px;font-family:'Lato', sans-serif;
+    }
+         #head.secondary{
+        min-height: 40px;
+        height: 40px !important;
+        margin-top:10px;
+        padding-bottom: 25px;
+    }
+    </style>
 </head>
 <body>
   <div class="wrapper">
-    <?php include("top.php"); ?>
+    <?php $this->load->view('navbar') ?>
 
     <!-- page header -->
 
-    <header id="head" class="secondary" style="height:40px;">
-      <div class="container">
-        <h1>Search Result Form</h1>
-      </div>
+    <header id="head" class="secondary">
+        <h2>Search Result Form</h2>
     </header>
     <!--end page header -->
     <div class="container">

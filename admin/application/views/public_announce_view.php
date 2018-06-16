@@ -12,9 +12,7 @@
     h2{
         margin-top: -07px;
     }
-td,th{
 
-}
 </style>
 </head>
 <body>
@@ -23,7 +21,7 @@ td,th{
         <?php $this->load->view("top"); ?>
         <!--header end-->
 
-        <header id="head" class="secondary" style="">
+        <header id="head" class="secondary">
             
                 <h2>Public Announcement</h2>
             
@@ -38,21 +36,23 @@ td,th{
         <!--main content start-->
          <div class="container col-sm-9">
             <div id="page-wrapper">
-                <div class="row">
-
+                <div class="row col-sm-12">
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-sm-10" style="margin-top: -20px;">
                         <div class="page-header">
-                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPublic');?>"
-                            class="btn btn-sm ">Add New</a>
                             <ol class="breadcrumb">
-                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
+                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                                 <li class="active">Public Announcement</li>
+
                             </ol>
                         </div>
                     </div>
                     <!--End Page Header -->
-
+                
+                <div class="col-sm-2" style="margin-top: 10px;">
+                            <a href="<?php echo base_url('index.php/Announcement_Controller/AddPublic');?>"
+                            class="btn btn-default btn-sm">Add</a>
+                            </div>
                 </div>
 
                 <!-- Table Part -->
@@ -95,7 +95,7 @@ td,th{
                                 ?>
 
 
-                                <div class="table-responsive col-sm-12">
+                                <div class="table-responsive col-sm-12   ">
                                 <table id="example" class="table table-striped table-bordered table-hover ">
                                     <thead>
                                         <tr>
@@ -113,13 +113,16 @@ td,th{
                                         foreach ($AllPublic as $value) {?>
                                         <tr>
                                             <td><?php echo $no; $no++;?></td>
-                                            <!-- <td><?php echo $value->photo;?></td> -->
-
+                                        
+                                            <?php if($value->photo!='NULL'){ ?>
+                                            
                                             <td><img src='<?php echo base_url("panel/img/Announcement/Public/$value->photo");?>'" class="img-responsive" height="150px" width="150px" ></td>
 
+                                            <?php }else echo "<td><h4 align=center>No Image</h4></td>"; ?>
+
                                             <td><?php echo $value->title;?></td>
-                                            <td style="word-wrap: break-word;"><?php echo $value->description;?></td>
-                                            <td><?php echo $value->date; ?></td>
+                                            <td style="word-wrap: break-word;min-width: 140px;max-width: 140px;"><?php echo $value->description;?></td>
+                                            <td><?php echo date("d/m/Y",strtotime(str_replace('-','/', $value->date))); ?></td>
                                         <td>
                                                 <a onclick="return confirm('Are You Sure Remove This Record ');" href='<?php echo base_url("index.php/Announcement_Controller/DeletePublic/$value->photo");?>' data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="fa fa-trash-o delete"></i>

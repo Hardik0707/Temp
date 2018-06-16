@@ -6,12 +6,11 @@
 	<style type="text/css">
 
 	.contact_info{
-        float: right; text-align: center;margin-top: 10px;
+        float:right;text-align: center;padding-top:3rem;margin-right: 05px;
     }    
     .contact_info span{
-    	background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 15px;margin-left: 15px;font-family:'Lato', sans-serif;font-style: normal;
+        background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 05px;margin-left:0px;font-family:'Lato', sans-serif;
     }
-
 	#head.secondary{
 		min-height: 45px;
 		height: 45px !important;
@@ -19,6 +18,11 @@
 	}
 	h2{
 		margin-top: -05px;
+	}
+
+	img{
+		height:275px	;
+		width:250px;
 	}
 </style>
 </head>

@@ -11,6 +11,7 @@ class Login_Controller extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->library('email');
         $this->load->model('Login_Model');
         $this->load->library('session');
     }
@@ -59,7 +60,7 @@ class Login_Controller extends CI_Controller {
                     $this->load->view('Index',$msg);
                 }
             } else {
-                redirect('welcome');
+                redirect('Login_Controller');
             }
         }
     }
@@ -87,7 +88,7 @@ class Login_Controller extends CI_Controller {
                 
                 $this->session->unset_userdata('Admin');
                 $this->session->unset_userdata('isAdminLoggedIn');
-                redirect('welcome');
+                redirect('Login_Controller/Home');
             }    
         }
     }
@@ -99,5 +100,46 @@ class Login_Controller extends CI_Controller {
         $this->session->unset_userdata('isAdminLoggedIn');
         redirect('Login_Controller');
     }
+        
+public function ForgotPassword() {
+            $email = $this->input->post('email');
+            $flag = 0;
+            $data = array(0,0,0);
+                $result = $this->Login_Model->AdminLogin();
+                    foreach ($result as $value) {
+                        if ($value->email == $email) {
+                                $name = $value->user_name;
+                                $id= $value->admin_id;
+                                $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                                $password = substr( str_shuffle( $chars ), 0, 8 );
+                                $flag =1; 
+                            break;
+                }   
+            }
+                if($flag==1)
+                $success = $this->Login_Model->UpdatePassword($id,$password);
 
+            if(isset($success)){
+                $result = $this->email
+            ->from('Venomenous.viper@gmail.com','JD Tutorials')   // Optional, an account where a human being reads.
+            ->to($email,'JD Tutorials')
+            ->subject('Forgot Password of Admin')
+            ->message('Dear <b>'.$name.'<b>,<br>Your New Password is '.$password)
+            ->send();
+            $data = "Password has been sent to your registerd Email-ID";
+            $this->session->set_userdata('sentAdmin',$data);
+            $success=$this->email->print_debugger();
+            
+            }   
+            else if($flag == 0)
+            {   
+                $data = "We are unable to find Username";
+                $this->session->set_userdata('sentAdmin',$data);
+            }
+            else{
+                $data = "Unable to send password. Please try again after sometime";
+                $this->session->set_userdata('sentAdmin',$data);
+            }
+            redirect('/Login_Controller');
+        }
 }

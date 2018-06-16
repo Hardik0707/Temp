@@ -29,17 +29,20 @@
         <!--main content start-->
         <div class="container col-sm-9">
         <div id="page-wrapper">
-            <div class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
+            <div class="row col-sm-12" >
                 <!-- Page Header -->
-                <div class="col-lg-12">
+                <div class="col-sm-10" style="margin-top: -20px;">
                     <div class="page-header">
-                     <a href="<?php echo base_url("index.php/Branch_Controller/AddBranch"); ?>" class="btn btn-sm">Add New Branch</a>
+                     
                          <ol class="breadcrumb">
                             <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-                            <li>Branch</li>
                             <li class="active">All Branches</li>
                         </ol>
                       </div>
+                </div>
+
+                <div class="col-sm-2" style="margin-top: 10px;">
+                    <a href="<?php echo base_url("index.php/Branch_Controller/AddBranch"); ?>" class="btn btn-sm btn-default">Add</a>
                 </div>
                 <!--End Page Header -->
             </div>

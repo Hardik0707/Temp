@@ -36,19 +36,23 @@
         <!--main content start-->
          <div class="container col-sm-9">
             <div id="page-wrapper">
-                <div class="row">
+                <div class="row col-sm-12">
 
                     <!-- Page Header -->
-                    <div class="col-lg-12">
+                    <div class="col-sm-10" style="margin-top: -20px;">
                         <div class="page-header">
-                            <a href="<?php echo base_url("index.php/Gallery_Controller/AddImage")?>" class="btn btn-info">Add New Image</a>
+                            
                             <ol class="breadcrumb">
-                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i>Home</a></li>
+                                <li><a href="<?php echo base_url("index.php/Login_Controller/Home"); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
                                 <li class="active">Gallery</li>
                             </ol>
                         </div>
                     </div>
                     <!--End Page Header -->
+
+                    <div class="col-sm-2" style="margin-top: 10px;">
+                        <a href="<?php echo base_url("index.php/Gallery_Controller/AddImage")?>" class="btn btn-sm btn-default">Add New Image</a>
+                    </div>
 
                 </div>
 
@@ -58,10 +62,7 @@
                     <div class="col-lg-12">
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
-                           <!--  <div class="panel-heading">
-                                All Gallery Images
-                            </div> -->
-                            
+                          
                             <!-- Welcome -->
                             <div class="panel-body">
 

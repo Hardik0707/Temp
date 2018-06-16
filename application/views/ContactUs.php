@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name = "description" content="">
+	<meta name="author" content="JD Tutorial">
 	<title>Contact Us</title>
 	<?php $this->load->view('head'); ?>
 	
 	<style type="text/css">
-		.contact_info{
-        float: right; text-align: center;margin-top: 10px;
+	.contact_info{
+        float:right;text-align: center;padding-top:3rem;margin-right: 05px;
     }    
     .contact_info span{
-        background: #3d84e6;color:#fff;font-size: 16px; height:;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: -05px;margin-left: 15px;font-family:'Lato', sans-serif;
+        background: #3d84e6;color:#fff;font-size: 16px; height:35px;border-radius: 6px 6px 6px 6px;padding:5px;margin-top: 05px;margin-left:0px;font-family:'Lato', sans-serif;
     }
     #head.secondary{
         height: 45px !important;
@@ -123,11 +126,11 @@
 					</header>
 				<br>		
 				
-				<form name="sentMessage" id="contactForm"  novalidate> 
+				<form name="sentMessage" method="POST" action="<?php echo base_url('index.php/ContactUS_Controller/feedback'); ?>"  novalidate> 
 					<div class="control-group col-xs-5">
 						<div class="controls">
 							<input type="text" class="form-control" 
-							placeholder="Full Name" id="name" required
+							placeholder="Full Name" name="name"  required
 							data-validation-required-message="Please enter your name" />
 							<p class="help-block"></p>
 						</div>
@@ -136,18 +139,30 @@
 					<div class="control-group col-xs-7">
 						<div class="controls">
 							<input type="email" class="form-control" placeholder="Email" 
-							id="email" required
+							name="email" required
 							data-validation-required-message="Please enter your email" />
 						</div>
 					</div> 	
 					<div class="control-group col-sm-12">
 						<div class="controls">
 							<textarea rows="4" cols="500" class="form-control" 
-							placeholder="Message" id="message" required
+							placeholder="Message" name="message" required
 							data-validation-required-message="Please enter your message" minlength="5" 
 							data-validation-minlength-message="Min 5 characters" 
 							maxlength="999" style="resize:none"></textarea>
 						</div>
+						<span style="color:green;">
+						<?php if(isset($_SESSION['feedback'])){
+						echo "Feedback sent successfully!";
+						$this->session->unset_userdata('feedback');
+
+						}
+						if(isset($_SESSION['feedbackfail'])){
+						echo "Feedback not sent !";
+						$this->session->unset_userdata('feedbackfail');
+						}
+						?>
+						</span>
 						<input type="submit" class="btn pull-right" value="Send" name="send" style="margin: 10px 10px 20px 10px;">
 					</div> 
 
