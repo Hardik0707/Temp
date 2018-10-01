@@ -187,8 +187,8 @@
 				acdehs@#$__asjdhj@gmail.com
 
 				<h4>Phone</h4>
-				Jimit Sir: 7303781863 <br>
-				Deval Sir: 9920564563
+				Professor 1: 1234567890 <br>
+				Professor 2: 1234567890
 				</div>			
 			</div> 
 
