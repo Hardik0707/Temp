@@ -21,7 +21,7 @@
     }
     .carousel indicator{
 
-        border: 1px solid black;    
+        border: 1px solid #000000;    
     }
 
     .camera_wrap .camera_pag .camera_pag_ul li
@@ -38,7 +38,7 @@
     @media (max-width: 420px){
     #camera_wrap_4, #head
      {
-    height: 300px !important;
+    height: 320px !important;
     }     
     }
 
@@ -54,7 +54,7 @@
     }
     blockquote {
         margin: 0em 0em;
-        color: #7f7f7f;
+        color: #8f7f8f;
         padding-left: 0.5em;
         border: 0px;     }
 

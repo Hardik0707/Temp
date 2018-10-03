@@ -19,13 +19,13 @@
               </div>
             </div>
 
-            <div class="col-md-6 panel">
+<!--             <div class="col-md-6 panel">
               <div class="panel-body">
                 <p class="text-right">
                   Copyright &copy; 2018  Cabbagesoft Technologies.
                 </p>
               </div>
-            </div>
+            </div> -->
 
           </div>
           <!-- /row of panels -->
